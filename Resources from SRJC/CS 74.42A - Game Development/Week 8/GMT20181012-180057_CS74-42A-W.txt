@@ -1,0 +1,7 @@
+01:02:35	Will:	i changed it already
+01:03:21	Will:	one thing: the collision works for the left and top walls, but not the right and bottom walls
+01:08:34	Michael Rosenhahn:	So if you do not specify an axix in the drag, will the value be applied to both axis?
+01:08:50	Will:	i have that set in the code but maybe I did it wrong?
+01:09:52	Will:	that's the ID it shows in Tiled
+01:10:28	Will:	:D
+01:12:35	Michael Rosenhahn:	It is the 0 index of an array

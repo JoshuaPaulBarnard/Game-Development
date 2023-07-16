@@ -1,0 +1,1958 @@
+WEBVTT
+
+1
+00:00:05.580 --> 00:00:11.099
+Welcome everybody to week five of CS 74 dot 42 a game development.
+
+2
+00:00:12.389 --> 00:00:15.420
+We're gonna start working with our game engine this week.
+
+3
+00:00:16.920 --> 00:00:18.870
+And I'm excited to introduce it to you.
+
+4
+00:00:20.550 --> 00:00:28.440
+Before we get into the practice of building our first two dimensional video game using a game engine.
+
+5
+00:00:29.730 --> 00:00:33.000
+Go through and talk about where we're at in the course outline
+
+6
+00:00:34.020 --> 00:00:46.650
+What's coming up in our textbooks with two different textbooks with reading this week. Talk a little bit about the software. We're going to use gentle get into some of the concepts of how we work at a game engine like Fazer JS.
+
+7
+00:00:48.990 --> 00:00:54.735
+Here we are kind of smack in the middle of the first half of the semester. And at this point, I'm hoping that everybody has
+
+8
+00:00:55.680 --> 00:01:06.060
+Had a chance to play a couple games code combat encoding game to get introduced to the challenge of writing code a little bit in a game environment to learn it.
+
+9
+00:01:06.810 --> 00:01:16.860
+And also now to to think more concretely about the language of Javascript, which is going to be the coding language that will use for the whole semester.
+
+10
+00:01:18.270 --> 00:01:29.250
+And the coding language that you saw in code combat and encoding game. So I hope this is something that you are ready to engage with because we are going to make a game today.
+
+11
+00:01:31.710 --> 00:01:47.160
+As we go through the rest of this first half, we will explore different aspects of the game engine. We're working with capabilities that it has some of the concepts that underlie how it works so that we can kind of make the best use of and take advantage of all its features.
+
+12
+00:01:48.570 --> 00:01:54.360
+And then when we get a little bit over the halfway point we'll have our mid term on the 11th week
+
+13
+00:01:55.020 --> 00:02:06.600
+And we'll also have a chance to kind of write a proposal for a simple to the video game that we want to create for the rest of the semester and then will embark on that all the way up through into the final exam week
+
+14
+00:02:07.860 --> 00:02:12.870
+For folks that are interested when we get to the second half will also be looking at
+
+15
+00:02:14.100 --> 00:02:16.380
+The 3D game engine known as Unity 3D
+
+16
+00:02:17.460 --> 00:02:18.690
+And how can people
+
+17
+00:02:19.860 --> 00:02:28.440
+With it comfort level in what we've done already, the opportunity for extra credit to explore unity as well. And the second half of the term.
+
+18
+00:02:30.360 --> 00:02:38.010
+So a little bit about the textbooks. This week our online textbook eloquent javascript will take you further into
+
+19
+00:02:38.490 --> 00:02:49.200
+An explanation of how the javascript language is kind of organized and how it works in chapter two and three of you. What, please check those out online eloquent javascript net
+
+20
+00:02:49.890 --> 00:02:58.740
+Also, at the end of each of the chapters and eloquent Javascript, there's a little puzzles and challenges. I hope you'll try to figure those out there, they're not
+
+21
+00:02:59.220 --> 00:03:06.570
+Required to be turned in with your homework, but checking them out. I think will go a long way to make you more comfortable.
+
+22
+00:03:07.260 --> 00:03:20.760
+Like Malcolm Gladwell says it 10,000 hours of doing something is what it takes to become an expert in it. So every little minute an hour you spend fiddling with the javascript language in different contexts think will pay off for you in the long run.
+
+23
+00:03:23.160 --> 00:03:40.830
+And the way it's really going to pay off this week is in Chapter three of Travis falls book and introduction html5 game development with Fazer JS. This is where everything hits the road. The rubber will hit the road we will have a working two d game with a user controlled
+
+24
+00:03:42.420 --> 00:03:46.410
+player in the game environment and also a collectible something to
+
+25
+00:03:47.550 --> 00:03:56.280
+Try and gather up and that's going to happen before we're done with our live presentation this Friday morning.
+
+26
+00:03:58.350 --> 00:04:05.610
+So thinking about what we're using this week I'm living inside of Google Chrome, the browser. Everything I do from a development standpoint.
+
+27
+00:04:06.570 --> 00:04:22.710
+And from a play testing standpoint will happen in my browser. I'm going to do all my coding in the Cloud nine editing environment where I can say files up to the server and have them delivered back to me as a web page that has working javascript in it.
+
+28
+00:04:23.940 --> 00:04:34.950
+And I'm going to include this week, a huge javascript file is already written that is the Fazer community edition version to game engine. So browser based 2D game engine.
+
+29
+00:04:35.370 --> 00:04:51.330
+That itself was written in the javascript language that gives us the ability from the browser to write additional javascript commands to leverage and take advantage of. It's literally 10s of thousands of lines of code written to let you make games very easily.
+
+30
+00:04:52.950 --> 00:05:10.860
+I mentioned again pixel or calm, which is a great bitmap based editor for editing graphics that has all browser based and available free and we'll also take a little peek. This Week at Open game on org where you can download free game assets like graphics sounds and other things.
+
+31
+00:05:14.160 --> 00:05:21.750
+But the star of this week's show is the Fazer game engine. This is really an amazing software product. It's completely free.
+
+32
+00:05:22.290 --> 00:05:35.400
+Written is an open source project and it's community edition form. There are basically three websites that house different aspects of what will use with Fazer there's the software repository.
+
+33
+00:05:36.660 --> 00:05:47.160
+There is online documentation site. Then there's also examples of games written in Fazer version too long with all the sample code that goes with them. So these three online resources.
+
+34
+00:05:47.670 --> 00:06:03.120
+Are linked here on my slide, but they're also linked in the screen cast page of week five on the canvas learning management system where our class lives so bookmark all three of those. You're going to need the three links on the slide for the rest of the semester.
+
+35
+00:06:04.230 --> 00:06:11.730
+To make good use of the game engine. We're going to work in particularly numbers two and three. Once you download the software which I'll do in a little bit.
+
+36
+00:06:12.150 --> 00:06:18.120
+You'll have it and you can keep an eye on cloud nine duplicated whenever you need to make new game because it has to be included. Each game.
+
+37
+00:06:18.720 --> 00:06:27.060
+But looking up things you can do in Fazer both through documentation and examples we something that we do as a regular practice for the rest of the semester.
+
+38
+00:06:31.710 --> 00:06:32.250
+So,
+
+39
+00:06:33.450 --> 00:06:37.140
+Let's talk about some of the ideas behind how phase or works.
+
+40
+00:06:39.300 --> 00:06:40.170
+A video game.
+
+41
+00:06:42.360 --> 00:06:44.820
+Needs to be set up.
+
+42
+00:06:45.990 --> 00:06:48.180
+We need to be able to load all the files we need
+
+43
+00:06:49.830 --> 00:07:01.320
+And that's what the first stage of any Fazer game does it goes through a sequence that includes all for these steps in the blue text on the screen and starts off with the preload state.
+
+44
+00:07:02.040 --> 00:07:11.670
+It's basically a block of code, we're going to write a little function to name that block of code. So it'll be a named block code and our javascript that we give to the Fazer
+
+45
+00:07:12.450 --> 00:07:23.400
+Javascript library and it runs our code to load things like images and sounds before the game even starts all of those assets if you will need to be loaded up
+
+46
+00:07:24.090 --> 00:07:32.370
+And available for the javascript in the Fazer game engine for the gameplay starts. Otherwise, we have all sorts of lurches when things are getting loaded
+
+47
+00:07:32.820 --> 00:07:42.330
+The gameplay would not be very real time, it would be rather staccato not very fun. So the preload state lets us load stuff up to get ready.
+
+48
+00:07:44.070 --> 00:07:51.300
+The second stage is called the Create state. And this is where we're going to compose the game stage, we could load up background images we could create
+
+49
+00:07:52.560 --> 00:08:04.710
+Interactive will game objects things we call sprites things that can be controlled from our code to move around to collide with other things to shoot to collect anything you might do. And again,
+
+50
+00:08:05.985 --> 00:08:09.210
+Get set up in the Create stage using the assets that we
+
+51
+00:08:12.510 --> 00:08:20.760
+Did in the first preload state he load everything up create basically draw the game world and get it ready to play. And then
+
+52
+00:08:21.150 --> 00:08:29.610
+Number three is really the big one. Number three is the update update gets run over and over again, up to 60 times a second, depending upon how fast your computer is
+
+53
+00:08:30.120 --> 00:08:39.840
+Basically runs in continuous loop and this is what we call the game loop. The game loop. Something I hope you got introduced to when you played code in game. Our second
+
+54
+00:08:40.830 --> 00:08:45.270
+gaming platform that introduced javascript we're basically there was just an endless wild. We've been there.
+
+55
+00:08:46.170 --> 00:08:58.170
+Basically similar thing happens in Fazer except this time we get to write again a named block of code that we give to Fazer to run in the loop for us. And so it manages repeating things we don't have to write the wildly ourselves.
+
+56
+00:08:58.800 --> 00:09:09.240
+To get the game to run endlessly Fazer does that for us, and it sticks kind of inside of its while loop, if you will, it's endless loop whatever block a code we put in our update state.
+
+57
+00:09:11.220 --> 00:09:16.380
+And then finally, there's a fourth state which is available. Also in the game loop.
+
+58
+00:09:16.860 --> 00:09:25.680
+Known as the render state and we can write code for the render state and today's example. I'm not going to. It's, it's optional. It's not necessary. It's most often used.
+
+59
+00:09:26.610 --> 00:09:36.480
+As the word render means to draw debugging information like text output into our game world so we can see what's going on. If we're trying to debug and troubleshoot things
+
+60
+00:09:37.140 --> 00:09:44.310
+So really, the three fundamental states are preload create an update and will write a block of code for each one.
+
+61
+00:09:44.850 --> 00:10:00.420
+To tell Fazer to do what we want to do what we need to do in each of those sequential different states they literally run from number one down to number three and then number three repeats forever, along with any optional code we assigned to the render status well
+
+62
+00:10:03.000 --> 00:10:16.950
+Here's a little diagram for kind of how that works and start off with preload after all the assets are loaded. We go to the Create state which is again as a little block of code will give it to draw the game world then we fall into the game loop, which is basically made up of update
+
+63
+00:10:18.060 --> 00:10:24.030
+And render and then repeat. And that's pretty much what happens inside phasers world.
+
+64
+00:10:26.610 --> 00:10:33.120
+Now, besides the basic mechanics that the flow of the code and the game that we're going to create
+
+65
+00:10:33.750 --> 00:10:42.240
+Some more underlying concepts that I just want to share. There's not too many. That's a good news. And one is that we're in a two dimensional world. It's basically a flat surface plane right
+
+66
+00:10:42.810 --> 00:10:52.530
+And just like you learned in geometry we work inside of this two dimensional world, thinking about the x axis for horizontal
+
+67
+00:10:53.010 --> 00:11:01.500
+Orientation and the y axis for vertical orientation and so everything in our game is going to have dimensions like width and height.
+
+68
+00:11:02.280 --> 00:11:12.630
+And coordinates where we place it. So if we put the player in the center of the screen will set an x and a y coordinate value a numerical value to move them there.
+
+69
+00:11:15.630 --> 00:11:21.150
+So working with coordinates will become something I think that you'll get very used to very quickly.
+
+70
+00:11:24.930 --> 00:11:35.280
+Make a visible game and a 2D world and we are focused on this game engine that really gives us the ability to make tangible visible games as opposed to audio only games are text on the games.
+
+71
+00:11:36.030 --> 00:11:41.820
+We're going to need some graphics, we might need some sounds we might even need some other files eventually to to basically
+
+72
+00:11:42.210 --> 00:11:54.840
+images and sounds are the two I think most kind of fundamental categories of assets basically external files that hold different aspects of the content that we want to use inside of our game.
+
+73
+00:11:55.650 --> 00:12:06.840
+And so we'll see. For example, this week. If you journey over to the site open game art dot org the opportunity to search through a huge number of
+
+74
+00:12:07.500 --> 00:12:19.620
+Free assets that are available, whether their images and character art like sprites, or whether they're audio files. All of this is available here and to use their system, you'll need to create a free account.
+
+75
+00:12:20.940 --> 00:12:31.350
+So you can download things. But once you do that, you'll have access to all of the art that different game artists share for free on the site. It's a wonderful community.
+
+76
+00:12:32.640 --> 00:12:33.420
+hope you'll check it out.
+
+77
+00:12:43.380 --> 00:12:50.580
+Another important concept one related to the graphics that we use those assets is the concept of a sprite.
+
+78
+00:12:51.450 --> 00:13:05.460
+This is a game object, like the main character that the player controls like our friends Sonic here or a little jumping robot guy over there and my other sprite sheet that basically is a series of different frames of animation for one sprite.
+
+79
+00:13:06.780 --> 00:13:15.090
+You can read more about sprites in video games in the Wikipedia article that I linked in this week's canvas materials.
+
+80
+00:13:16.170 --> 00:13:19.470
+And really sprites go all the way back to the very earliest console games.
+
+81
+00:13:20.700 --> 00:13:31.110
+Like Super Nintendo and Atari and also many coin operated video games from the 1980s. In the old days, computer hardware would actually draw these
+
+82
+00:13:31.800 --> 00:13:47.070
+Maps. These graphical 2D pictures onto the screen of the TV that was powering the game. Nowadays it's all done in software but basically this is the idea sprite any two dimensional bitmap used as a part of a graphics display.
+
+83
+00:13:48.870 --> 00:13:57.240
+So far game characters. It's the collectibles. It's the tokens. It's pretty much everything on the screen that our code can control generally composed of
+
+84
+00:13:58.050 --> 00:14:09.480
+As a sprite and our game engine can do things like detect when sprites are touching each other. We call that a collision and today's sample game we're basically going to build logic into our
+
+85
+00:14:10.530 --> 00:14:22.380
+update loop. The game loop that lets us move sprite around with the keyboard arrows and continuously checks to see if it's colliding with the collectible sprite that we're going to put on the stage also
+
+86
+00:14:23.280 --> 00:14:31.350
+And in that way, we can start some gameplay where our player can go around and collect things that they're rewarded.
+
+87
+00:14:33.180 --> 00:14:33.930
+With points.
+
+88
+00:14:36.600 --> 00:14:42.660
+So sprites really fundamental to the idea of creating gameplay inside a game engine like Fazer
+
+89
+00:14:46.740 --> 00:14:56.850
+with that all said, I'm going to go into the mode now of composing a simple first Fazer based game for you using my cloud nine workspace.
+
+90
+00:14:57.270 --> 00:15:04.320
+I already have a complete example up there in the module five folder, but I'm going to create another one from scratch here. So let me go ahead and get started.
+
+91
+00:15:06.750 --> 00:15:08.850
+Going to do that. I'm making a new folder.
+
+92
+00:15:10.530 --> 00:15:18.840
+Called this module 05 live to represent the fact that I'm creating it right now. And just to borrow a little bit from my final
+
+93
+00:15:20.220 --> 00:15:26.310
+precooked version. I'll duplicate my folder that has some images in it that I'm going to use his assets today.
+
+94
+00:15:27.990 --> 00:15:34.380
+Show you those really quickly. These come from the sample files that are provided by the author of our Facebook Travis. Pause
+
+95
+00:15:34.920 --> 00:15:42.360
+And you can use different art for your game. Please, please do go to Open game art or use pixel or calm to create your own, but I'll just show you the sample art.
+
+96
+00:15:42.900 --> 00:15:54.180
+That we have here. There's kind of as big dark background image that I'll use to set the background of the game environment basically set that as the background of the game world of the game stage, if you will.
+
+97
+00:15:55.770 --> 00:16:03.060
+There is my main player, which is this little catcher. I think he's got a little teeny net associated with him.
+
+98
+00:16:04.380 --> 00:16:12.060
+And he's a cat catcher. So here is the collectible. The other sprays asset that we're going to use this little black cat.
+
+99
+00:16:15.300 --> 00:16:18.750
+So I got three assets here that'll take advantage of.
+
+100
+00:16:19.800 --> 00:16:29.970
+Now I need is another starting point for my ingredients to make a game. I need a copy of the javascript file that holds all of the code for the Fazer seed game engine.
+
+101
+00:16:30.480 --> 00:16:46.620
+And I've got these different tabs open today I've got the main code repository for Fazer community edition open here to github project at Github com I've got the documentation open also on Github for the community edition of Fazer
+
+102
+00:16:48.000 --> 00:16:58.590
+And then finally, I've got at the main Fazer site Fazer dot io. I've got their examples section open still includes examples for Fazer community edition version to
+
+103
+00:16:59.250 --> 00:17:09.630
+Even though, if you go to the main Fazer dot io site, they'll talk about Fazer version three don't use Fazer version three for our code in this class. It's very, very new and
+
+104
+00:17:10.920 --> 00:17:11.760
+Relatively
+
+105
+00:17:13.380 --> 00:17:23.520
+Beta software still call it that filled with bugs and other stuff. That'll trip you up plus. Now the documentation or examples is written for Fazer three yet so you'll really be on your own.
+
+106
+00:17:24.000 --> 00:17:29.190
+If you stumble into Fazer version three but rest assured, once you learn the version two community edition of phase.
+
+107
+00:17:29.700 --> 00:17:36.420
+One phase three is ready. It shares many of the same concepts and when they work out all the kinks, you'll have no problem transitioning over there.
+
+108
+00:17:36.960 --> 00:17:47.850
+To use Facebook 3.0 but for now we want to get the file that lives in the build directory here it's Fazer to
+
+109
+00:17:48.570 --> 00:18:04.500
+Point 11.0 and it was updated three months ago. Easiest way to get something off a Github and one of these repositories is to simply download the whole thing. So, download the zip file for phase, you're here, it's pretty big. It's got tons of files associated with it.
+
+110
+00:18:06.300 --> 00:18:07.620
+Documentation
+
+111
+00:18:08.790 --> 00:18:14.130
+Whole bunch of stuff. So I'm gonna let it download is downloading here in my Chrome browser.
+
+112
+00:18:15.660 --> 00:18:27.030
+And after downloads rather than uploading the whole thing into Cloud Nine. I'm only going to upload single javascript file I need from it to make it work, which lives in the build sub directory
+
+113
+00:18:29.370 --> 00:18:40.740
+But it's good to have the entire code repository downloaded because you can look through and look at the documentation and other resources there that are available.
+
+114
+00:18:42.780 --> 00:18:48.690
+But as you can see it's a giant file, it's clocking up at over 24 megabytes is it's downloading right now.
+
+115
+00:18:49.680 --> 00:19:07.170
+And again, it's filled with all of the examples that live on the Fazer dot io site in local forum so you can play him right in your computer and borrow code from them, which again is another reason it's worth having a local copy of this entire repository.
+
+116
+00:19:12.720 --> 00:19:27.180
+Downloaded so go show to my downloads folder and it is a zip archive. So on my Mac. I'm gonna double click it to expand it, you could expand it using the archive utility and Windows also. And when we look in here. We've got all the files that make up
+
+117
+00:19:28.650 --> 00:19:34.920
+Fazer and here documentation for everything. So again, the documentation site is pretty much here locally.
+
+118
+00:19:36.510 --> 00:19:52.560
+In resources. There's a bunch of different tutorials and other things you can use, but really all we need is Fazer men j s from the build directory that's all I'm going to upload to my cloud nine environment.
+
+119
+00:19:54.450 --> 00:19:56.850
+So I'll go ahead and resize the window is a little bit. So see
+
+120
+00:19:58.050 --> 00:20:09.510
+My finder folder where I've got Fazer men that JS sitting there and I drag it right in to the browser and throw it in Module five live folder there.
+
+121
+00:20:10.290 --> 00:20:24.375
+Should have uploaded looks like it did. So I got a folder of the image assets and I've got Fazer JS, I'm ready to build a simple web page that holds some javascript in it to get my first team up and running, using the face or engine.
+
+122
+00:20:26.190 --> 00:20:37.530
+Window back nice and big. And I'll go in here to Cloud Nine. I'm going to say new from template and ask it to build me an HTML template file and I'm gonna go ahead and start off, I notice in the title.
+
+123
+00:20:39.240 --> 00:20:39.990
+First things are
+
+124
+00:20:42.690 --> 00:20:48.120
+Now, in addition to sitting the title text. I want to load.
+
+125
+00:20:49.170 --> 00:20:50.010
+My first step.
+
+126
+00:20:51.030 --> 00:20:51.630
+Fazer
+
+127
+00:20:53.130 --> 00:21:00.870
+men and men and stands for mystified me just kind of had all the spaces and unnecessary stuff sucked out of it to make it tiny as possible.
+
+128
+00:21:02.700 --> 00:21:03.570
+This javascript
+
+129
+00:21:11.430 --> 00:21:15.030
+Comment there on line five. That's what a comet looks like an HTML.
+
+130
+00:21:16.770 --> 00:21:18.450
+HTML element.
+
+131
+00:21:19.770 --> 00:21:22.380
+And when I close that opening tag for the script element.
+
+132
+00:21:23.550 --> 00:21:30.900
+Cloud nine should automatically right the closing script tag. But what's most important here is to set up the right file name to load.
+
+133
+00:21:33.120 --> 00:21:47.640
+Fazer library. And so I just have to write the file name in here Fazer men that JS inside the quotes for what we would call the source attribute basically tells the browser, where to go get the face or file and really all this left now.
+
+134
+00:21:49.200 --> 00:21:50.340
+over simplifying things
+
+135
+00:21:51.870 --> 00:21:52.680
+We need to write
+
+136
+00:21:54.420 --> 00:21:55.020
+Custom
+
+137
+00:22:00.240 --> 00:22:17.940
+Out because Fazer will draw the entire game world into the browser using this empty body element here. We're a web pages normally displayed actually don't have to put any other HTML into this file, really. I basically have two comments here one script element to load.
+
+138
+00:22:19.530 --> 00:22:27.270
+The Fazer game engine. And then the second script on that. I just put after my step to comment is where I'm going to write all of my game code.
+
+139
+00:22:29.100 --> 00:22:32.670
+Now because Fazer includes
+
+140
+00:22:33.750 --> 00:22:40.260
+Its own objects and methods and properties its own collection of commands, if you will, or things that it can do for us.
+
+141
+00:22:42.030 --> 00:22:47.190
+To make Cloud nine aware of that. I'm going to write a global comment here.
+
+142
+00:22:49.530 --> 00:22:49.770
+At
+
+143
+00:22:51.750 --> 00:23:04.110
+Announces that the word phase or capital P is a meaningful predefined object so that cloud nine doesn't complain because cloud nines editor won't actually load.
+
+144
+00:23:04.800 --> 00:23:11.790
+The Fazer library when I'm editing. Right now, the browser will load it because it'll see the script and loaded cloud nines editors, not that smart.
+
+145
+00:23:12.270 --> 00:23:21.180
+And so when I start calling commands from the Fazer library my code here. Cloud nine might otherwise complain if I don't write the sample code that I wrote here in line nine
+
+146
+00:23:21.810 --> 00:23:30.570
+And again, it's written as a valid javascript comments. So the browser will ignore it. But Cloud nine specifically looks for this global comment to
+
+147
+00:23:32.100 --> 00:23:42.570
+Help it when we have external commands saved in files are Fazer documented that JS, so it doesn't start announcing errors because it doesn't know about those right out some steps here.
+
+148
+00:23:44.010 --> 00:23:45.240
+I'm going to do in my game code.
+
+149
+00:23:48.570 --> 00:23:59.610
+It's we'll keep our step numbers from the above. Step one was to load the Fazer library. Step two is to have our script. And inside here. Step three is to create
+
+150
+00:24:01.350 --> 00:24:01.650
+A world.
+
+151
+00:24:38.610 --> 00:24:39.120
+State.
+
+152
+00:24:41.700 --> 00:24:48.840
+The first thing that phase or wants to do is load up all the assets like like our images in this game. We don't have any sound yet, but we've got
+
+153
+00:24:49.350 --> 00:24:59.880
+Three different images hiding over here in the folder or background our cat collectible and our catcher main player spray. And so, step five will let us
+
+154
+00:25:03.240 --> 00:25:07.170
+The preload state code and then we'll define the block code.
+
+155
+00:25:09.930 --> 00:25:15.270
+Create state that's when we're going to draw the game basically put the background on the screen and do things like that.
+
+156
+00:25:19.590 --> 00:25:20.340
+block of code.
+
+157
+00:25:24.270 --> 00:25:30.660
+Update state. That's the game loop. This is just going to automatically over and over and over again.
+
+158
+00:25:31.890 --> 00:25:36.900
+Pretty much everything we're going to do in this game to make it work.
+
+159
+00:25:41.550 --> 00:25:49.320
+Well, almost everything but it's enough to get us started seeing see basically this sample really composed of seven or eight steps I've got at least seven of them in here.
+
+160
+00:25:49.830 --> 00:26:00.810
+I might have a surprise guest step here at the end to show you. But let's get started with the basics here. So step three, we need to create the
+
+161
+00:26:01.290 --> 00:26:08.910
+game world draw the stage, get it ready in the body. And we do that by declaring a variable. I'm just going to call it gain
+
+162
+00:26:09.360 --> 00:26:17.580
+You could call it anything you want, but most of the Fazer examples to use a variable name of game. So I'll keep it consistent in what the equal sign on the right hand side of that I'm going to ask
+
+163
+00:26:18.630 --> 00:26:21.270
+The browser to make a new instance of an object.
+
+164
+00:26:22.680 --> 00:26:35.220
+And Fazer knows this object as the game object, the casing the capital P in the capital G and Fazer game is important because javascript is a case sensitive language.
+
+165
+00:26:35.910 --> 00:26:51.060
+And our game engine in Fazer men JS up there in line six when it loads it defines all of these different objects like the Fazer object in the game object to give us access to the code, they've written make it easy for us to build our game now.
+
+166
+00:26:52.530 --> 00:26:53.400
+These are game.
+
+167
+00:26:55.410 --> 00:27:04.290
+Is a method that we're calling to block code inside their library and it actually takes some parameters and arguments that we pass to it.
+
+168
+00:27:05.760 --> 00:27:07.500
+We pass these
+
+169
+00:27:10.680 --> 00:27:11.100
+Arguments
+
+170
+00:27:15.840 --> 00:27:18.480
+And there's a few of them. So number one, the first argument.
+
+171
+00:27:19.650 --> 00:27:22.140
+Is the whip in pixels.
+
+172
+00:27:23.460 --> 00:27:26.040
+To is the height pixels.
+
+173
+00:27:27.960 --> 00:27:33.900
+Big will our game stage where we can run around and have fun and there's this thing they call the render mode.
+
+174
+00:27:35.010 --> 00:27:44.610
+Which is how the game is gone in the browser and their speed and performance implications here. Modern computers have hardware acceleration for their graphics
+
+175
+00:27:45.090 --> 00:27:56.670
+And a system known as opengl and power. The game rendering. And then there's also a slower, more compatible version that's known as the HTML canvas rendering mode will try that one out. First, probably today.
+
+176
+00:27:57.180 --> 00:28:00.900
+But basically want to tell phasers code, how it's going to draw the game in the world.
+
+177
+00:28:02.160 --> 00:28:04.650
+And then the fourth one is optional.
+
+178
+00:28:06.210 --> 00:28:08.850
+We're not going to use it today, we'll just set it as a no.
+
+179
+00:28:09.990 --> 00:28:10.410
+And then the
+
+180
+00:28:11.490 --> 00:28:12.120
+Argument.
+
+181
+00:28:13.470 --> 00:28:13.980
+Is
+
+182
+00:28:31.980 --> 00:28:38.550
+Basically, we're going to give everything Fazer needs to run this game to it in the parentheses that appear here.
+
+183
+00:28:39.150 --> 00:28:45.840
+And so let's just type each one of these values in kind of on their own line so 800 is going to be the width and pixels.
+
+184
+00:28:46.530 --> 00:28:57.090
+And notice, I'm in between the opening Quran and the closing per n after I declare new Fazer game. I'll put a comma here so it knows I'm done with that first argument.
+
+185
+00:28:57.690 --> 00:29:09.300
+Now the height. I'm going to set or make it 600 pixels. And again, you can change these values to anything you want. We use Hall integer numbers because we're talking about pixels. When I'm just slice them in half or anything. And then I'm going to set the render mode.
+
+186
+00:29:11.130 --> 00:29:20.610
+Again, we're just going to use the kind of most compatible mode, known as the Fazer canvas rendering load, this is built into the phase or engineer knows what this means.
+
+187
+00:29:22.050 --> 00:29:31.440
+fourth option, which would let us draw the game and a specific HTML element if we had any in the body. I'm going to set it to know. So it's going to draw the game right inside the body.
+
+188
+00:29:33.060 --> 00:29:33.960
+And then finally,
+
+189
+00:29:35.040 --> 00:29:45.900
+I need to set up the preload property to define the code for the preload state the Create property and the update property.
+
+190
+00:29:47.250 --> 00:29:49.770
+Now I'm going to write blocks of code that I name in a moment.
+
+191
+00:29:51.330 --> 00:29:57.030
+Although code that. Am I right for the preload state my preload code and I'll put a little comma here.
+
+192
+00:29:58.170 --> 00:30:07.170
+And I follow similar pattern for the creek state all create a function named a block of code called My create code and then for the update the game loop.
+
+193
+00:30:08.160 --> 00:30:18.930
+I'll make another block of code or call my update code. So they're pretty much spread out across 10 or 11 lines. And my editor lines 18 to 28th.
+
+194
+00:30:19.650 --> 00:30:27.990
+I have defined everything I need to tell the Fazer game engine to create an 800 wide by 600 pixel tall.
+
+195
+00:30:28.680 --> 00:30:36.150
+Game stage to draw the game using the most compatible way, it knows to draw. We won't use opengl here, we use the canvas method.
+
+196
+00:30:36.990 --> 00:30:46.200
+Put it right into the body. That's what no means for option for there. And then in the curly braces writing an object value with properties I identify
+
+197
+00:30:46.980 --> 00:30:53.640
+Three different named wazza code that I haven't written yet. So that's why if you're wondering why
+
+198
+00:30:54.210 --> 00:31:00.480
+Cloud nine editor is giving me the warning alert on the left from lines 24 to 26 if I hover over that.
+
+199
+00:31:00.960 --> 00:31:08.370
+Invite you to do that. Anytime you see a message out here, by the way, hover over it and check it out saying my preload code is not defined.
+
+200
+00:31:08.820 --> 00:31:17.670
+please fix or, you know, if we wanted to ignore that we could add another global told to ignore that. But we don't want to ignore that we're going to write the code that we need
+
+201
+00:31:20.010 --> 00:31:28.740
+For each of these states preload state the Create state and the upstate state. Those are going to be in steps five through seven down here.
+
+202
+00:31:29.985 --> 00:31:36.720
+Before we get there. I'm going to define some variables to keep track of everything we need in our game world.
+
+203
+00:31:41.040 --> 00:31:50.100
+So the first variable all declare using the bar statement and Javascript to create a new name variable is what I'll call the score.
+
+204
+00:31:56.910 --> 00:31:57.090
+Is
+
+205
+00:32:05.310 --> 00:32:06.210
+There, another variable.
+
+206
+00:32:10.920 --> 00:32:11.400
+This
+
+207
+00:32:21.360 --> 00:32:22.590
+The players trying to catch
+
+208
+00:32:24.210 --> 00:32:29.490
+Make another variable player of the catcher, and this will be
+
+209
+00:32:38.550 --> 00:32:39.300
+More variable.
+
+210
+00:32:41.070 --> 00:32:41.820
+Keep track.
+
+211
+00:32:43.980 --> 00:32:46.860
+cursor's us to keep track
+
+212
+00:32:48.210 --> 00:32:48.750
+Which
+
+213
+00:32:51.870 --> 00:32:54.240
+Is pressing. We've got a person
+
+214
+00:32:55.920 --> 00:33:10.020
+And we want to map the up and down and left and right arrow keys on the keyboard what Fazer likes to think of as the cursor keys. So I'll have a little variable, it'll keep track of which keys are being pressed. And then finally, because we're going to show the score on the screen.
+
+215
+00:33:11.610 --> 00:33:13.080
+I'll make another variable.
+
+216
+00:33:14.130 --> 00:33:15.330
+But text score.
+
+217
+00:33:16.470 --> 00:33:17.430
+And this will be
+
+218
+00:33:18.990 --> 00:33:31.380
+My object. It shows the score value for value will be a number but text score will be the actual display of our text for the score on the screen.
+
+219
+00:33:31.890 --> 00:33:48.810
+Those are separate things. And again, the visible object that we show the score and is its own game object inside the game world and at the same time we're separately, keeping the score value in a numerical value in score value that variable.
+
+220
+00:33:49.920 --> 00:33:56.250
+So those are all the things that I'll need to have named containers for for this first game there's basically five variables there.
+
+221
+00:33:59.040 --> 00:34:07.530
+Now I can write my first named block of code to handle the preload state. And again, if we go back and look at our diagram here for a second.
+
+222
+00:34:09.540 --> 00:34:13.170
+We're basically defining three blocks a code now.
+
+223
+00:34:15.180 --> 00:34:16.920
+Reload is what we're going to do.
+
+224
+00:34:19.830 --> 00:34:31.260
+To load all the assets used in the game. Right. So what our assets here. Well, we've got three images. We've got a background image. We've got the cat and the catcher.
+
+225
+00:34:32.010 --> 00:34:41.130
+And I already told Fazer that I was going to make a name to block a code that I was going to call my preload code and you'll remember Cloud nine is complaining that that hasn't been defined yet.
+
+226
+00:34:41.610 --> 00:34:49.590
+So down here for. Step five. Let's define that block of code. And the way we name of locker code and the javascript language is with the function statement.
+
+227
+00:34:50.880 --> 00:35:00.960
+So here I'm going to name the function preload code functions after their named always take a pair of round parentheses shift nine and zero on your keyboard.
+
+228
+00:35:01.710 --> 00:35:11.370
+We might be able to send information into the function if we needed to in that little package that container that the round parentheses to find with for Fazer we typically don't leave them empty.
+
+229
+00:35:12.390 --> 00:35:23.310
+And then to hold all the statements, all the lines of actual code that are associated with my name to block my preload code you write an opening and closing curly brace.
+
+230
+00:35:23.880 --> 00:35:32.490
+And these are to the right of the key on your keyboard. If you hold them the shift where the key shows the square brace the shift will give you the curly brace.
+
+231
+00:35:32.940 --> 00:35:50.070
+Curly braces are what you have to have. I know javascript very fussy with the round parentheses versus the curly braces, but it's very important that you use the right characters here or the browser will misunderstand you so we're going to do three things inside preload code.
+
+232
+00:35:51.330 --> 00:35:56.490
+We're gonna load image assets to us in the game.
+
+233
+00:35:57.750 --> 00:36:01.830
+All pre loading does pretty much. And to do that, will use a method
+
+234
+00:36:06.870 --> 00:36:07.350
+Called
+
+235
+00:36:09.330 --> 00:36:09.690
+Image
+
+236
+00:36:12.540 --> 00:36:16.470
+Because I got my game living inside of variable backup here.
+
+237
+00:36:17.940 --> 00:36:33.120
+Named gain make it easy for my brain lowercase gain by the way is important because capital G game means something else to phasers unnamed object to lowercase G game is simply my game that I'm playing with here and with dot notation.
+
+238
+00:36:34.860 --> 00:36:47.460
+Call load properties image method and it ends here. I'm going to give it some values. Now, let me write a comment first about the parameters.
+
+239
+00:36:50.670 --> 00:36:52.020
+Arguments, as you might say,
+
+240
+00:37:17.490 --> 00:37:30.090
+Oh, I have to be load the file will have to have our own made up string name for what we're going to call that asset when we want to use it. And then there's basically just a second argument that path.
+
+241
+00:37:31.140 --> 00:37:32.100
+Through the actual
+
+242
+00:37:33.120 --> 00:37:43.590
+Image File. You want to load. So we're basically doing two things reloading an image from a file and we're kind of giving it a new name. Sometimes they call that the assets.
+
+243
+00:37:44.850 --> 00:37:54.180
+To the name, you're giving it. So here I'll load, for example, and all of this goes in quoted text each of these individual arguments. So the first argument.
+
+244
+00:37:55.320 --> 00:38:03.630
+Load up the cat image and I'll name the asset key cap for that guy. So in double quotation marks are single quotation marks, if you like.
+
+245
+00:38:04.080 --> 00:38:12.840
+You put the word cat to give it a name and then a comma outside the quotes and then again another pair of quotes that will let us tell it.
+
+246
+00:38:13.320 --> 00:38:23.730
+From where we're going to be right here in module 05 how to find that. So, all right, I am G identify the folder name right, a slash then all right after the slash the file name.
+
+247
+00:38:25.980 --> 00:38:27.720
+Before I go any further, let me save this.
+
+248
+00:38:29.310 --> 00:38:32.370
+Because I just noticed I haven't saved yet so module 05 live
+
+249
+00:38:34.260 --> 00:38:50.700
+All this demo dot HTML. So I've got this in here. Now you can see it and it's in module 05 same place. I am G folder is so to tell the browser and the Fazer game engine. How to find that image they already know we're in demo HTML. I just say, Hey, go into the image folder.
+
+250
+00:38:51.840 --> 00:38:54.480
+And down in the image folder with that slash I wrote here.
+
+251
+00:38:55.980 --> 00:39:05.820
+Phase or knows, then I am means there's a folder named image in the slash says look inside of it for the file that follows in there as the file name, so we'll load the cat.
+
+252
+00:39:07.230 --> 00:39:12.270
+Do another image load, this one will call the catcher.
+
+253
+00:39:14.100 --> 00:39:15.420
+Maybe the main player character.
+
+254
+00:39:16.470 --> 00:39:18.000
+It also lives in the image directory
+
+255
+00:39:20.400 --> 00:39:33.690
+So we'll loaded up by its filename and I gotta put a semi colon and the end of this to tell javascript I'm done with that one complete statement that tells my game object to look at its load property and run it image method there to load up another image.
+
+256
+00:39:34.890 --> 00:39:45.510
+Will do the same thing here for the background and you might notice a pattern here that asset key. The name that I'm giving each of these after I load them pretty much matches their filename without
+
+257
+00:39:46.050 --> 00:40:04.470
+The file extension on it. That's not a bad rule for your own brain or whatever you prefer. But my brain gets confused when I have too many different names going on. And again, once these assets are loaded. I'm never going to refer to them again by their filename anywhere else. When I use
+
+258
+00:40:05.910 --> 00:40:21.840
+Fazer to draw these assets into the game stage when I create my create code and a second. I'll call them by their asset key names. So when I load the background. I'm gonna refer to as BG from now on, because it's already loaded up into the browser's brain.
+
+259
+00:40:22.860 --> 00:40:35.580
+Saved in memory and associated with these strings that we are calling the asset key for each of those assets so preload is done. It's just me things to do and freeload we load each of our graphics
+
+260
+00:40:36.630 --> 00:40:41.460
+So the next thing we're going to do is go in to create the game world.
+
+261
+00:40:43.170 --> 00:40:50.610
+And I need to make another function here. Now, the name of this function, I already declared a name for it right here. My create code.
+
+262
+00:40:54.930 --> 00:40:59.190
+And round parentheses after that and then curly braces to hold the actual code.
+
+263
+00:41:00.330 --> 00:41:01.260
+And so now
+
+264
+00:41:03.870 --> 00:41:06.120
+We can add the
+
+265
+00:41:07.155 --> 00:41:08.550
+Eg asset.
+
+266
+00:41:14.550 --> 00:41:17.610
+And I'll do that, making it into a sprite. So I'm gonna do add
+
+267
+00:41:22.650 --> 00:41:23.670
+That's right out what
+
+268
+00:41:25.980 --> 00:41:28.290
+Arguments are parameters, the
+
+269
+00:41:35.280 --> 00:41:37.740
+first argument is the
+
+270
+00:41:38.790 --> 00:41:39.720
+Horizontal
+
+271
+00:41:41.490 --> 00:41:42.450
+X coordinate
+
+272
+00:41:45.630 --> 00:42:00.990
+To place this asset on the stage. Remember back here when we made the game we told it was going to be 800 pixels wide, that's what the first argument for a new phase game is and then 600 pixels tall.
+
+273
+00:42:02.130 --> 00:42:06.360
+So now I'm placing my background on to that stage.
+
+274
+00:42:08.490 --> 00:42:15.390
+And I'll put it in the top left corner, which turns out to be zero. In the Fazer coordinate system.
+
+275
+00:42:17.070 --> 00:42:33.420
+The top left corner is zero in the exit zero in the why. And then as you increase the numbers in the x coordinate, you're moving to the right and as you increase the numbers in the y coordinate you're moving down the screen. So there's the top left corner.
+
+276
+00:42:38.070 --> 00:42:39.840
+If I go zero comma zero.
+
+277
+00:42:41.250 --> 00:42:47.730
+Now the last thing I have to give the sprite method here. The third argument, if you will, is the
+
+278
+00:42:54.480 --> 00:42:55.530
+Load that imaged it
+
+279
+00:42:58.290 --> 00:43:11.940
+And that in this case is just eg you single quotes here you can again quote strings of text in the javascript language using either single or double quote marks, both of them should work. Now before I go any further.
+
+280
+00:43:13.080 --> 00:43:22.740
+Writing code. Let me just go and define an MP block of code for my update game loop. That's what step seven will be so we don't get any errors.
+
+281
+00:43:23.340 --> 00:43:30.510
+Just want to try and load the game so you can see what happens at this point I'm going to leave this empty for a second. My update code again just to avoid errors.
+
+282
+00:43:31.020 --> 00:43:45.720
+Now to work with Cloud Nine and to test and play your games with the HTML file open that holds all of your Javascript code like I have it here, go up to the cloud nine menu bar and hit run
+
+283
+00:43:47.850 --> 00:43:57.180
+Once you do that, a tab should open down here in the lower panel and it should include the message starting Apache HTTP D that's really just the server.
+
+284
+00:43:57.840 --> 00:44:03.330
+software that runs the web server to open source software product called Apache and it tells us what page, it's
+
+285
+00:44:03.900 --> 00:44:16.860
+Running for us right now it's making available in the browser. And there's a link to it right there you can see at the end, there's your file name my filename demo dot HTML. I'm going to click it a little contextual menu will pop up. I'm going to open it in a new tab.
+
+286
+00:44:18.060 --> 00:44:32.460
+And I want you to see what happens there. You should see if you're following along with me. The game stage has been drawn and my big P AMP G image has been placed onto the stage. Basically, it is my background.
+
+287
+00:44:34.590 --> 00:44:40.500
+So no gameplay yet but I'm starting to set the game stage up. So let's continue with that.
+
+288
+00:44:42.600 --> 00:44:42.960
+Now,
+
+289
+00:44:43.980 --> 00:44:44.700
+Let's add
+
+290
+00:44:46.080 --> 00:44:47.520
+The capture
+
+291
+00:44:49.230 --> 00:44:52.680
+Really the player controlled eventually sprite.
+
+292
+00:44:56.190 --> 00:45:10.890
+sprite and I'm going to put it right in the middle of the screen. It's 800 wide, so I'll put it at 400 horizontal 300 600 toss uprooted 300 vertical and I want to load the name was catcher.
+
+293
+00:45:13.620 --> 00:45:17.850
+For the asset key. And so now I got him loaded now.
+
+294
+00:45:19.200 --> 00:45:27.900
+The Catcher it's going to be Player controlled, not just going to sit there like the background does. So I want to take advantage of some of the capabilities of the Fazer engine right now.
+
+295
+00:45:29.130 --> 00:45:35.100
+And since our game will detect and the catcher.
+
+296
+00:45:57.090 --> 00:45:57.750
+Common
+
+297
+00:45:58.980 --> 00:46:08.190
+Way to refer in game engines to the concept of two things, touching each other. It's like a car collision right there. They've slipped into each other, somehow.
+
+298
+00:46:08.670 --> 00:46:17.760
+And we want to be able to detect this state. So I'm going to do another call to my game object and Fazer has a built in physics property.
+
+299
+00:46:18.330 --> 00:46:27.180
+That itself has an enable methods. So I'm gonna write this fun dot notation that says game dot physics enable so using dot notation. I'm calling
+
+300
+00:46:27.690 --> 00:46:43.530
+Function built into Fazer that is associated as a method with a property for my game called physics. All this comes from that huge Fazer men JS file that we loaded at the beginning. We don't have to write any of this now.
+
+301
+00:46:45.090 --> 00:46:58.650
+I do need when I created this catcher to save the information about that sprite and a variable and I already defined the variable name for it up here. I called that variable, just the word catcher and Javascript
+
+302
+00:46:59.220 --> 00:47:11.490
+Sit down here on a modify my line that did the ad sprayed and I'm going to add the variable and an equal sign before that call to that method. And what that means really will make a comment here.
+
+303
+00:47:12.840 --> 00:47:13.020
+With
+
+304
+00:47:14.280 --> 00:47:17.070
+His added, we can save
+
+305
+00:47:18.480 --> 00:47:21.540
+It into a Javascript variable.
+
+306
+00:47:22.860 --> 00:47:29.850
+Us later. And we're going to need to do this. We're any sprite that we want to do stuff with later on after we created
+
+307
+00:47:30.210 --> 00:47:39.720
+I didn't do that for the background because the background just going to sit there, but the catcher. I'm going to do collision detection and right now to enable collision detection. I want to go in here.
+
+308
+00:47:41.220 --> 00:47:43.050
+And tell it that I want to work with.
+
+309
+00:47:44.700 --> 00:47:50.610
+And without quote marks because again this is now a variable name that I'm using.
+
+310
+00:47:52.170 --> 00:47:53.040
+The word catcher.
+
+311
+00:47:55.860 --> 00:47:57.630
+And I'm going to turn on the physics engine.
+
+312
+00:48:05.670 --> 00:48:07.500
+Has a couple different physics engines.
+
+313
+00:48:25.260 --> 00:48:25.500
+This
+
+314
+00:48:32.940 --> 00:48:33.120
+Is
+
+315
+00:48:55.980 --> 00:49:00.210
+Add the catcher onto the screen and enable it so we can detect
+
+316
+00:49:04.740 --> 00:49:10.050
+Collisions and stuff like that. So I just save that guy again I'm gonna go back over here and reload my page.
+
+317
+00:49:11.790 --> 00:49:25.800
+And there he is. You can see my little guy. Now he's not movable yet because I haven't associated really haven't written any code for the update game loop at all yet. But once we do that, we'll be able to look for the cursor keys and move his coordinates around
+
+318
+00:49:27.210 --> 00:49:29.490
+So we're getting close to having gameplay.
+
+319
+00:49:30.870 --> 00:49:33.420
+Ready to write it was still need to set up a little bit more
+
+320
+00:49:50.400 --> 00:49:52.080
+I called it cat appear the variable.
+
+321
+00:49:55.980 --> 00:49:56.610
+Another game.
+
+322
+00:49:57.660 --> 00:49:59.490
+sprite and
+
+323
+00:50:01.080 --> 00:50:02.370
+Where should I put this one.
+
+324
+00:50:04.590 --> 00:50:08.040
+Open up the ground parentheses here and do this on multiple lines.
+
+325
+00:50:09.510 --> 00:50:17.100
+Now there's three arguments. I'm giving it the horizontal placement and I'm going to randomly placed it something to use the built in.
+
+326
+00:50:17.610 --> 00:50:29.190
+Math object in javascript to randomize a number and I make sure that number is between zero and the width of the screen and Fazer has a property for the width of the game.
+
+327
+00:50:29.640 --> 00:50:38.220
+Saved in game with so put that there. Of course, you and I know it's 800 I guess I could have district and Matt dot dot random times 800 but
+
+328
+00:50:39.270 --> 00:50:41.970
+Show you that Fazer can tell you about the game.
+
+329
+00:50:44.640 --> 00:51:02.280
+I'll do game with to figure out the random acts placement, the horizontal placement and I'll do game height times math random to randomly place it somewhere in the height. Then, of course, I need to call the asset key name, which we named up here as cat.
+
+330
+00:51:04.950 --> 00:51:17.160
+Let's see what happens now that we added the cat Sprite in our create code. There he is. Where's my catcher. There's my cat I reload the cat should be moved. There's the cat moving
+
+331
+00:51:17.850 --> 00:51:25.440
+Around the page. And that's because of the random functions that I'm calling to pick a random number for that guy.
+
+332
+00:51:28.470 --> 00:51:31.260
+So I also need someone to look for collisions.
+
+333
+00:51:35.400 --> 00:51:36.840
+Cat sprite. I gotta turn on.
+
+334
+00:51:39.900 --> 00:51:51.600
+physics engine. So I'm going to enable it again. This time on the cat variable, same kind of physics physics, the capital letters are important arcade turns out to be all caps.
+
+335
+00:51:52.800 --> 00:51:55.410
+And boom, now I've turned on the physics engine.
+
+336
+00:51:56.700 --> 00:51:58.410
+Now we're going to keep score.
+
+337
+00:51:59.970 --> 00:52:01.860
+So we want to set up the value
+
+338
+00:52:03.660 --> 00:52:04.350
+Starting off.
+
+339
+00:52:06.000 --> 00:52:06.570
+Score.
+
+340
+00:52:07.590 --> 00:52:10.080
+And I named that variable score value.
+
+341
+00:52:11.340 --> 00:52:12.990
+Set it to the value zero right now.
+
+342
+00:52:16.080 --> 00:52:19.470
+And then finally, I want to show the score on the screen.
+
+343
+00:52:24.210 --> 00:52:32.490
+I will add it as a text object I made up a variable for this already. I called it text score. It's kind of like a sprite.
+
+344
+00:52:35.700 --> 00:52:36.390
+And I want to
+
+345
+00:52:37.950 --> 00:52:39.390
+Add text now.
+
+346
+00:52:42.180 --> 00:52:42.870
+And so
+
+347
+00:52:47.100 --> 00:52:47.790
+Came object.
+
+348
+00:52:48.870 --> 00:52:49.800
+Folds text.
+
+349
+00:52:56.130 --> 00:52:57.060
+Some arguments.
+
+350
+00:53:01.770 --> 00:53:05.040
+Takes the first argument is the horizontal
+
+351
+00:53:07.680 --> 00:53:08.040
+Places it
+
+352
+00:53:10.560 --> 00:53:13.230
+Second, like you might imagine is the vertical y coordinate
+
+353
+00:53:16.350 --> 00:53:19.380
+So we'll put the text kind of up in the top left corner.
+
+354
+00:53:21.120 --> 00:53:22.740
+horizontally and vertically
+
+355
+00:53:24.975 --> 00:53:30.930
+Argument that we want to feed it is the text to display.
+
+356
+00:53:32.310 --> 00:53:39.900
+And we have that in score value, but it's an integer number to make phase are really happy. I'm going to convert it to a string.
+
+357
+00:53:41.070 --> 00:53:53.220
+Using the built in method to string, where the capitalized, that the javascript language has built into it to convert between numeric values and string values for us. And then the last thing I have to give it the
+
+358
+00:53:55.230 --> 00:53:57.780
+Argument is an object value.
+
+359
+00:53:59.340 --> 00:54:01.590
+Finds the textile
+
+360
+00:54:02.610 --> 00:54:09.210
+And so this goes inside its own curly braces, because it is an object value and I need to define the font.
+
+361
+00:54:11.070 --> 00:54:18.270
+Includes string that goes with it. The size and pixel so sick 20 X amount of space and then the name Ariel.
+
+362
+00:54:19.380 --> 00:54:33.120
+Palmer because I also have to find what color to make it using the property on the white. So, number sign three F's happens to be in hexadecimal web color colors system to browser understands the color white
+
+363
+00:54:34.200 --> 00:54:38.070
+If you want to look up a different color. I can show you how to do that another time.
+
+364
+00:54:42.840 --> 00:54:50.160
+So there are the 1234 parameters that we need to assign
+
+365
+00:54:51.390 --> 00:54:57.150
+To the text method to get the text to show up on the screen. So again, let me save this before I go any further.
+
+366
+00:54:58.200 --> 00:55:01.500
+And we can go reload and let's see what we have going on here.
+
+367
+00:55:03.090 --> 00:55:04.500
+So there is
+
+368
+00:55:05.610 --> 00:55:16.350
+That guy cat is super hard to see, he's done here catches right there. There's my score showing up in the top left, thanks to the ad text method that we just played with
+
+369
+00:55:18.660 --> 00:55:26.700
+So there's only one thing we need to do still inside the Create code and that is for the update
+
+370
+00:55:28.770 --> 00:55:29.430
+Starts
+
+371
+00:55:31.050 --> 00:55:31.950
+Tell Fazer
+
+372
+00:55:33.750 --> 00:55:35.130
+Watch the arrow keys.
+
+373
+00:55:37.800 --> 00:55:38.850
+And report back
+
+374
+00:55:40.140 --> 00:55:41.040
+Which are pressed
+
+375
+00:55:42.960 --> 00:55:45.750
+And that's why we created that other variable called cursor's
+
+376
+00:55:47.070 --> 00:55:57.990
+And we're gonna save lives feedback, while the game loop is running into the curses variable because Fazer will give us that it has an input property that also has
+
+377
+00:55:58.740 --> 00:56:15.810
+Self of keyboard property and then a method built into it called create capital C cursor for the second word capital K keys for the third one and there is game input keyboard create cursor keys. This
+
+378
+00:56:16.890 --> 00:56:26.970
+Activates phasers real time observation of the keyboard and tells it to keep looking at which of the cursor keys are pressed
+
+379
+00:56:28.290 --> 00:56:32.880
+That'll be useful to us when we get the update loop written, which we're going to do next.
+
+380
+00:56:33.960 --> 00:56:42.570
+Before we do that, let's just refreshing, make sure everything's still loading and I didn't make any typos. Notice the cat is way down here, we may eventually decided to refine
+
+381
+00:56:43.080 --> 00:57:00.930
+The way we randomly placed the cat. So it's not so far off the stage as it seems to be, but for now looks like our create code block set up our game environment looks. Looks pretty solid right now. Let's go make the update loop with an employee actually happens.
+
+382
+00:57:02.580 --> 00:57:13.350
+So I'm going back up to where I created my game just to refresh. We're basically giving our three blocks a code to Fazer right when we make the game we're handing it for the preload property.
+
+383
+00:57:13.920 --> 00:57:22.980
+The block of code that's named in my function on their mind 38 called My preload code for the Create property. We're giving it my create code. And then finally,
+
+384
+00:57:23.430 --> 00:57:34.020
+My update code. That's the last function, I need to populate with statements and Javascript, and these are going to get run over and over again. So everything
+
+385
+00:57:35.280 --> 00:57:36.360
+Inside this
+
+386
+00:57:37.650 --> 00:57:37.980
+Early
+
+387
+00:57:56.610 --> 00:57:57.330
+Does it for me.
+
+388
+00:57:58.350 --> 00:58:05.400
+I'm going to do is write one set of code here and really the thing I want to do. Mostly. Mostly in the loop.
+
+389
+00:58:06.840 --> 00:58:09.750
+Me check for arrow keys.
+
+390
+00:58:11.370 --> 00:58:11.730
+And move
+
+391
+00:58:16.470 --> 00:58:17.850
+I'm gonna write if statements, basically.
+
+392
+00:58:19.680 --> 00:58:32.190
+Here's my first question. The first question is about the down arrow key. If I have a variable I named cursor's when I created the Create cursor keys method call back on line 100 so I can say cursor's
+
+393
+00:58:33.450 --> 00:58:52.830
+And I'm gonna look at the left property Celeste key and it has this Boolean property called is down so cursor left is down. If that is true, somebody putting pushing the left key so have changed the placement of my catcher spray. I can refer to my catcher sprayed in the variable catcher.
+
+394
+00:58:54.150 --> 00:58:56.670
+It has an ex property and all
+
+395
+00:58:58.800 --> 00:58:59.340
+Cracked
+
+396
+00:59:00.510 --> 00:59:01.380
+Five from him.
+
+397
+00:59:19.890 --> 00:59:21.210
+The opposite direction for his
+
+398
+00:59:25.980 --> 00:59:37.470
+Add five to him. We got to have the arrow keys covered in our update leap. Let's see if the left and right arrow keys work. So it just saved him back to the place where I'm viewing this and refresh.
+
+399
+00:59:42.855 --> 00:59:55.800
+And I'm trying my left and right arrow keys and see my little guys moving around the stage. That's pretty cool. Getting control over him, nothing happens for the up and down arrows, because I don't have conditional statements written yet for him.
+
+400
+00:59:57.270 --> 01:00:00.645
+So let's hop back over here and add the missing pair.
+
+401
+01:00:02.460 --> 01:00:10.620
+Of conditional will look at the up key next tech is is down flag and if it's pushed
+
+402
+01:00:11.730 --> 01:00:17.190
+Will change catcher dot. Why is why property corresponds to his coordinate
+
+403
+01:00:18.900 --> 01:00:20.250
+And if we're going down.
+
+404
+01:00:26.580 --> 01:00:38.670
+While we're going up here so it will subtract five from this why remember the zero position in the why is the top of the screen. So if we want to move up further
+
+405
+01:00:42.960 --> 01:00:43.740
+Down key.
+
+406
+01:00:55.290 --> 01:00:59.100
+Property catcher y equals catcher why
+
+407
+01:01:00.360 --> 01:01:04.410
+Five. Alright, I've got all for arrow keys covered
+
+408
+01:01:06.060 --> 01:01:06.960
+Let's go back.
+
+409
+01:01:08.460 --> 01:01:09.660
+And reload the game.
+
+410
+01:01:11.610 --> 01:01:20.010
+And see if we can move around and I can move up, down, left and right now if I hold them both down at once. You might notice can pretty much moved diagonally.
+
+411
+01:01:21.600 --> 01:01:27.840
+fluid movement pretty fast update. Of course, there's very little going on in this game. I run into the cat. Nothing's happening right now.
+
+412
+01:01:28.800 --> 01:01:43.620
+While my physics are unable to detect collisions inside the upbeat, a big game loop walk a code that I need to ask if the collisions happening. I need to deal with the collision myself. So now let's check
+
+413
+01:01:46.350 --> 01:01:47.970
+To see if cat.
+
+414
+01:01:50.430 --> 01:01:51.060
+Colliding
+
+415
+01:01:53.400 --> 01:02:04.230
+So we're going to ask the physics properties arcade property. So I'm gonna write game physics arcade. It has a method called overlap built in.
+
+416
+01:02:06.750 --> 01:02:07.770
+And overlap.
+
+417
+01:02:11.220 --> 01:02:17.100
+Arcade overlap. It takes some arguments again write them up here.
+
+418
+01:02:19.590 --> 01:02:23.400
+See what information we're getting to the overlap. First is
+
+419
+01:02:25.050 --> 01:02:25.530
+A
+
+420
+01:02:26.700 --> 01:02:27.390
+Holding
+
+421
+01:02:31.110 --> 01:02:34.590
+One of the sprites want to check the second one is the second variable holding
+
+422
+01:02:38.760 --> 01:02:39.930
+And then the third one.
+
+423
+01:02:41.820 --> 01:02:42.930
+block of code.
+
+424
+01:02:55.800 --> 01:03:04.230
+Basically three different things inside the parentheses on the front lines just to make it easy to spell this out. So we're looking to see if the catcher.
+
+425
+01:03:04.830 --> 01:03:20.940
+Is colliding with the cat. So those two javascript variables will give pointer to my catcher sprite and a pointer to my cat sprite to him. And then the third thing is another named block of code and other function that I need.
+
+426
+01:03:21.990 --> 01:03:26.670
+And I haven't created that yet. We'll call him. Let's see, do something like
+
+427
+01:03:29.700 --> 01:03:29.910
+This
+
+428
+01:03:31.320 --> 01:03:43.020
+So when the cat gets hit by the catcher we need another block of code again you can see Cloud nine is complaining saying you can't hit is not defined. It's true. I need to define that.
+
+429
+01:03:44.520 --> 01:03:58.440
+But I have made now everything I need. And the update loop to handle moving the catcher around and detecting when the catcher is touching the cat is thing to do is to walk a code.
+
+430
+01:04:00.360 --> 01:04:01.740
+Run collision.
+
+431
+01:04:04.350 --> 01:04:12.930
+Another function rice can't get back there and line 133. And so when I create the function statement. All right. Do cat hit
+
+432
+01:04:13.440 --> 01:04:19.770
+And in this case, round parentheses, that are empty there to let javascript. No, I'm really making a function that could take arguments.
+
+433
+01:04:20.250 --> 01:04:29.760
+And the other container. I'll make after the round parentheses are those curly braces that hold my block code. Now, when they run into each other. I want to increase the score.
+
+434
+01:04:32.340 --> 01:04:38.760
+So I'm gonna go score value and I can use the increment operator for shorthand here I could you C plus plus.
+
+435
+01:04:40.500 --> 01:04:41.730
+Plus is same
+
+436
+01:04:43.440 --> 01:04:52.500
+Score value equals or value a swan. It's operator too easy way of adding one in shorthand.
+
+437
+01:04:54.540 --> 01:04:55.770
+Want to show the new score.
+
+438
+01:04:56.880 --> 01:05:10.890
+Update My guy up there, who is X score and I will set his text built in method you're doing that, called set text and I'll pick the score value and again I'll convert it to a string.
+
+439
+01:05:12.240 --> 01:05:24.000
+In the built in method to do that. And so inside of the parameter set text argument I give it is a string version of the numbers stored in score value. So that's what happens there now.
+
+440
+01:05:26.490 --> 01:05:26.760
+This
+
+441
+01:05:30.150 --> 01:05:31.170
+Keep happening.
+
+442
+01:05:38.160 --> 01:05:48.330
+Let me demonstrate that making that comment here because there's one more step, we have to take to make this really a little more playable. But let's do a play test to see if you can see what it is.
+
+443
+01:05:49.590 --> 01:05:55.650
+We'll go back to the game and reload it in the browser. And I gotta go find the cat cast down here.
+
+444
+01:05:57.060 --> 01:06:02.970
+And I don't know if you notice the score in the upper left. Well, there's a collision happening. Remember I said the update
+
+445
+01:06:03.600 --> 01:06:13.920
+game loop runs automatically over and over again thanks to phasers engine right now. I'm still colliding with the cat and I haven't told the game.
+
+446
+01:06:14.580 --> 01:06:23.100
+Move any of the sprites when a collision happens and that collision. We'll just keep getting reported each time that game with runs forever and ever.
+
+447
+01:06:23.520 --> 01:06:31.770
+So that's not really the gameplay. I wanted, because this is way too easy to get a high score at what I should really do is I'm going to move the cat sprite after the collision.
+
+448
+01:06:33.480 --> 01:06:37.320
+So inside of our do cat hit function.
+
+449
+01:06:38.940 --> 01:06:40.770
+So let's the cat.
+
+450
+01:06:42.570 --> 01:06:57.450
+And I'll just do that because I have access to the pat Sprite in a Javascript variable with an occasional sake cat dot x equals get another randomization simple for now. So I'll use the built in random method of the javascript browsers math.
+
+451
+01:06:59.010 --> 01:07:00.270
+Virtual mathematician.
+
+452
+01:07:01.500 --> 01:07:04.500
+And will multiply that again by the game with
+
+453
+01:07:05.580 --> 01:07:23.190
+Game with with with property from my game object from a game, it'll be the same kind of operation on why position. This time I multiply a random number by the height of the game should move the cat out of the way we hope. Now let's see what happens.
+
+454
+01:07:27.780 --> 01:07:34.260
+So the cat move. Now, I don't know where the cat went can't seem to in cat tidy over here. No.
+
+455
+01:07:35.910 --> 01:07:37.650
+I wonder if it went off the stage.
+
+456
+01:07:39.300 --> 01:07:43.410
+We're multiply it, it could go very far over to the edge of the screen.
+
+457
+01:07:44.820 --> 01:07:46.170
+And that might be gameplay issue.
+
+458
+01:07:48.450 --> 01:07:56.520
+But now I'm kind of getting him running around, and I see a comment in chat from one of the people joining me live here. So let's go check out what's going on in the chat.
+
+459
+01:07:57.780 --> 01:07:58.860
+Ah, thank you Greg.
+
+460
+01:08:00.240 --> 01:08:14.100
+Was hiding over there in the far right. And so, you know, the logic we have let's it possibly put the cats exposition right at the very far edge, like you were saying the far right. And so, you know,
+
+461
+01:08:15.300 --> 01:08:16.890
+We, we could subtract
+
+462
+01:08:20.310 --> 01:08:30.330
+Cat with itself from that that might help us keep it from going off stage and could do the same thing to the it
+
+463
+01:08:31.320 --> 01:08:48.870
+This way the cat will never fall off the right hand edge or the bottom because will allow it. Go all the way up to the width, but then will subtract from the random number we get from the game with the full width of the cat. Let's see if that works. Oh yeah, I see him wherever here again.
+
+464
+01:08:51.090 --> 01:08:54.990
+So that's kind of keeping him in the live stage area, pretty much.
+
+465
+01:08:56.190 --> 01:08:59.340
+And now you know the score seems a little more reasonable. I'm running around.
+
+466
+01:09:00.345 --> 01:09:12.630
+You know, we can introduce other things to this game. I'm going to run at a time. As you might have seen my screen test flyby here I have a meeting to go to on campus. But I think this is my complete demo with one last flourish. I'll show you.
+
+467
+01:09:14.100 --> 01:09:18.120
+Now, when we update the score and after we move the
+
+468
+01:09:32.190 --> 01:09:32.850
+game was over.
+
+469
+01:09:37.980 --> 01:09:48.870
+Could say something like, if the value in the score variable is, you know, greater than 10, for instance, we could say an alert on the screen, you want
+
+470
+01:09:49.890 --> 01:09:56.850
+An alert to built in javascript method of the window object. If we wanted to be really proper, we could say window alert.
+
+471
+01:09:57.960 --> 01:09:59.130
+Alert. But you can also write it
+
+472
+01:10:01.560 --> 01:10:02.400
+Just reading alert.
+
+473
+01:10:04.680 --> 01:10:14.100
+If we save that and we run it back one more time and a little bit of time left here let's even get 10 points really quickly get to three, where are you black cat for
+
+474
+01:10:15.900 --> 01:10:20.580
+Five. Now, you can imagine, there's a lot of variations, we can start to introduce to a game like this, we can introduce
+
+475
+01:10:21.150 --> 01:10:28.260
+Level structure where there are platforms we can introduce jumping. We could introduce other kinds of sprites, that might be enemies.
+
+476
+01:10:28.800 --> 01:10:36.780
+And when we detect collisions with those sprites, we could say that the catcher has died, you also start keeping track concept of
+
+477
+01:10:37.470 --> 01:10:46.500
+A number of lives just like we have a score variable, we can have a lives variable, you can see I got up to 11 and the alert got thrown telling me I one that's kind of
+
+478
+01:10:47.250 --> 01:11:01.920
+Far as I'm going to take this demo for now you look in Chapter three of the Travis files book, he'll do a walk through, but there's own kind of running narrative for you in his text of building a game, just like this. This is based directly on his demo.
+
+479
+01:11:03.060 --> 01:11:09.300
+And I hope the course of the next week or so you'll have time to go in and build your first Fazer game.
+
+480
+01:11:09.780 --> 01:11:19.260
+Check out things like the Fazer documentation site. If you have questions about how Fazer works, you can look up all the methods that I used here today inside of
+
+481
+01:11:20.160 --> 01:11:30.270
+The face or see documentation also find examples of pretty much everything we did here today, for example, that whole category, known as arcade physics. While there are 50
+
+482
+01:11:30.780 --> 01:11:45.810
+Code demonstrations of different things you can do with our paid physics and Fazer all built in to the Fazer dot io example site. Remember to be looking for the two or see when you're using Fazer because we want to avoid version three
+
+483
+01:11:48.930 --> 01:11:50.010
+And with that all said
+
+484
+01:11:53.700 --> 01:12:00.900
+The things to think about between now and next meeting. Please do dive into the online textbook and get your javascript chops.
+
+485
+01:12:01.680 --> 01:12:07.500
+Up by getting the chapters two and three and checking out some of the little puzzles, they have at the end of those chapters to see what you think.
+
+486
+01:12:08.250 --> 01:12:12.060
+Capra three will do the blow by blow walkthrough of the demo, I just did.
+
+487
+01:12:12.780 --> 01:12:20.730
+And then hop into first Fazer game where you're going to be asked to build a variation on this game. The cat catcher turn it in by next Thursday.
+
+488
+01:12:21.120 --> 01:12:36.210
+And I want to give everybody a full week to work on this from the screen time. So although our new module opens on Wednesday, you'll actually have till Thursday of next week, fairness in. And again, there's a support and sharing discussion. So please feel free to share your
+
+489
+01:12:37.425 --> 01:12:51.270
+When you're working on this. And any questions you have. And I'll jump in and check out what you're doing. Thanks for joining me today folks that came in live and look forward to seeing what he creates with our fabulous game engine Fazer
+

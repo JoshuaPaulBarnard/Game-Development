@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Site</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="jquery-ui.css"/>
+  <script src="jquery.js"></script>
+  <script src="jquery-ui.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="week5.css"/>
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <script>
+      // The Dialog Box for Winning
+      $(document).ready(function() {
+          $("#WinDialog").dialog(
+            {
+                autoOpen: false
+            }
+          );
+      });
+
+      // The Thank You Dialog Box when submitting survey
+      $(document).ready(function() {
+          $("#SurveyDialog").dialog(
+            {
+                autoOpen: false
+            }
+          );
+      });
+
+      $(document).ready(function() {
+          $("#about").accordion();
+      });
+
+      $(document).ready(function() {
+          $("#ageSpin").spinner(
+            {
+                min: 1,
+                max: 100
+              }
+          );
+      });
+
+      $(document).ready(function() {
+          $("#genderMenu").selectmenu(
+            {
+              width:200
+            }
+          );
+      });
+  </script>
+
+</head>
+
+<body style="background-image: url(http://student.santarosa.edu/~jbarnard/images/background.jpg); font-size: 16px;">
+
+  <div class="container visible-xs-block visible-sm-block visible-md-block visible-lg-block">
+    <div class="page-header">
+      <h1>Its the Color Match Game!  <small style="color:DarkSlateGray">Do You have what it takes to Win?</small></h1></div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div id="WinDialog" title="You Win!">
+          <p>You are truly the master of the universe, as you can see colors!</p></div>
+        <div id="SurveyDialog" title="Thank You">
+          <p>Thank You, You truly are the best.</p></div>
+        <div id="colorbox"></div>
+        <div id="drop-zones"></div>
+
+        <script type="text/javascript">
+
+          // Location of progress bar
+          $(document).ready(function() {
+              $("#progBar").progressbar({
+                  value: $(".filled").length,
+                  max: 6
+              });
+          });
+
+          // this function will randomly sort all of the elements in an array passed to it
+          function randomize( my_array ) {
+            return my_array.sort(
+              function() {
+                return 0.5 - Math.random();
+              }
+            );
+          };
+
+          // set up a counter variable once to use in each for loop
+          var counter;
+
+          // create an array of named colors that CSS understands
+          var colors = [ "red", "blue", "green", "yellow", "purple", "black" ];
+
+          // randomize colors array first time
+          randomize( colors );
+
+          // loop though each element in the colors array
+          for ( counter = 0; counter < colors.length; counter++ ) {
+            // create a div inside #colorbox for each color, style and make draggable
+            $("<div>")
+              .attr( "id", colors[counter] )
+              .css( "background", colors[counter] )
+              .appendTo( "#colorbox" )
+              .draggable(
+                {
+                  revert: "invalid",
+                  zIndex: 2
+                }
+              );
+          }
+
+          // randomize colors array again
+          randomize( colors );
+
+          // loop though each element in the colors array again
+          for ( counter= 0; counter < colors.length; counter++ ) {
+            // create a div inside #drop-zones for each color, set text contents to color
+            $("<div>")
+              .text( colors[counter] )
+              .appendTo( "#drop-zones" );
+          }
+
+          // now have jQuery find all divs inside #drop-zones and enable droppable
+          $("#drop-zones > div").droppable(
+            {
+              // set accept drop function
+              accept: function( draggable ) {
+                return $( this ).text() == draggable.attr( "id" );
+              },
+              // set drop function to run if accept returns true
+              drop: function( event, ui ) {
+                var color = ui.draggable.css( "background-color" );
+                $( this ).css( "background", color ).addClass( "filled" );
+                ui.draggable.hide( "puff" );
+
+                // counting successes, updating progress bar and determining if player won or not.
+                var correct = $(".filled").length
+                $('#progBar').progressbar('value',correct);
+                if ( correct === colors.length ) {
+                  $('#WinDialog').dialog('open');
+                }
+              }
+            }
+          );
+        </script>
+      </div><div class="clearfix visible-xs-block"></div><div class="clearfix visible-sm-block"></div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+        <div id="progBar" class="progressbar"></div>
+        <br /><br />
+
+        <p style="text-align:center; font-size:30px">About The Game</p>
+        <br />
+        <div id="about">
+            <h3>Color-Match Game</h3>
+            <div>
+                <p>In 1972 the Government created this color-matching game to determine the most intelligent people in the world, in order to seperate them from the general population and create genetic copies based off their DNA in the hopes to create a race of super intelligent humans.<br /><br />In order to complete this test you will be required to drag the colored box on the left completely ontop of the box with the corresponding colors name on the right.<br /><br />Warning:  Failure to do so may result in Government Notification and potential removal of your children by Carls Jr.<br />Carls Jr, Fuck Ya!</p>
+            </div>
+            <h3>The Creator</h3>
+            <div>
+                <p>Joshua P. Barnard<br />Santa Rosa Junior College<br />CS 55.11 - Javascript<br />Week 5<br />September 26th, 2016</p>
+            </div>
+            <h3>jQuery UI Widgets</h3>
+            <div>
+                <p>Button<br />Progress Bar<br />Date Picket<br />Select Menu<br />Spinner<br />Accordion<br />Dialog</p>
+            </div>
+        </div>
+        <br /><br />
+
+        <div style="text-align:center;">
+        <p style="font-size:30px">Survey</p>
+        <p style="font-size:22px">Age</p>
+          <form>
+        	   <input type="text" id="ageSpin" />
+          </form>
+        <p style="font-size:22px">Gender</p>
+          <form>
+                <select id="genderMenu">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </form>
+            <br />
+
+        <p style="font-size:22px">Today's Date</p>
+        <div id="datepicker-container">
+          <div id="datepicker-center">
+            <div id="datepicker"></div>
+          </div>
+        </div>
+              <script>
+              $( "#datepicker" ).datepicker();
+              </script>
+        <br />
+
+        <button onclick="$('#SurveyDialog').dialog('open');">Submit Survey</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br /><br />
+
+</body>
+
+</html>

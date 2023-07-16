@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog Catcher</title>
+    <script src="js/phaser.min.js"></script>
+    <script>
+      var game = new Phaser.Game(1024, 768, Phaser.CANVAS, null,
+        {images: images, game: game, movement: movement } );
+
+      function preload()
+        {
+          game.load.image('dog', 'imgages/dog.png');
+          game.load.image('catcher', 'imgages/catcher.png');
+          game.load.image('background', 'imgages/background.jpg');
+        }
+
+      function game()
+        {
+          var dog;
+          var catcher;
+          var cursors;
+          var txtScore;
+          var score;
+
+          game.add.sprite(0,0,"bg")
+          catcher = game.add.sprite(506, 384, "catcher");
+          catcher.anchor.setTo(.5,0);
+          game.physics.enable(catcher, Phaser.Physics.ARCADE);
+
+          dog = game.add.sprite(
+            Math.random() * game.width,
+            Math.random() * game.height,
+            "dog");
+          game.physics.enable(dog), Phaser.Physics.ARCADE);
+
+          score = 0;
+          var style = { font: "20px Arial", fill: "#FFFFFF" };
+          txtScore = game.add.text(10, 10, score.toString(), style);
+
+          cursors = game.input.keyboard.createCursorKeys();
+        }
+
+      function movement()
+        {
+          if(curors.left.isDown)
+            {
+              catcher.x -= 4;
+              catcher.scale.x = 1;
+            }
+          if(cursors.right.isDown)
+            {
+              catcher.x += 4;
+              catcher.scale.x = -1;
+            }
+          if(cursors.up.isDown)
+            {
+              catcher.y -= 4;
+            }
+          if(curors.down.isDown)
+            {
+              catcher.y += 4;
+            }
+
+          game.Physics.arcade.overlap(catcher, dog, CollisionHandler);
+          function CollisionHandler(catcherObject, dogObject)
+            {
+              dogObject.x = Math.random() * game.width;
+              dogObject.y = Math.random() * game.height;
+              score = score + (Math.random() * 10);
+              txtScore.setText(score.toString());
+            }
+        }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

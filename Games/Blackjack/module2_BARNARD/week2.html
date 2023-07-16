@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blackjack</title>
+
+	<script src="jquery-1.12.0.min.js"></script>
+	<script src="playingCards.js"></script>
+	<script src="playingCards.ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="playingCards.ui.css">
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body style="background-image: url(http://student.santarosa.edu/~jbarnard/images/background.jpg); font-size: 16px;">
+	<h2>Playing Cards and Conditionals</h2>
+
+	<!-- step 3: provide user interface for the game in html -->
+	<div id="controls">
+		<button type="button" onclick="startRound();">Start Blackjack</button>
+		<button class="dbutton" type="button" onclick="drawPlayer1();">Player 1 draw</button>
+		<button class="dbutton" type="button" onclick="drawPlayer2();">Player 2 draw</button>
+	</div>
+
+	<h3 id="results">
+	</h3>
+
+	<div>
+		<h5>Player 1</h5>
+		<div id="cardtray1">
+		</div>
+		<h4 id="scoreboard1" style="clear:both; padding:5px; margin:1px;">
+		</h4>
+	</div>
+
+	<div>
+		<h5>Player 2</h5>
+		<div id="cardtray2">
+		</div>
+		<h4 id="scoreboard2" style="clear:both; padding:5px; margin:1px;">
+		</h4>
+	</div>
+
+	<!-- step 4: create the game (logic and flow) in javascript -->
+	<script>
+		// set up dealer and player scores to keep track of...
+		var dealerScore, playerScore;
+
+		// set up dealer and player hands - list of cards for each player
+		var dealerHand, playerHand;
+
+		// create a virtual deck of playing cards using the github project's code
+		// playingCards() is part of the github project's code we are using
+		var cardDeck = $('#cardtray').playingCards();
+
+		// shuffle the virtual deck of cards
+		// shuffle() randomizes the order of all cards in the virtual deck
+		cardDeck.shuffle();
+
+
+		// this function cleans up the UI and resets score and hand variables
+		function startRound() {
+			// clear cardtrays
+			$('#cardtray1, #cardtray2, #scoreboard').empty();
+			$('.dbutton').removeAttr('disabled');
+
+			dealerScore = 0;
+			playerScore = 0;
+
+			dealerHand = [];
+			playerHand = [];
+
+			// the dealer's hand will result in a score for the dealer
+			drawCards(1, 2, dealerScore, dealerHand);
+
+			// the dealer's hand will result in a score for the dealer
+			drawCards(2, 2, playerScore, playerHand);
+		}
+
+		// this function draws 1 or more cards for either player
+		function drawCards( player_number, card_count, score, hand ) {
+			// draw 2 cards for the dealer and save them in his hand
+			for (var i = 1; i <= card_count; i = i + 1) {
+				// draw the card from the deck
+				var card = cardDeck.draw();
+				// console.log(card);
+
+				// evaluate the score the dealer earns for the current card
+				switch ( card.rank ) {
+					case "2":
+						score = score + 2;
+						break;
+					case "3":
+						score = score + 3;
+						break;
+					case "4":
+						score = score + 4;
+						break;
+					case "5":
+						score = score + 5;
+						break;
+					case "6":
+						score = score + 6;
+						break;
+					case "7":
+						score = score + 7;
+						break;
+					case "8":
+						score = score + 8;
+						break;
+					case "9":
+						score = score + 9;
+						break;
+					case "10":
+						score = score + 10;
+						break;
+					case "J":
+						score = score + 10;
+						break;
+					case "Q":
+						score = score + 10;
+						break;
+					case "K":
+						score = score + 10;
+						break;
+					case "A":
+						score = score + 11;
+						// if using 11 for ace goes over 21, switch to use 1 for ace
+						if ( score > 21) {
+							score = score - 10;
+						}
+						break;
+				}
+
+
+				hand.push(card);
+				// render the card into the page
+				var markup = card.getHTML();
+
+				if (player_number == 1) {
+					$('#cardtray1').append(markup);
+					// update the dealer score
+					dealerScore = score;
+					$('#scoreboard1').html(dealerScore);
+					// save the card to dealer hand array
+					dealerHand.push( card );
+				} else {
+					$('#cardtray2').append(markup);
+					// update the player score
+					playerScore = score;
+					$('#scoreboard2').html(playerScore);
+					// save the card to player hand array
+					playerHand.push( card );
+				}
+				console.log('dealer:' + dealerScore);
+				console.log('player:' + playerScore);
+			}
+		}
+
+		// this function draws another card for the player
+		function drawPlayer1() {
+			drawCards(1, 1, dealerScore, dealerHand);
+
+			if ( dealerScore > 21 ) {
+				$('.dbutton').attr('disabled','disabled');
+				alert("YOU BUST!  Player 1 Looses");
+			}
+		}
+		function drawPlayer2() {
+			drawCards(2, 1, playerScore, playerHand);
+
+			if ( playerScore > 21 ) {
+				$('.dbutton').attr('disabled','disabled');
+				alert("YOU BUST!  Player 2 Looses");
+			}
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+00:49:58	Michael Rosenhahn:	Are parameters allowed to be passed via Signals?
+00:52:04	Michael Rosenhahn:	so in the dispatch mutliable args will be send in array form or comma seperated?
+00:56:20	Michael Rosenhahn:	How are we to share our projects with others?
+01:05:06	Michael Rosenhahn:	it really is not a bad process, I have used it at my day job
+01:05:29	Michael Rosenhahn:	show disco
+01:06:09	Michael Rosenhahn:	multi tasking at work

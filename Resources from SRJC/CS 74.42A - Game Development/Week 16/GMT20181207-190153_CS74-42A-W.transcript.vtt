@@ -1,0 +1,194 @@
+WEBVTT
+
+1
+00:00:09.690 --> 00:00:14.340
+Welcome. It's week 16 already and we are in game development.
+
+2
+00:00:16.049 --> 00:00:16.710
+We are in
+
+3
+00:00:17.880 --> 00:00:28.920
+The final build and play tests sprints, as we head to the end of the semester and hopefully the game prototype that you are happy to have been involved with
+
+4
+00:00:30.540 --> 00:00:32.910
+This week's presentations relatively brief.
+
+5
+00:00:34.050 --> 00:00:43.410
+mostly focused on kind of a recap of the process that we're in and some more encouragement to jump in and share your game.
+
+6
+00:00:47.760 --> 00:01:04.500
+We've got one more week of regular classes during which time we'll tackle sprint number three. Our final sprint and then during week 18 the final exam week where a final exam will be available online in Canvas. You're invited to turn in your final project at that point.
+
+7
+00:01:06.960 --> 00:01:11.250
+Here's a little detailed bird's eye view of this week, and the next two weeks.
+
+8
+00:01:12.270 --> 00:01:14.160
+Remember to share a URL.
+
+9
+00:01:15.240 --> 00:01:20.730
+For your in progress word if you're trying to figure out what URL to share. I just want to show you
+
+10
+00:01:21.750 --> 00:01:25.710
+An example from one of our classmates here is
+
+11
+00:01:27.870 --> 00:01:30.870
+A preview URL for an in progress prototype.
+
+12
+00:01:31.980 --> 00:01:34.020
+And it looks like it's going to be pretty cool.
+
+13
+00:01:35.970 --> 00:01:42.390
+Interesting stuff going on. And what I really want to call to your attention, however, is the format of the URL.
+
+14
+00:01:43.590 --> 00:01:45.510
+Because Cloud nine restricts
+
+15
+00:01:46.920 --> 00:02:06.150
+Others from actually running your Apache web server to view your work in progress, you'll need to use the Live Preview URL you can find that on the Cloud nine menu bar. I'll show you real quick. In this workspace from one of our classmates.
+
+16
+00:02:07.200 --> 00:02:09.210
+So if you're working with a build system.
+
+17
+00:02:10.620 --> 00:02:12.150
+Or if you're working straight with
+
+18
+00:02:16.110 --> 00:02:29.280
+On compiled code. The thing to do in Cloud nine is to open up the HTML file that hosts your games code. So here's the HTML file for this build system based final game.
+
+19
+00:02:30.000 --> 00:02:38.700
+And once you have that open in front most in the editor, go to the preview menu in Cloud nine menu bar and choose Live Preview, File. Now, for whatever
+
+20
+00:02:39.780 --> 00:02:48.030
+Reason the user interface of Cloud nine actually opens the preview here in a tab to get the full URL, click on the little button here in this
+
+21
+00:02:48.420 --> 00:02:59.430
+Browser panel to pop out into a new window, the whole thing. And from there you can copy the preview URL. This is the only form of the URL that cloud nine will actually serve
+
+22
+00:02:59.970 --> 00:03:06.960
+To any visitors who don't have read write access to your workspace. So keep that in mind. And please share your URLs.
+
+23
+00:03:07.620 --> 00:03:14.700
+Great for all of us to see everybody's working progress and get inspired and to play the games that you're building and give you feedback.
+
+24
+00:03:15.240 --> 00:03:30.030
+And so we'll continue this pattern for the next week after this one. So this week and next week. And then when we get to week 18 the finals week. The project is due, and you'll be invited to share your final link in a
+
+25
+00:03:31.350 --> 00:03:35.010
+Project presentation discussion that will open up during finals week
+
+26
+00:03:36.600 --> 00:03:37.140
+So,
+
+27
+00:03:38.340 --> 00:03:46.920
+Small steps. Remember this a prototype doesn't have to be a finished polished complete game that can take a team and many months to really build
+
+28
+00:03:47.310 --> 00:03:56.670
+And remember that we're working on a development process that is an agile process known as Scrum and this idea of weekly sprints is really where we're at.
+
+29
+00:03:57.120 --> 00:04:05.910
+And so hopefully you had a chance to look at the Scrum materials last week. If you haven't yet. Check it out. It is a fabulous working methodology for teams to work together.
+
+30
+00:04:06.270 --> 00:04:11.610
+kind of define a big punch list of everything you want to do on a product backlog and then bite off.
+
+31
+00:04:12.090 --> 00:04:18.510
+Digestible portions of that to do list from product backlog dump it into a weekly Sprint Backlog
+
+32
+00:04:18.990 --> 00:04:36.240
+Work on it in parallel and in collaboration with your teammates and then do in sprint review some play testing where you can give some feedback to feedback into the next sprint until finally in sprint review you decide, hey, this is ready for release as a full increment.
+
+33
+00:04:39.180 --> 00:04:42.420
+So again, Product Backlog your complete to do list.
+
+34
+00:04:44.400 --> 00:04:59.340
+Sprint Backlog let's do list for your current focused working effort sprints in the Scrum definition range from a week to a month and length and really usually not longer than a month because we're trying to make incremental progress.
+
+35
+00:05:01.890 --> 00:05:10.320
+If you were working in a team, you'd have the benefit of a Daily Scrum where you could put your heads together with your teammates who are collaborating and working in parallel with you.
+
+36
+00:05:10.680 --> 00:05:21.210
+To try and figure out how to get around obstacles that you individually may have encountered how to keep your progress going so you can check off that Sprint Backlog list and make
+
+37
+00:05:22.620 --> 00:05:26.700
+It across the sprint. Finish line to a play testing review.
+
+38
+00:05:32.280 --> 00:05:46.770
+This Week in the course materials week 16 there is a quiz. This week, looking backwards at Fazer and JavaScript, it should be pretty easy for all of you to accomplish this.
+
+39
+00:05:47.310 --> 00:06:01.170
+And we've got a final discussion open with an article from Gamasutra from a few years ago by a fellow named Allister doolan and it's all about building a strong, independent game development team.
+
+40
+00:06:02.040 --> 00:06:10.830
+There is a great opportunity here in Sonoma County and in Northern California and the greater bay area to work collaboratively.
+
+41
+00:06:11.460 --> 00:06:27.000
+In indie game teams. If you've got a game idea and you want to push it forward. Work with your friends solicit colleagues find students have a like mind who want to work with you and think about the different roles.
+
+42
+00:06:28.320 --> 00:06:30.150
+That each of you may take on
+
+43
+00:06:33.120 --> 00:06:36.450
+It's a great simple article. It's really quite short.
+
+44
+00:06:37.680 --> 00:06:47.790
+And I'm hoping everybody have a chance to read that and share your thoughts about what it might be like to work on an indie team and the discussion that runs for the next two weeks. This week and next week.
+
+45
+00:06:49.830 --> 00:06:56.790
+And that's all I really have to share today with you. I'm going to be lurking on canvas looking for people's
+
+46
+00:06:58.080 --> 00:07:04.920
+Links to their game prototypes. I'm going to be hoping to see some stuff coming through there and I want to thank all of you for
+
+47
+00:07:05.400 --> 00:07:20.160
+Making it this far, we're very close to the finish line. Keep your spirits up and keep pushing forward. Remember, it's a prototype. Keep the extra credits mantra in mind, you're trying to build a minimum viable product.
+
+48
+00:07:21.810 --> 00:07:24.960
+And I'll see you online. Thanks for joining me this week.
+

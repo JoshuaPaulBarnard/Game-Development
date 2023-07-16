@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog Catcher</title>
+    <script src="js/phaser.min.js"></script>
+    <script>
+      var DogCatcherGame = new Phaser.Game(1024, 768, Phaser.CANVAS, null,
+        {images: images, game: game, movement: movement} );
+
+      function images()
+        {
+          DogCatcherGame.load.image('dog', 'imgages/dog.png');
+          DogCatcherGame.load.image('catcher', 'imgages/catcher.png');
+          DogCatcherGame.load.image('background', 'imgages/background.jpg');
+        }
+
+      function game()
+        {
+          var dog;
+          var catcher;
+          var cursors;
+          var txtScore;
+          var score;
+
+          DogCatcherGame.add.sprite(0,0,"background")
+          catcher = DogCatcherGame.add.sprite(506, 384, "catcher");
+          catcher.anchor.setTo(.5,0);
+          DogCatcherGame.physics.enable(catcher, Phaser.Physics.ARCADE);
+
+          dog = DogCatcherGame.add.sprite(
+            Math.random() * DogCatcherGame.width,
+            Math.random() * DogCatcherGame.height,
+            "dog");
+          DogCatcherGame.physics.enable(dog, Phaser.Physics.ARCADE);
+
+          score = 0;
+          var style = { font: "20px Arial", fill: "#FFFFFF" };
+          txtScore = DogCatcherGame.add.text(10, 10, score.toString(), style);
+
+          cursors = DogCatcherGame.input.keyboard.createCursorKeys();
+        }
+
+      function movement()
+        {
+          if(curors.left.isDown)
+            {
+              catcher.x -= 4;
+              catcher.scale.x = 1;
+            }
+          if(cursors.right.isDown)
+            {
+              catcher.x += 4;
+              catcher.scale.x = -1;
+            }
+          if(cursors.up.isDown)
+            {
+              catcher.y -= 4;
+            }
+          if(curors.down.isDown)
+            {
+              catcher.y += 4;
+            }
+
+          // This will cause the dog to move randomly every 2.5 seconds
+          setInterval(dogWander, 2500)
+          function dogWander()
+            {
+              dog.x += Math.random() * 10;
+              dog.x -= Math.random() * 10;
+              dog.y += Math.random() * 10;
+              dog.y -= Math.random() * 10;
+            }
+
+          // This function handles the collision between dog and catcher
+          DogCatcherGame.Physics.arcade.overlap(catcher, dog, CollisionHandler);
+          function CollisionHandler(catcherObject, dogObject)
+            {
+              dogObject.x = Math.random() * DogCatcherGame.width;
+              dogObject.y = Math.random() * DogCatcherGame.height;
+              score = score + (Math.random() * 10);
+              txtScore.setText(score.toString());
+            }
+        }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,1398 @@
+WEBVTT
+
+1
+00:00:11.040 --> 00:00:11.309
+Well,
+
+2
+00:00:12.929 --> 00:00:15.480
+Game Development. It is
+
+3
+00:00:16.500 --> 00:00:18.810
+Time to talk about physics again.
+
+4
+00:00:23.970 --> 00:00:31.170
+In this week, we'll look at a second of the three built in physics engines that the Fazer library comes with
+
+5
+00:00:32.730 --> 00:00:33.180
+Every
+
+6
+00:00:34.290 --> 00:00:45.060
+Example of a physics engine that we've worked with to date in class materials has been based on the simplest one of the three engines. The one known as the arcade physics engine.
+
+7
+00:00:46.500 --> 00:01:02.760
+Today we're going to kick it up a notch and look at the P to physics engine, which has a whole suite of advanced simulation capabilities as we think about our game world being
+
+8
+00:01:03.540 --> 00:01:15.000
+A virtual physical world where objects can interact with each other and the game engine with P to physics enabled can help us to calculate
+
+9
+00:01:15.450 --> 00:01:27.300
+The way those objects would respond much more closely based on real world behaviors. And so we'll see some new concepts this week that P to physics introduces
+
+10
+00:01:27.720 --> 00:01:38.070
+And in the assignment this week you'll be asked to step aside from any work that you've been intuitively developing and build a small p to physics based game. If you haven't done that yet.
+
+11
+00:01:38.640 --> 00:01:46.110
+In your own initiative, which I think a couple people actually have in this semester. So for at least a couple of you. This may be
+
+12
+00:01:48.360 --> 00:01:54.420
+In our class presentation today, something that you've already discovered on your own and because of the power and the complexity and
+
+13
+00:01:54.900 --> 00:02:10.950
+Numerous capabilities of P to physics in my hour today. I'm only going to scratch the surface. And so I'll give you jumping off references to some other tutorials online in Canvas, they're linked and I'll demonstrate one of those as we go into the material today.
+
+14
+00:02:12.960 --> 00:02:21.990
+So we're at a great place right now in the class. We've climbed up to the top, we made it through the first half of our materials.
+
+15
+00:02:22.500 --> 00:02:44.190
+And next week we'll have a chance to step away from code. There's no gaming Code project do and week 11 instead, we will have a midterm exam and I'll do a review session during our regular scheduled weekly screen cast. You'll also have a chance to turn your attention to being
+
+16
+00:02:45.330 --> 00:02:53.430
+A game design screenwriter, if you will. Everybody's going to have an opportunity to write an initial draft.
+
+17
+00:02:53.850 --> 00:03:03.660
+Of a game proposal that they'd like to try and work on for the rest of the semester. The format the template for doing that is a document known as a game design document.
+
+18
+00:03:04.260 --> 00:03:15.480
+developers often call that a GTD in the game world. So it's basically the elevator pitch, plus some more details to describe gameplay and characters and motivations and
+
+19
+00:03:16.170 --> 00:03:24.000
+The whole mechanics dynamics and aesthetics breakdown of a game just kind of thinking about it, architecturally
+
+20
+00:03:24.930 --> 00:03:38.670
+Will have a chance to be 12 for everybody to share the draft that they built and to look at each other's game ideas and to get feedback because in the real world making a game is enriched and really
+
+21
+00:03:40.410 --> 00:03:50.460
+I think exponentially improved in terms of its outcomes when a team is involved that team could be a developer and a tester that team could be a developer or designer.
+
+22
+00:03:50.880 --> 00:03:55.110
+And some play testers. There's lots of ways these teams can be built very small
+
+23
+00:03:55.530 --> 00:04:05.880
+In their scale in terms of number of people. And then when we think about triple A Game Studios where they're building multimillion dollar titles, those teams may grow too many dozens or even hundreds of people
+
+24
+00:04:06.690 --> 00:04:16.410
+Working on a single game title is in the game design document really is the blueprint. The guiding core document that any game.
+
+25
+00:04:17.520 --> 00:04:26.340
+Project oriented itself from and and builds from so we'll check that out in week 11 I'm going to share with everybody next week.
+
+26
+00:04:27.090 --> 00:04:34.290
+In week 11 a bunch of sample games working sample games from our textbook all the examples that appear in chapter seven.
+
+27
+00:04:34.740 --> 00:04:45.420
+I'll share with you. And one of the options for everybody in building their GTD plan is to riff on why the example games from the textbook and think about ways you might want to extend it.
+
+28
+00:04:46.290 --> 00:05:06.090
+Or of course you're invited to build your own game from scratch, as well. But again, keep it simple. Remember our extra credits, folks. Avoid biting off too much because building a game is time consuming and takes a lot of attention to different areas of concern, if you will.
+
+29
+00:05:07.530 --> 00:05:17.430
+We 12 I'll also show folks. Well, we're looking at each other's game design documents some advanced ways to work with Fazer using build systems on cloud nine
+
+30
+00:05:18.180 --> 00:05:27.690
+Where you can kind of better factor and articulate your code into separate files up till now, again I built all my examples using procedural based
+
+31
+00:05:28.500 --> 00:05:40.200
+Code straightforward as possible without getting into object oriented principles and without getting into factoring the code into different classes, but we'll see how to do that and we
+
+32
+00:05:42.780 --> 00:05:54.240
+And then we'll dive right in to building a game. Our last three regular class meetings are really going to be focused on the process that game developers and teams of game.
+
+33
+00:05:54.720 --> 00:06:02.520
+Creators work on to interactively build and play test and improve a prototype. If you get to week 18
+
+34
+00:06:02.910 --> 00:06:21.480
+With a prototype that works in some critical aspects in relation to your architectural plan from the GTD you have done amazing work everybody already who's made it this far. By the way, has done amazing work on my point we've tackled a lot of stuff in the last nine weeks.
+
+35
+00:06:23.040 --> 00:06:33.510
+Will also start next week with a separate extra credit track looking at another game engine. This is not a requirement of the class to participate in this extra credit track.
+
+36
+00:06:34.110 --> 00:06:43.470
+But if your interest is piqued and you're ready to see the principles of game development model than another game engine.
+
+37
+00:06:44.190 --> 00:06:55.590
+One that supports a three dimensional world and the physics that come along with that will start to look at unity3d which can be freely installed, it's a complete development environment.
+
+38
+00:06:56.070 --> 00:07:04.080
+Application based on your desktop available for Windows and Mac and I'll say a lot more about that next week when we dive into that.
+
+39
+00:07:07.110 --> 00:07:14.700
+Back to our friend Travis FOSS in the Fazer game development book. We've got about 13 pages to look at this week that cover.
+
+40
+00:07:15.030 --> 00:07:24.930
+Both the P to physics engine, but also some things like special effects and particle systems. I probably won't have time to demonstrate particle systems. This Week in my live
+
+41
+00:07:25.440 --> 00:07:31.350
+session with you, but I do have some sample files. I'll point out when we get into looking at cloud nine
+
+42
+00:07:31.740 --> 00:07:40.410
+And my workspace that you can spy on to see the basic mechanics of creating a particle system, which is basically in lieu of having
+
+43
+00:07:41.310 --> 00:07:51.390
+Dozens and dozens of sprites flying around your screen to do things like explosions and fire and other kinds of effects that require a lot of individual elements.
+
+44
+00:07:52.170 --> 00:08:11.490
+Particle systems in all game engines provide an underlying set of code basically an engine if you will have its own that will manage individual elements in a larger group not at the level that a group of sprites would work at but but more in the sense of a special effect.
+
+45
+00:08:14.490 --> 00:08:22.500
+This week I do have another software product to show off. It is from our friends at coding web the folks that gave us the the
+
+46
+00:08:25.680 --> 00:08:27.900
+The Fabulous texture.
+
+47
+00:08:28.920 --> 00:08:34.410
+I always forget the name of the product. Let's see. Extra packer. It's a mouthful that we use to build
+
+48
+00:08:35.070 --> 00:08:42.570
+sprite sheets and sprite atlases when we were working with tile based sprites and animation. They have another tool called physics editor.
+
+49
+00:08:43.470 --> 00:08:52.080
+Physics editor is a commercial product, but they do have a trial period that you can use it in and it's a great thing to experiment with
+
+50
+00:08:52.530 --> 00:09:03.570
+It allows you to create complex shapes for the outline of any sprite that will determine the collision area, the hit box as we like to call it.
+
+51
+00:09:04.200 --> 00:09:21.420
+In game development. So no longer will be bound by rectangle only body shapes with the key to engine. The engine gives us unique body shapes that we can work with and coding webs physics editor gives us the tool set to define an outline, that's not just a rectangle
+
+52
+00:09:24.660 --> 00:09:34.530
+So physics editor lives up there at coding web com and you can check it out. They have a tutorial for it there. They also have a tutorial show a little bit later here.
+
+53
+00:09:36.570 --> 00:09:40.620
+For working with the P two engine that demonstrates some more advanced techniques.
+
+54
+00:09:42.150 --> 00:09:55.170
+So again, remember our Fazer library that we're working with, as the community edition, also known as Fazer dash c and it's a version to product. Be careful not to accidentally get Fazer version three into the mix.
+
+55
+00:09:58.650 --> 00:09:59.130
+So,
+
+56
+00:10:00.600 --> 00:10:06.240
+A little recap about physics engines, particularly in the context of Fazer
+
+57
+00:10:07.680 --> 00:10:19.200
+The little Fazer min JS JavaScript file that we load up before we start writing our game code in the web browser has inside its code base three completely separate
+
+58
+00:10:20.190 --> 00:10:31.020
+Sections of code dedicated to different ways to model to simulate the physical world and we've spent all our time, up to now, in the semester, using the arcade physics engine.
+
+59
+00:10:32.070 --> 00:10:45.240
+Today we'll dive into p to the biggest difference. I could say about P two versus arcade is that it truly represents an effort to model the real physical world, much more closely than the arcade engine which
+
+60
+00:10:46.050 --> 00:10:51.060
+Has some very crude simulations of what happens when things collide, for example.
+
+61
+00:10:52.020 --> 00:11:05.460
+P two supports constraints springs and other kinds of complex mechanical relationships between sprites. So you can actually do. For example, bone animation, which is a concept.
+
+62
+00:11:05.850 --> 00:11:17.250
+For game development that involves basically modeling the skeleton of a player's character, where all the joints in their elbows and their wrists and their shoulders and their needs and their hips.
+
+63
+00:11:17.640 --> 00:11:25.830
+Can actually be modeled as separate elements that have relationships to each other. I'll show you in the
+
+64
+00:11:27.450 --> 00:11:37.950
+Code in web folks example there tutorial for P to how they use a little bit of that idea of a constraint to connect things together. Most importantly for us.
+
+65
+00:11:39.270 --> 00:11:52.470
+P to enables much more sophisticated collisions as well because it allows us to define UNIQUE SHAPES for each of our sprites that really map to their visual appearance, not just the rectangular box they sit in.
+
+66
+00:11:52.950 --> 00:12:02.340
+It also allows us to define different kinds of materials for each sprite and then to define some characteristics about how different materials react when they hit each other.
+
+67
+00:12:02.670 --> 00:12:10.080
+So you can have squishing materials and hard materials really start to model a much more realistic set of physical interactions.
+
+68
+00:12:11.220 --> 00:12:16.860
+The third engine ninja. We just simply don't have time to cover, but it does allow for
+
+69
+00:12:18.330 --> 00:12:21.330
+More interesting simulations than the arcade engine.
+
+70
+00:12:26.190 --> 00:12:34.590
+So a really great tutorial on P to physics, apart from what we'll do today comes from the folks that built the physics editor, the code and web com
+
+71
+00:12:35.640 --> 00:12:36.150
+Team.
+
+72
+00:12:37.980 --> 00:12:43.050
+I'll just pop up in their tutorial here for a second. When you load your tutorial, they literally have the game running
+
+73
+00:12:47.760 --> 00:13:04.410
+And you can see what the gameplay for this game has we've got a main hero character. Here's a little boy with cowlick hairdo. And he's attached to a constraint to the line that we can move around the screen.
+
+74
+00:13:05.910 --> 00:13:07.470
+By clicking on the black bar.
+
+75
+00:13:08.700 --> 00:13:12.990
+And in this simple game he's basically getting points for each of the
+
+76
+00:13:16.290 --> 00:13:27.570
+Fruits that he collides with. Notice how that outline the shape the hit box of each of the fruit sprites is very discreet
+
+77
+00:13:28.380 --> 00:13:47.130
+The banana is actually got a hit box shaped like the outline of the banana with curves, the cherries have a hit box shaped around the little elliptical fruit shapes and then the linear strokes of the cherry stems, the pineapple. Similarly, is kind of like an oval.
+
+78
+00:13:48.750 --> 00:13:59.520
+And these complex outlines or something that P to allows us to define also notice that the interactions are really complicated here a look at that he caught a pineapple.
+
+79
+00:14:00.030 --> 00:14:10.410
+Is holding on to it when any one of these objects hits each other. The P two engine automatically calculates a reaction that includes things like
+
+80
+00:14:11.250 --> 00:14:25.980
+Angular velocity. So the rotational behavior of the sprites responds, much more closely to the way they wouldn't the physical world where if we push on one edge of the banana, it starts to spin in relationship to his other axes.
+
+81
+00:14:30.570 --> 00:14:34.230
+They have a great illustration here of how the body shapes are different.
+
+82
+00:14:35.340 --> 00:14:37.950
+Boxes, we call it is
+
+83
+00:14:39.510 --> 00:14:51.600
+Only a rectangle in Arcade really were using the physics editor software they give us, we can define as discrete complex political shape with many sides.
+
+84
+00:14:52.080 --> 00:15:03.780
+Including curves and ellipses, so that the way that these sprites can interact with each other as a stroke, kind of in the screenshot is much more elaborate and more realistic.
+
+85
+00:15:04.380 --> 00:15:15.390
+The pop banana on the right in the screenshot can literally Nestle itself in there and sit in the concave curve of the lower banana. This is some really cool stuff.
+
+86
+00:15:18.600 --> 00:15:19.830
+So, as they say.
+
+87
+00:15:21.810 --> 00:15:27.690
+Why not just use P to physics, all the time, right. Why is arcade. The default. And when we typically use
+
+88
+00:15:28.050 --> 00:15:39.270
+The P to physics engine takes a lot more processing power. There's a whole lot more for the engine to calculate in terms of discrete properties and variables that are changing.
+
+89
+00:15:39.630 --> 00:15:47.640
+Through formulaic determinations built on real world physics principles. So using P to physics slows the engine down
+
+90
+00:15:49.980 --> 00:15:57.510
+Now, note that they have the complete source code for their example available, you can download it from GitHub and plop it right into your workspace.
+
+91
+00:16:02.220 --> 00:16:02.730
+Oh dear.
+
+92
+00:16:03.960 --> 00:16:05.340
+I'm afraid my browser crashed.
+
+93
+00:16:06.540 --> 00:16:07.800
+Let's see if I can get it to come back.
+
+94
+00:16:09.240 --> 00:16:15.810
+Again, one of the risks of the p two engine is that the browser might be overwhelmed.
+
+95
+00:16:17.460 --> 00:16:35.460
+Still there I'm literally going to try and close that guy. There we go. So again, that P to physics engine is doing a lot in JavaScript processing all of those different sprites those game objects and calculating other physics properties literally brought my browser to a crawl.
+
+96
+00:16:36.510 --> 00:16:43.620
+As it was playing it was running in their demo page. So, so I went and close that window, but do check it out. It's pretty cool.
+
+97
+00:16:45.780 --> 00:16:56.040
+So again, a little more recap thinking about how to start working with p two. There are some significant overlaps in the coding patterns that we do.
+
+98
+00:16:56.700 --> 00:17:06.840
+Like any of the physics engines to start that physics system up we use the start system method from the physics manager. So if you have a variable called game.
+
+99
+00:17:07.260 --> 00:17:15.750
+Defined for your new phase or game that you created you can using dot notation access the physics manager with game dot physics.
+
+100
+00:17:16.170 --> 00:17:21.810
+And then you can request it to run it starts system method by adding another dot start system at the end of that.
+
+101
+00:17:22.380 --> 00:17:34.260
+In the parentheses here when we pass a constant value to the start system method. We're going to tell it specifically let's use the P two engine. Notice the P two engine is actually called in its constant value.
+
+102
+00:17:34.800 --> 00:17:44.010
+capital P Fazer capital P physics dot p to J. S. So those are all caps there at the end that last dot notation value.
+
+103
+00:17:49.230 --> 00:17:57.510
+Once we get the physics engine up and running the pattern of enabling the engine for an individual sprite.
+
+104
+00:17:58.110 --> 00:18:06.000
+Is pretty straightforward and follows the same pattern, we've seen before. Again, we're going to use the physics manager within our game object so game physics.
+
+105
+00:18:06.390 --> 00:18:18.240
+It has a property, known as P to that contains as object values, all of the methods and properties related to the PQ engine so game that physics dot p two dot enable
+
+106
+00:18:18.750 --> 00:18:27.660
+And then we pass to the enable method, a reference to our sprite that you want to turn the engine on for and boom P to physics is enabled for that sprite.
+
+107
+00:18:33.240 --> 00:18:44.730
+If you're working with groups of sprites. Similarly, just like we saw with arcade we can enable a physics body on an entire group using the enable body property. So if I had already created a
+
+108
+00:18:45.510 --> 00:18:55.830
+A body with game ad group, excuse me already created a group with game ad group and I called it in my variable reference simply the word group.
+
+109
+00:18:56.280 --> 00:19:03.900
+To turn on a physical body for every sprite that goes into that group, I can simply say group dot enable body equals true.
+
+110
+00:19:04.830 --> 00:19:16.230
+And then I have to follow that up. If I want to use P to physics, especially to tell what physics body type to use and it's another chance to use that constant, we saw when we did start system.
+
+111
+00:19:16.680 --> 00:19:35.310
+So we would say group that physics body type equals that constant value of Fazer physics dot p to JS, watch out for that extra J S on the end there. That's always throws me off because of course it's only used when we refer to the physics engine by its constant value.
+
+112
+00:19:40.290 --> 00:19:43.860
+P to physics, just like arcade physics.
+
+113
+00:19:45.150 --> 00:19:54.630
+encapsulates all of its capabilities for an individual Sprite in a sprites body property. So the concept of the body of a sprite.
+
+114
+00:19:55.140 --> 00:20:03.600
+Is bound purely in the idea that it has a physics engine applied to it, we never have a body property on a sprite that doesn't have a physics engine turned on.
+
+115
+00:20:03.960 --> 00:20:20.970
+And enabled for it. But when we do turn on any one of the built in phase or physics engines boom that sprite. If it's got the physics engine enabled on it automatically has this body property, which itself has many individual properties and methods associated with it.
+
+116
+00:20:23.400 --> 00:20:32.040
+Now, as compared to arcade P to physics engine has a different collection of properties available.
+
+117
+00:20:34.170 --> 00:20:55.440
+Again in phasers community edition documentation, which I've linked to specific pages in this week's screen cast page in Canvas, you'll find for the body class of something a sprite that has p to physics enabled on it a whole number of different forces available.
+
+118
+00:21:03.870 --> 00:21:06.630
+The ability to control fixed rotation, for example.
+
+119
+00:21:11.280 --> 00:21:17.490
+Notice some things aren't here. We don't have a bounce property here. And remember an arcade
+
+120
+00:21:18.060 --> 00:21:35.250
+The bounce property of the body really described how much of the energy of a collision would be transmitted into that sprite. So if we set the bounce to one all the energy of that sprites when it collides would get transmitted back in and vice versa, if we had the body.
+
+121
+00:21:36.420 --> 00:21:42.960
+Bounce set for the object were colliding with it to with describe how it inherits that
+
+122
+00:21:45.480 --> 00:21:52.890
+Notice there's no immovable. So the idea here is that we're working more with pure
+
+123
+00:21:54.570 --> 00:21:56.220
+Physics concepts.
+
+124
+00:22:01.050 --> 00:22:02.130
+We still have gravity.
+
+125
+00:22:04.620 --> 00:22:13.530
+We now have a force property that we can work with. We have mass again mass works much like it did and arcade physics engine.
+
+126
+00:22:18.720 --> 00:22:22.110
+One of the things to come to terms with when working with
+
+127
+00:22:24.060 --> 00:22:32.640
+The P to physics. And I think I've already spoken, enough about the body shape. But let me show some code samples before we get into the body physics properties in detail.
+
+128
+00:22:38.970 --> 00:22:49.860
+To create a custom shape on an individual sprite that has p to enabled. There are some methods available to us in this code models, adding a sprite.
+
+129
+00:22:51.420 --> 00:23:02.910
+Turning on P to physics, enabling it on my ball sprite here in the variable ball and then working with the body property that comes into being when we turn on P to physics for the ball.
+
+130
+00:23:03.660 --> 00:23:20.760
+There's a collection of methods, including clear shapes and set circle in this example that manage the hit box the active collusion area of the sprite and if we hop back over to the documentation. This is a good chance to go down and look at the methods.
+
+131
+00:23:22.200 --> 00:23:28.800
+Notice that they allow us to add individual polygon shapes rectangular shapes.
+
+132
+00:23:30.630 --> 00:23:50.310
+Circles and lines as part of the hit box as part of the body shape that will be determining we can add multiple shapes to an individual sprites body. So each execution of one of these ads will actually affect
+
+133
+00:23:51.420 --> 00:23:57.510
+The overall hit box, based on what was already defined for that bodies hit box. So there is an important
+
+134
+00:23:58.830 --> 00:24:09.270
+method known as clear shapes that removes all the shape definitions for that bodies hit box and in my code sample, you'll notice I executed that first before I decided to make
+
+135
+00:24:09.750 --> 00:24:19.020
+A 32 pixel diameter circle centered on the body of this ball. Now it's good to note too.
+
+136
+00:24:19.470 --> 00:24:29.070
+That unlike arcade physics, where we had to go and center the anchor ourselves the center point of the sprite when you enable P to physics on any sprite.
+
+137
+00:24:29.580 --> 00:24:39.750
+P to automatically centers the anchor in that sprite basically sets at 2.5 in the x and point five and the y 50% in each to center it
+
+138
+00:24:48.870 --> 00:24:56.550
+I was commenting. I was observing when we're looking at the facer see documentation for the body that there's no balance property for individual sprites bodies.
+
+139
+00:24:57.150 --> 00:25:07.470
+And that is because to other concepts come into play in the P to simulation of the physical world that basically replace that really simplistic idea that things can bounce off each other.
+
+140
+00:25:09.990 --> 00:25:13.230
+P two has a restitution property.
+
+141
+00:25:14.280 --> 00:25:20.160
+And there's a typo on the slide. It's actually not part of the body. It's actually part of the p to physics engine itself.
+
+142
+00:25:20.640 --> 00:25:31.290
+And so here you can see when you start the system using P to physics, you can then access the P to object of the physics manager and set its restitution property.
+
+143
+00:25:31.800 --> 00:25:44.100
+This is a global worldwide property in your game across the entire game that describes how forces that are transmitted between things that collide should be calculated.
+
+144
+00:25:45.120 --> 00:25:48.660
+Restitution is lot like a global bounce value.
+
+145
+00:25:49.830 --> 00:26:04.980
+So we can set up between one and zero and when to sprites collide using P to the exchange of energy between their different masses and their inertial forces gets calculated using this restitution percentage
+
+146
+00:26:06.630 --> 00:26:18.480
+You can see in my code example I said 2.9 it's not uncommon to set the restitution very close to one or potentially even one except that you know 100% restitution. It's not quite
+
+147
+00:26:19.530 --> 00:26:36.150
+Realistic because when objects collide in the real world. Some of the energy that's transmitted between those objects is absorbed by the body. The physical body of those objects so restitution set to like 90% like here helps to simulate that but it's worth knowing.
+
+148
+00:26:37.350 --> 00:26:45.540
+That that is not the only way the P two engine decides how individual game objects or sprites respond to a collision.
+
+149
+00:26:46.980 --> 00:26:57.540
+P two has a concept that allows us to construct a much more realistic set of Sprite materials, if you will, for our game world.
+
+150
+00:26:58.050 --> 00:27:03.240
+It has two concepts that are related to each other material and a contact material.
+
+151
+00:27:04.080 --> 00:27:13.260
+materials can be defined and assigned to individual sprites, so you might make up a material for a ball that you call a rubber to make a rubber ball.
+
+152
+00:27:14.010 --> 00:27:35.250
+You might make up a material for a wall that ball strikes you might call it concrete and then when rubber and concrete come into contact with each other. You can define using a contact material how those two materials behave when they touch each other so
+
+153
+00:27:36.780 --> 00:27:53.880
+It's a two step process to work with materials and contact materials simply define the material is not enough material. In fact, it is really just a name property that you make up like rubber or concrete or dirt or whatever you want to call that material you're imagining steel would
+
+154
+00:27:55.740 --> 00:28:14.190
+Say silly putty, whatever you want to call it is fine. It isn't the definition of a contact material that describes the detailed physical body property behaviors, when two of those sprites touch each other that have the two different material assignments that things really good, interesting.
+
+155
+00:28:16.200 --> 00:28:18.270
+So again, looking at a little code sample.
+
+156
+00:28:20.340 --> 00:28:22.560
+Here and defining sprite one
+
+157
+00:28:23.880 --> 00:28:31.080
+And adding into my game world and enabling P to physics on it. And then after I enable P to physics, I'm able
+
+158
+00:28:31.560 --> 00:28:41.790
+Again accessing through the games physics manager. The P two engine so gamed up physics P to I can call the Create material method.
+
+159
+00:28:42.570 --> 00:28:54.870
+And here when I do that, I just do two arguments inside the prints for create material I give it a name, just a string. So quoted here. I called him Matt one short from material one
+
+160
+00:28:55.560 --> 00:29:03.480
+And then the second argument is a reference to the sprites body that should have this material applied to it. So this line of
+
+161
+00:29:04.200 --> 00:29:17.100
+Bar material one equals game physics P to create material it specifically tells Fazer I am going to attach a material called Matt one to sprite one's body.
+
+162
+00:29:17.730 --> 00:29:26.130
+And then I do the same thing for sprite to in the next three lines of code that follow. And I give that second sprite a different material.
+
+163
+00:29:27.510 --> 00:29:37.380
+In JavaScript variables. These materials now have a reference in the two variables I defined I have material one and material to is variable names.
+
+164
+00:29:38.340 --> 00:29:50.250
+To make a relationship between how P two should manage collisions for these two materials, I can then define this third entity, a contact material.
+
+165
+00:29:51.360 --> 00:30:04.980
+And I create one of these using again a dedicated method part of the p to object create contact material and it simply takes two arguments. What are the two predefined materials that we want to
+
+166
+00:30:06.150 --> 00:30:13.350
+Determine behavior when they come into contact with each other. I use the JavaScript variables here that I
+
+167
+00:30:14.940 --> 00:30:19.590
+Created when I made those initial materials material material to
+
+168
+00:30:20.940 --> 00:30:24.030
+So now I've got a contact material.
+
+169
+00:30:25.950 --> 00:30:38.910
+To find and once I define the contact material, I have this ability to go and provide individual properties that simulate the physical reactions that are calculated
+
+170
+00:30:39.510 --> 00:30:52.140
+Including the friction between these materials. How much restitution should be transmitted between these the stiffness of the collision, if you will, the stiffness of the material.
+
+171
+00:30:53.640 --> 00:31:09.330
+A relaxation value and stiffness and relaxation also for the friction between them. I can also define a surface velocity that helps to describe how these behave and affect each other's speed when they come into collusion with each other.
+
+172
+00:31:10.710 --> 00:31:12.240
+So contact materials.
+
+173
+00:31:21.630 --> 00:31:22.920
+Allow us to define
+
+174
+00:31:32.580 --> 00:31:38.070
+A relationship between two different materials and how they behave
+
+175
+00:31:49.350 --> 00:32:03.030
+So let's jump in and work a little bit with P to physics. I'll get as far as I can in the time I have left today to demonstrate what is basically a little simulated billiard game. I like to work with.
+
+176
+00:32:04.920 --> 00:32:15.150
+Game concepts with P to physics that map to the real world more closely than classic arcade games because we can take advantage of these complex interactions.
+
+177
+00:32:15.690 --> 00:32:27.150
+That Peter can calculate and so clearly to work with balls, you need a circular hit box a circular shape for the collisions and that will be easy to execute with P to physics.
+
+178
+00:32:27.990 --> 00:32:36.930
+And then also the way the balls respond to each other because there are complicated vectors in the real world to calculate
+
+179
+00:32:37.920 --> 00:32:46.770
+How the energy transmitted between something moving in a particular angle when it strikes something else should be communicated to that object receiving
+
+180
+00:32:47.340 --> 00:32:56.610
+The energy from the traveling object. We'll see here and I'll show you quickly kind of the fully baked version and cooking show style. So in today's
+
+181
+00:32:57.720 --> 00:33:10.320
+Examples. I have two folders module 10 module 10 dash complete let me fire up the index file here in module 10 dash complete and give you a live preview of it not pop it open into the browser here.
+
+182
+00:33:13.140 --> 00:33:29.790
+So in this environment. I've got a collection of sprites that are represented by colored ball assets and I simply laid them out in my create code in this particular orientation, obviously it's not eight ball. I don't have enough balls on the table.
+
+183
+00:33:31.530 --> 00:33:32.520
+I've got a cue ball.
+
+184
+00:33:36.150 --> 00:33:38.100
+And to simulate the act.
+
+185
+00:33:39.480 --> 00:33:49.380
+Of hitting the cue ball with a stick. I've got this other target that I'm moving around. I didn't have a lot of assets to play with. So I just made a tiny version of the cue ball to represent
+
+186
+00:33:49.950 --> 00:33:59.280
+Basically idea that I'm going to calculate a force based on the length of this little line is drawn between the cue ball and my target here.
+
+187
+00:33:59.970 --> 00:34:07.770
+So that if I drop way back, I'll have a much stronger force applied to the ball. I put it very close, much smaller force.
+
+188
+00:34:08.670 --> 00:34:17.520
+This is a weird pool game. The only pocket in this pool game happens to be directly in the middle of the table. Of course, you could design your own game.
+
+189
+00:34:18.510 --> 00:34:27.900
+That placed pockets at the appropriate positions in the corners and the long side mid points of the table. So you have six pockets potentially
+
+190
+00:34:28.770 --> 00:34:39.210
+And right now I'm using the ability to let a sprite be attached to the pointer to let me click and drag using my mouse, the target.
+
+191
+00:34:39.630 --> 00:34:56.880
+Object, the guy that's helping me define the angle and the force that will be applied to the cue ball and then my code right now looking at inputs is looking for the spacebar to actually perform the striking of the cue ball so I placed that guy there. I'm gonna hit the spacebar now.
+
+192
+00:35:12.900 --> 00:35:13.770
+Ball smacking
+
+193
+00:35:17.520 --> 00:35:22.950
+might notice the black ball. All right, I guess if this was classic a Bollywood have just lost
+
+194
+00:35:24.330 --> 00:35:30.300
+The eight ball through some detection to see whether a sprites.
+
+195
+00:35:31.890 --> 00:35:43.770
+Fleet dimension is contained inside of another. In this case, the pocket is a sprite. As Well Sitting in the page. I'm just looking to see if it's inside of that. And then if it is I'm killing it.
+
+196
+00:35:45.600 --> 00:36:05.430
+So you could see how without me, we'll see in a moment, writing very much code at all, frankly, to deal with the collisions between the balls, simply by setting up some materials and using P to physics, I'm able to have it generate pretty realistic interaction.
+
+197
+00:36:06.540 --> 00:36:10.890
+Between the different sprites are moving at different philosophies.
+
+198
+00:36:13.050 --> 00:36:21.570
+And of course, the concept of restitution is helping to describe how the balls behave when energy is transmitted between them.
+
+199
+00:36:26.640 --> 00:36:33.720
+So looking at the clock and thinking about the reality of walking you through the code sample. I'm going to
+
+200
+00:36:35.040 --> 00:36:45.150
+Differ from writing some hand written code right now. And instead, I'm going to walk you through the code. This kind of complete fully baked example here.
+
+201
+00:36:51.570 --> 00:36:54.360
+Again, this is index dot HTML.
+
+202
+00:36:57.750 --> 00:37:13.200
+There's another version called material studies, you know that deals with the game using material settings. And then there's another that adds in particle effects. And so again, let's just take a look at that one, which I think has kind of the most going on in it.
+
+203
+00:37:21.420 --> 00:37:24.210
+We've got a particle system emitting some
+
+204
+00:37:25.380 --> 00:37:31.290
+bubbles of joy or some energetic bubbles here and seeing. See how the system works.
+
+205
+00:37:32.430 --> 00:37:38.130
+Just kind of spewing out a particle system. Again, as long as the ball is moving.
+
+206
+00:37:44.490 --> 00:37:45.330
+Let me focus
+
+207
+00:37:46.500 --> 00:37:56.310
+Simply on the core example contained in index dot html this week I'll dive right into see where P to really gets interesting of course we've got
+
+208
+00:37:57.000 --> 00:38:01.350
+The need to make a new game object as always this pattern of code is pretty consistent.
+
+209
+00:38:02.040 --> 00:38:13.290
+The dimensions I made here. I think at some point I looked up the dimensions of a typical pool table kind of the with the height relationship and tried to base these numbers somewhat on that I'm using the canvas.
+
+210
+00:38:14.790 --> 00:38:25.950
+Rendering method here I could change it to auto if I wanted, and I'm just rendering it into the body. So no reference there. And then I've got my four states preload create update and render set to
+
+211
+00:38:26.850 --> 00:38:44.790
+Named functions that have defined below. So let's cut to the chase some global variables defined a variable to hold the group of sprites for the balls, one for my cue ball one for my little pointer miniature ball the line that gets drawn behind them.
+
+212
+00:38:45.840 --> 00:38:48.360
+Are between them, the rectangular pocket.
+
+213
+00:38:49.590 --> 00:38:58.590
+A variable to hold the sound game object that will create another variable to flag any input activity that comes from the spacebar.
+
+214
+00:39:03.120 --> 00:39:07.890
+Load up the different sprites. Again, I got these off of open game art like usual.
+
+215
+00:39:09.120 --> 00:39:14.850
+Load up a simple audio clip and pre load is done all we ever do there's load assets right
+
+216
+00:39:15.390 --> 00:39:27.360
+Create code a little more going on set a background color for the game stage here instead of using a background image just a default color is nice to have starting the P to physics engine online 49
+
+217
+00:39:29.400 --> 00:39:41.100
+Have to do that in any game that we want to use P to for it's very useful to define the global restitution value for your entire game world after you start the game system.
+
+218
+00:39:42.870 --> 00:40:03.420
+Here I built the pocket Sprite, not from an actual external asset actually just built a little bit map 100 pixels by 100 pixels and I drew a rectangle and filled it in with that shade of gray defined by this web hex color here. And boom, it lets me simply add
+
+219
+00:40:05.520 --> 00:40:21.030
+A sprite using a defined bitmap data object. So this isn't specific to P two, but it's another cool trick you can do if you don't need an external game asset and you just want to draw a geometric shape. In this case, my rectangle
+
+220
+00:40:22.590 --> 00:40:31.590
+Here's the pointer sprite. It is a white ball asset. It has its anchor point set to the center.
+
+221
+00:40:33.570 --> 00:40:43.380
+Notice that it does not have P to physics set on it. You might have noticed when I was playing the game. The little pointer, a little target ball I drag around to set the force and angle on my cue ball.
+
+222
+00:40:43.800 --> 00:41:05.400
+does not interact with the other balls. It's as simple as not putting into the P to physics engine. So no enabling of physics on the pointer. So because of that, I need to manually set the anchor point for the sprite, making him just a 50% scaled version of the cue ball basically
+
+223
+00:41:06.450 --> 00:41:13.470
+By setting input enabled to true on this sprite suddenly by clicking on it with the cursor and dragging around, I can move it.
+
+224
+00:41:15.480 --> 00:41:25.020
+A combination of input enabled and then after input is enabled, an input property will be available from that sprites reference so pointer input.
+
+225
+00:41:25.500 --> 00:41:36.300
+And then calling enabled drag literally these two lines 7172 and this example let a user click and drag any sprite around the table around the game world.
+
+226
+00:41:38.130 --> 00:41:47.100
+Now we're ready to make the cue ball. So again, we'll add the sprite using the same asset key. The white ball here though, we will enable
+
+227
+00:41:48.270 --> 00:41:49.980
+P to physics on the cue ball.
+
+228
+00:41:51.120 --> 00:42:01.920
+Now again line 77 makes a note here. I don't have to center the anchor point of any sprite that I add an enable P to physics on it all pretty much automatically set up to the center point.
+
+229
+00:42:03.120 --> 00:42:12.450
+And just like my slide. Today I want to make a circular hit box shape the body of the queue should be a circle centered on the anchor point
+
+230
+00:42:12.900 --> 00:42:26.280
+And so first of all, I want to flush out any default shape that may have come, and then I'll set a circle hit box shape 32 pixels in diameter centered right on the anchor point of the cue ball.
+
+231
+00:42:29.250 --> 00:42:33.270
+Then I want to draw a little line between the
+
+232
+00:42:34.830 --> 00:42:47.880
+Center, the X and Y center point of the little pointer sprite and the X and Y center point of the cue ball. So I'll create a new phase or line object here to keep a reference to that as well because I'm going to
+
+233
+00:42:48.390 --> 00:42:59.760
+Want to display it using a tricky technique will show you in a moment where we're basically just going to debug the line. By default, by the way, Fazer line objects are not normally visible.
+
+234
+00:43:01.230 --> 00:43:02.430
+Say more about that in a minute.
+
+235
+00:43:05.910 --> 00:43:13.230
+Now, here in line at five. I'm really showing a shorthand way a different way than my slideshow today to create a group
+
+236
+00:43:13.590 --> 00:43:21.390
+And get it associated with a physics engine all at once in one line of code, we can use the ad manager so game ad
+
+237
+00:43:22.230 --> 00:43:36.420
+And then call a method called physics group capital G and the group there that will allow us to turn on a physics system for anything that goes into the group. So this is a one line version of what I showed in my slide deck today as
+
+238
+00:43:39.300 --> 00:43:40.680
+Two different choices.
+
+239
+00:43:42.330 --> 00:43:43.140
+Where did that go
+
+240
+00:43:45.870 --> 00:43:53.100
+There it is. The idea of enabling body and then setting the physics body type, we can tackle this in a single line of code.
+
+241
+00:43:53.490 --> 00:44:04.740
+And as you've seen before Fazer sometimes has redundant ways to do things. This is an example of it. The physics group method basically handles the enable body, and the body type setting all at once.
+
+242
+00:44:06.360 --> 00:44:17.760
+Now I created a little for loop here because I wanted to put eight balls onto the table. I didn't want to just hand code the placement of these balls and each case. Instead, I wanted to kind of make this
+
+243
+00:44:18.570 --> 00:44:30.180
+Code patterned in a way that I could simply set a few variables and that would be enough to create a particular sprite make eight sprites basically
+
+244
+00:44:31.410 --> 00:44:41.160
+At different points and I'm using the JavaScript switch conditional statement here looking at the value in my counter variable which starts at one.
+
+245
+00:44:41.550 --> 00:44:51.300
+And goes all the way up to basically seven before it quits less than eight right and so I have basically seven different numbers that counter will
+
+246
+00:44:51.810 --> 00:45:02.040
+Traverse during the loop and the switch kind of watches for each one. So encounter is one, it sets up three variables asset key sprite X and sprite why
+
+247
+00:45:02.910 --> 00:45:12.750
+And it does those three variables asset key Sprite. Sprite why for each of the seven cases that it handles and then after the three variables are set
+
+248
+00:45:13.770 --> 00:45:22.860
+Only one game add that sprite in the loop to work with those coordinates the x, y coordinates and then also the asset key name.
+
+249
+00:45:24.300 --> 00:45:40.620
+So add that sprite to the world. And then I'll add it into the group with line 125 so now the ball that I just created is now part of the balls group. And as I create each ball again to get a circular
+
+250
+00:45:41.730 --> 00:45:45.540
+Hit box shape on the body. I'll clear out the default shape.
+
+251
+00:45:46.680 --> 00:45:50.640
+And set the circle on it 32 pixels in diameter.
+
+252
+00:45:54.810 --> 00:45:59.070
+Once I've got this new ball in my group here.
+
+253
+00:46:01.290 --> 00:46:06.690
+Activated enabled for P to physics, I can add a method
+
+254
+00:46:08.610 --> 00:46:29.100
+A function of my own creation that will be run automatically when this ball sprite touches anything else. So ball body.on begin contact on begin contact is a property that has an ad method associated with it that allows me to add basically
+
+255
+00:46:30.390 --> 00:46:34.770
+A function of my own naming my function down below. We'll see in a minute. It's called ball hit
+
+256
+00:46:35.280 --> 00:46:48.480
+And then, in addition to passing the name of my function as an argument to the ad method. I also have to identify the game we're in. So we use the constant value this from JavaScript to say, hey, we're in this current game here.
+
+257
+00:46:52.500 --> 00:47:04.800
+Then we'll deal with the spacebar being an active keyboard input that we want to detect. So I'll set my space key global variable to gain input keyboard add key. This is a way to
+
+258
+00:47:05.250 --> 00:47:17.400
+Basically set up observation of any individual key on the keyboard. If you look in the documentation for Fazer keyboard, you'll see that it has constant values for every key pretty much on the keyboard.
+
+259
+00:47:18.480 --> 00:47:24.270
+Fazer keyboard Spacebar. Spacebar as all caps is the constant value for detect the spacebar.
+
+260
+00:47:28.920 --> 00:47:38.970
+Then we want to make sure that we are capturing any hits on that key. So we do game input keyboard add key capture
+
+261
+00:47:39.570 --> 00:47:49.650
+And here we're just capturing the spacebar key so telling Fazer when the game starts watch the spacebar and if it' put a value into my space key variable that I can detect
+
+262
+00:47:51.030 --> 00:47:57.390
+Also got my little ball sound so we kick that guy in as a audio game object.
+
+263
+00:47:58.350 --> 00:48:06.060
+So that's pretty much everything that happens in a nutshell resume kind of out using the fold collapse. Here we're basically
+
+264
+00:48:06.570 --> 00:48:24.120
+Turning on the physics engine setting default restitution, making the pocket, making the pointer, making the cue ball and then generating all the billiard balls. The seven of them that we have in this game and also enabling the spacebar as an input device.
+
+265
+00:48:25.650 --> 00:48:28.830
+Everything we need to do in create
+
+266
+00:48:34.710 --> 00:48:35.970
+Now the update code.
+
+267
+00:48:38.130 --> 00:48:51.750
+The game is very simple in terms of what our code needs to do, because all of the interaction between the ball collisions. It's going to be handled in our custom ball hit function. So an update code all we really need to do is check to see if somebody hit the spacebar.
+
+268
+00:48:53.220 --> 00:48:55.980
+If they did will call another function we created called shoot ball.
+
+269
+00:48:59.220 --> 00:49:00.510
+Shoot ball does this
+
+270
+00:49:02.220 --> 00:49:19.020
+It looks at how long the line is that's being drawn between our point your ball and our cue ball so it gets the length of that line stores in a local variable called speed and then it sets the thrust, which is a p to physics engine.
+
+271
+00:49:21.870 --> 00:49:22.560
+Property
+
+272
+00:49:25.740 --> 00:49:26.940
+Am I on the body here.
+
+273
+00:49:31.980 --> 00:49:32.790
+Thrust. Where do you go
+
+274
+00:49:34.560 --> 00:49:43.830
+There is so again thrust is a method that's being called we can give it a speed which is in pixels per second.
+
+275
+00:49:45.090 --> 00:49:49.500
+And boom, it starts moving at that velocity
+
+276
+00:49:53.850 --> 00:50:05.970
+So this launches the ball at a value that is determined is a variable value based on the length of the line between our pointers sprite and our cue ball spray
+
+277
+00:50:06.450 --> 00:50:12.300
+Also have a little console log to spit out the value that it's calculating how are we keeping the line updated.
+
+278
+00:50:12.990 --> 00:50:23.160
+So it's constantly sized to be between the pointer in the cue ball here we go from sprite. Once we create a line object.
+
+279
+00:50:24.000 --> 00:50:35.310
+We have the ability to automatically draw the line, starting at one sprite and Andy and another. So here line dot from sprite basically draws a line between the pointer in the cue ball.
+
+280
+00:50:46.230 --> 00:51:03.630
+We have another custom function here called rotate cue ball. This is the most elaborate piece of code in this example because it needs to calculate the correct angle using radians, instead of degrees so not zero to 360 but instead of a radio value.
+
+281
+00:51:04.710 --> 00:51:15.600
+And let's go look at rotate cue ball for a moment. So we looked at shoot ball. Already we saw how it used to thrust property thrust method to assign a speed to the
+
+282
+00:51:16.440 --> 00:51:33.630
+cue ball when it launches rotate cue ball basically uses radians and radians are based on the value of pie. So two times pie represents the complete rotation around a circle. And so here we're calculating
+
+283
+00:51:35.130 --> 00:51:35.970
+An angle.
+
+284
+00:51:37.320 --> 00:51:51.270
+That allows us to tell the cue balls body using a method called rotate left to rotate the direction of the cue ball to point it away from
+
+285
+00:51:51.900 --> 00:52:07.140
+The angle that we've defined with our pointer. So if we have the pointer directly to the left of our cue ball and we draw it back and we smack it. This function will calculate the angle of the cue ball. So, it travels out to the right away from the pointer.
+
+286
+00:52:08.220 --> 00:52:14.520
+Now there's a lot going on in here. We're trying to calculate the current rotation of the cue ball.
+
+287
+00:52:17.010 --> 00:52:21.960
+And then we're trying to calculate the angle between the pointer and the cue ball.
+
+288
+00:52:24.960 --> 00:52:31.800
+And we do that and we subtract one time around the circle to flip it. So it's pointed in the opposite direction.
+
+289
+00:52:33.840 --> 00:52:39.660
+And if we end up with a value greater than two times pie. We need to
+
+290
+00:52:40.950 --> 00:52:55.410
+constrain it within that range of zero to two times pie. And so we use the percent sign the modulus or basically the remainder operator to say, hey, if our
+
+291
+00:52:56.040 --> 00:53:09.510
+Radians for rotating the cue ball go greater than 360 degrees trim them back to their only in a range from zero to 360 degrees or in radium zero to two times pi.
+
+292
+00:53:16.470 --> 00:53:19.890
+We set up a speed and then we rotate the guy.
+
+293
+00:53:22.470 --> 00:53:34.320
+So, rotate cue ball is a nifty piece of code. It's not something I invented on my own. By the way, the beauty of all of the things we can do with game engines like Fazer or the other people
+
+294
+00:53:35.010 --> 00:53:42.570
+Figured out these things before we came here. So if we do a little Google on Fazer space rotate left
+
+295
+00:53:47.580 --> 00:53:49.140
+We'll see in their examples.
+
+296
+00:53:50.310 --> 00:53:58.740
+And in places like HTML5 game dev com ways to deal with the rotational aspect of a sprite.
+
+297
+00:54:04.200 --> 00:54:19.350
+So I found that solution by searching the internet myself to come up with the correct way to calculate the angle that I should apply to the cue ball based in row relationship on the placement of the pointer ball.
+
+298
+00:54:20.700 --> 00:54:22.440
+It's basically the angle of our line right
+
+299
+00:54:27.480 --> 00:54:27.990
+Now,
+
+300
+00:54:29.580 --> 00:54:35.190
+What happened when the balls collide. Not a lot.
+
+301
+00:54:37.020 --> 00:54:39.450
+I got my sound playing here online to one.
+
+302
+00:54:41.220 --> 00:54:58.260
+Notice when there's a collision in P to physics we get past us the body of the first sprite that's colliding. The body of the second sprite. The shape of the first sprite. The shape of the second sprite and then also
+
+303
+00:54:59.640 --> 00:55:10.500
+An equation that describes those collisions. So let's look at that for a minute because those are going to be console log every time the ball hits. Let me pop this open for a moment.
+
+304
+00:55:11.520 --> 00:55:12.810
+Open up the console here.
+
+305
+00:55:16.230 --> 00:55:18.540
+So JavaScript console is what we want to see.
+
+306
+00:55:20.010 --> 00:55:21.180
+I'm going to clear this guy out.
+
+307
+00:55:23.580 --> 00:55:26.760
+And I'm going to smack one of those balls even hit the brown one.
+
+308
+00:55:36.540 --> 00:55:38.400
+Each other crazy
+
+309
+00:55:47.730 --> 00:55:51.900
+Collision happens all five of those values are being dumped out here.
+
+310
+00:55:56.070 --> 00:56:11.640
+So we can see basically each one of these represents a different aspect of what Fazer is telling us the P two engine is giving us the body references in the shape references in any equation to describe that collision.
+
+311
+00:56:17.970 --> 00:56:19.080
+So here's that equation.
+
+312
+00:56:22.050 --> 00:56:29.670
+You can see it's got a minimum force and a maximum force, it has a bunch of properties in it that describe how that collision is being managed
+
+313
+00:56:31.290 --> 00:56:34.830
+Showing us literally exactly where they're colliding their contact points.
+
+314
+00:56:45.000 --> 00:56:49.800
+In the shapes. We can see here that it's telling us the radius of the circle.
+
+315
+00:56:50.910 --> 00:56:52.110
+Here's the body right here.
+
+316
+00:56:57.750 --> 00:57:06.450
+inside the body. There is a shape that we defined as 32 pixels is translated it into a decimal value a bounding radius.
+
+317
+00:57:08.280 --> 00:57:17.130
+More information than we need to scrutinize honestly, but wanted you to see that there's a lot of data that the P to physics engine provides us if we wanted to do something with it.
+
+318
+00:57:17.670 --> 00:57:27.900
+And to intercept. It's modeling of the physical world now between you, me, P to physics is complicated enough that if you wanted to dive into those properties that are handed to you at the collision point
+
+319
+00:57:28.380 --> 00:57:38.910
+You would need to spend a lot more time studying the P to physics engine and how those relationships are actually mapped to those properties that we're seeing.
+
+320
+00:57:45.300 --> 00:57:57.210
+The function to see if a ball is inside of the rectangular pocket sprite basically takes place right here. Check contains and we're calling that
+
+321
+00:57:58.590 --> 00:58:08.070
+inside the loop because our balls are all in a group variable called balls, we can use the for each method and walk through each ball sprite in the balls group.
+
+322
+00:58:08.640 --> 00:58:18.930
+And perform the check contains method to say, hey, is the ball completely inside of the pocket sprites dimensions. And if it is, we destroy that individual ball.
+
+323
+00:58:24.810 --> 00:58:36.090
+Now that example doesn't include the application of materials. This version called materials that HTML does have the concept of materials added
+
+324
+00:58:38.040 --> 00:58:39.510
+So right here you can see
+
+325
+00:58:40.620 --> 00:58:46.830
+Define a material for the cue ball. Find the material for the regular balls.
+
+326
+00:58:52.200 --> 00:58:55.740
+And then a contact material that's
+
+327
+00:58:56.820 --> 00:59:07.290
+Defined to help phasers P to engine, figure out what the behavior with the physical properties should be when the cue ball collides with another ball.
+
+328
+00:59:11.700 --> 00:59:13.560
+And again, you can play with these values.
+
+329
+00:59:18.210 --> 00:59:19.920
+See how they respond
+
+330
+00:59:32.430 --> 00:59:38.970
+The other capabilities of the p to physics engine, including the concept of gears and constraints, those are
+
+331
+00:59:39.780 --> 00:59:57.990
+Topics that get covered in our friends over at coding webs example. If you look at their example. You'll see how they create a constraint, so that the little line that connects THAT LITTLE KID PLAYER to the black bar is math using some of those constraints.
+
+332
+01:00:02.850 --> 01:00:12.780
+So for this week's assignment, you're welcome to take it down a notch it and bite off a very small challenge for yourself that could be as simple as
+
+333
+01:00:13.140 --> 01:00:21.540
+Working with my sample game and extending it by changing some of the contact material properties or elaborating the behavior.
+
+334
+01:00:22.050 --> 01:00:30.300
+Or you could look at any of the other P two examples that are in phase or data iOS examples there are 40 examples here. I believe
+
+335
+01:00:30.780 --> 01:00:36.720
+showing you different things you can do with the P to physics engine. And if you start with any one of these
+
+336
+01:00:37.080 --> 01:00:48.420
+You can elaborate it a little bit changed a little bit and use that as your assignment for this week to demonstrate use of the p two objects you physics engine on objects, I should say.
+
+337
+01:00:51.090 --> 01:00:59.970
+We've got an ongoing discussion inside of Canvas talking about the great video game of 1983 and how console games.
+
+338
+01:01:01.080 --> 01:01:03.480
+Have evolved. I guess we could say
+
+339
+01:01:05.940 --> 01:01:10.410
+And if you've got any late assignments, please don't hesitate to prepare them and turn them in
+
+340
+01:01:11.700 --> 01:01:13.290
+As soon as you have time to do so
+
+341
+01:01:14.310 --> 01:01:25.800
+I sent out earlier, an announcement that offered everybody late assignment amnesty and and that's still in force, if you've got late assignments. Please turn them in, you will at a
+
+342
+01:01:26.370 --> 01:01:35.100
+Maximum lose only 10% of the point total there so you can still get an A 90% grade on any late assignment. If you turn it in.
+
+343
+01:01:37.080 --> 01:01:45.600
+As soon as you can. If anybody would like extra help. I have office hours again on Mondays and Wednesdays and I'm also available outside of those times.
+
+344
+01:01:46.050 --> 01:01:55.140
+If my office hours on Monday from 11 to two or on Wednesdays from 11 to one don't fit with your regular schedule, send me a note. Don't be bashful.
+
+345
+01:01:55.650 --> 01:02:03.930
+Please contact me. Let me know what kind of help you need and what your availability is and I'm sure we can coordinate a chance to either meet together online.
+
+346
+01:02:04.470 --> 01:02:20.520
+using Skype or zoom or meet face to face somewhere on campus. So thanks for pursuing all the crazy stuff that we keep doing in this class and I hope you enjoy the P to physics engine and take advantage of some of the capabilities of it.
+
+347
+01:02:22.410 --> 01:02:23.640
+excited to see what people do.
+
+348
+01:02:26.400 --> 01:02:36.330
+Until next time I'll look for you online in the weekly support and sharing discussion or in email correspondence
+
+349
+01:02:37.380 --> 01:02:38.130
+Happy gaming.
+

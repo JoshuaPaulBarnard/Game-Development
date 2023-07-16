@@ -1,0 +1,1786 @@
+WEBVTT
+
+1
+00:00:03.540 --> 00:00:06.120
+Hello. It's been some time. Welcome back to
+
+2
+00:00:07.770 --> 00:00:31.860
+live session for game development and I've got news about how we ended up where we're at now with the holiday and the school closures and a little view onto some advanced topics as well as some discussion about process we're in now from here to the end of weekly
+
+3
+00:00:35.040 --> 00:00:42.750
+Focused work to build a prototype for a game that you have envisioned in a game design document.
+
+4
+00:00:45.780 --> 00:01:03.060
+So welcome back, it has been a while. Our school had to Friday closures due to the smoke conditions from the campfire in Paradise near Chico, California that affected weeks 12 and 13 for us.
+
+5
+00:01:04.080 --> 00:01:10.380
+And then week 14 was going to fall during the Thanksgiving holiday. So here we are week 15
+
+6
+00:01:12.090 --> 00:01:12.870
+Suddenly,
+
+7
+00:01:14.040 --> 00:01:16.470
+Three weeks later than we were when we last spoke
+
+8
+00:01:17.490 --> 00:01:29.100
+And so I'll do my best to explain how we're going to handle that and I'll use some of today's time to sneak in some of the discussion that I had hoped to do and week 14 around advanced topics.
+
+9
+00:01:30.360 --> 00:01:42.180
+Before concluding with a with a look at the underlying process that we're following to work through weekly incremental progress towards our game prototypes in finals week
+
+10
+00:01:45.030 --> 00:02:02.370
+Looking at the course outline. You can see in the right column where we got to the midterm and the draft game design document and week 11 before chaos ensued. You can see I've highlighted weeks 1213 and 14 and purple here to call them out and
+
+11
+00:02:03.600 --> 00:02:13.410
+Here we are at the beginning of basically three or four weeks of building incremental progress in our game idea using Fazer
+
+12
+00:02:16.530 --> 00:02:21.780
+So here's a nutshell. And each of those weeks that got consumed by holiday or smoke.
+
+13
+00:02:22.950 --> 00:02:38.010
+Week 12 was a chance to learn advanced object oriented class based game development using Fazer and working with a build system where we've got code.
+
+14
+00:02:38.550 --> 00:03:00.750
+On a workspace in Cloud nine that's completely designed to basically take our factored individual object oriented code for phase or game and compile it transpired as people like to say translating and compiling our individual JavaScript code into browser compatible JavaScript.
+
+15
+00:03:01.770 --> 00:03:09.420
+That assignment 12 and the discussion related to it or not related to it, but rather to the draft game design documents people did in week 11
+
+16
+00:03:10.800 --> 00:03:12.090
+Those are optional.
+
+17
+00:03:13.260 --> 00:03:14.130
+If you
+
+18
+00:03:15.240 --> 00:03:26.670
+hopped into discussion five and shared your game design document or if you took on the challenge of setting up a build system with a cloud nine Node JS workspace.
+
+19
+00:03:27.480 --> 00:03:38.790
+Then you'll get extra credit and folks that didn't you won't be punished week 13 again our Friday and week 13 got canceled by dr john the president of the school.
+
+20
+00:03:39.300 --> 00:03:49.110
+Including all the online classes. That was the chance to submit a final version of your game design document your, your plan for the project you want to build
+
+21
+00:03:50.130 --> 00:03:59.700
+Because of the challenges and week 12 everybody is welcome, who completed the week 11 assignment to build a draft game design document to simply resubmit that
+
+22
+00:04:00.120 --> 00:04:09.090
+And get full credit for the final game design document, since we weren't as a group, able to engage fully in the document presentations and feedback that happened.
+
+23
+00:04:09.630 --> 00:04:19.110
+Would have happened in a normal week 12 I want to give everybody space to simply resubmit the week 11 assignment as the week 13 assignment without any changes necessary.
+
+24
+00:04:20.640 --> 00:04:26.040
+And then finally week 14 went down during the Thanksgiving break and so
+
+25
+00:04:27.660 --> 00:04:37.080
+I am here today to share with you some advanced topics Fazer that we didn't get to talk about last week because of the holiday.
+
+26
+00:04:39.720 --> 00:04:42.720
+And that's the nutshell what happened to our past three weeks.
+
+27
+00:04:47.670 --> 00:04:50.430
+So I'd like to change gears now and
+
+28
+00:04:51.960 --> 00:05:03.150
+Kind of pick up the pieces and try and talk a little bit both about the week 12 topic of using a build system as well as the week 14 topic of some advanced concepts and Fazer
+
+29
+00:05:08.040 --> 00:05:16.320
+In the week 12 materials which are published in Canvas and available to you. I have a very simple step by step. There's only eight steps really
+
+30
+00:05:18.030 --> 00:05:36.420
+Process to get the build system working where you can actually have Yeoman and Grunt as server side scripts running to take all of your separate factored class based Fazer code and again transpired into a working final script.
+
+31
+00:05:37.740 --> 00:05:39.870
+I'm going to walk through these steps.
+
+32
+00:05:41.310 --> 00:06:00.120
+In well I'm going to show you the steps kind of after the fact, I'm going to show you the workspace that I have set up that is a build system workspace and this is one you can come in and copy from if you want. And this is the outcome of going through the eight steps here.
+
+33
+00:06:01.410 --> 00:06:04.860
+So to get there I downloaded this
+
+34
+00:06:05.940 --> 00:06:17.670
+Jesus this compressed file, which has all the files inside of it necessary to have a functional class based factored Fazer game. I then created a new cloud nine
+
+35
+00:06:18.690 --> 00:06:29.730
+Workspace. Again, you would do that by going to create new workspace. And for this one. You want to make sure that the Node JS workspace. She picked Node JS off the templates there before proceeding after you name it.
+
+36
+00:06:31.620 --> 00:06:34.950
+Once the workspace opens up, you basically have
+
+37
+00:06:40.110 --> 00:06:50.850
+Everything except this expanded folder Yeoman Fazer setup available and again I link the Jesus version of this.
+
+38
+00:06:52.590 --> 00:06:54.270
+So if you uploaded this
+
+39
+00:06:57.990 --> 00:07:01.260
+To the top level of your Cloud nine workspace.
+
+40
+00:07:04.740 --> 00:07:05.520
+Or rename this one.
+
+41
+00:07:09.330 --> 00:07:11.820
+see this in action, you can execute
+
+42
+00:07:13.590 --> 00:07:29.190
+The tar command with the options X VCs were V is for both so you can see what's going on after uploading the Fazer target Jeezy file for Yeoman Fazer set up here and you're basically get expanded in the workspace.
+
+43
+00:07:32.010 --> 00:07:33.360
+This complete file here.
+
+44
+00:07:35.670 --> 00:07:42.180
+Complete folder and inside the folders, basically all the files that you would need to work with.
+
+45
+00:07:44.130 --> 00:07:46.200
+A factored class based Fazer game.
+
+46
+00:07:51.600 --> 00:07:55.620
+You also need to install the current command line interface.
+
+47
+00:08:00.900 --> 00:08:06.720
+And PM is node package manager. So it's using the Node JS server side JavaScript executable.
+
+48
+00:08:10.500 --> 00:08:13.620
+And we'll get the grunt command line interface set up there.
+
+49
+00:08:18.450 --> 00:08:20.340
+So once you do that, you've got your Fazer
+
+50
+00:08:21.900 --> 00:08:27.030
+Project template in this folder. Basically you can basically duplicate this thing. So I'll duplicate it
+
+51
+00:08:29.250 --> 00:08:30.000
+Call this my
+
+52
+00:08:31.560 --> 00:08:32.250
+Game right
+
+53
+00:08:33.930 --> 00:08:41.130
+And once you have a folder duplicated from the Yeoman Fazer setup directory. You can use the
+
+54
+00:08:42.150 --> 00:08:53.430
+Terminal the Bash shell here. We'll do a little LS to list out the files. Here you can see the change directory into your new folder. In this case, I call it new game.
+
+55
+00:08:54.750 --> 00:08:56.010
+And then you can run grunt.
+
+56
+00:08:58.590 --> 00:09:02.010
+And the way you can tell grant is running and grant is just a server side.
+
+57
+00:09:04.320 --> 00:09:07.680
+task runner that's designed to do a couple things for us.
+
+58
+00:09:09.870 --> 00:09:10.890
+It is looking
+
+59
+00:09:12.000 --> 00:09:23.880
+With its watch task at the folder here that is the source folder and so any of the JavaScript files that we want to edit in here that represent our basic game. We can edit them.
+
+60
+00:09:31.740 --> 00:09:38.670
+A little comment in there to make some edits and if you watch down here in the terminal window at the bottom panel when I save this.
+
+61
+00:09:39.360 --> 00:09:48.720
+You'll see that it notices with its watch tasks that I changed to boot JS and then it basically ran the browser of phi
+
+62
+00:09:49.530 --> 00:10:02.160
+To take all of my separate files in the SRC, the source folder and to compile them and create a single file app dot j s AP dot j s should be loaded
+
+63
+00:10:02.760 --> 00:10:13.230
+By your main HTML file. So here you can see this guy loads Fazer dot j s and app JS both of the Scripts folder. So you can think about the SRC folder as your
+
+64
+00:10:13.620 --> 00:10:29.940
+unchain piled on transpired source that you can write class based JavaScript in she can see here, we're defining a class called boot. Here we're defining a class called game here we're defining a class called preload.
+
+65
+00:10:31.020 --> 00:10:34.830
+Each of these are sub classes of other classes in
+
+66
+00:10:35.880 --> 00:10:37.230
+The Fazer library.
+
+67
+00:10:40.200 --> 00:10:41.400
+So those steps.
+
+68
+00:10:42.480 --> 00:10:51.360
+Documented and week 12 step by step setup for build system workspace will get you a template that you can operate within
+
+69
+00:10:52.020 --> 00:11:11.940
+A cloud nine workspace to build out a class based Fazer game and in the class based model, we get this concept known as prefabs which are basically sub classes of things like sprites four states that Fazer represents to us sub classing or making a prefab
+
+70
+00:11:13.200 --> 00:11:18.600
+sprite subclass is really powerful, because then you can isolate all the code that you want.
+
+71
+00:11:19.320 --> 00:11:32.190
+Or any particular kind of Sprite, like your player or enemies or other type apologies of sprites, that might be in your gameplay and you can build isolated code for them within the class based model lot easier to do.
+
+72
+00:11:35.250 --> 00:11:37.650
+Again, we also have another workspace here,
+
+73
+00:11:41.130 --> 00:11:52.260
+It's dated spring 2018 but it's the same stuff. So I didn't duplicate a new one and this is the Fazer JS book examples and these have completed games in them.
+
+74
+00:11:53.130 --> 00:12:06.420
+Written using the class based model with a build system required to transpire them for all the games in chapter seven of our book so shoot him up game platformer game slicer game like Fruit Ninja.
+
+75
+00:12:08.880 --> 00:12:15.960
+Tower Defense game and crusher another game that you can play in here as well as a couple of the older sample games.
+
+76
+00:12:17.820 --> 00:12:18.780
+So they're all here.
+
+77
+00:12:20.700 --> 00:12:21.090
+In
+
+78
+00:12:22.860 --> 00:12:30.210
+This Facebook workspace for today's advanced topics where we're going to talk about
+
+79
+00:12:31.020 --> 00:12:39.870
+prefabs specifically basically sub classes of Fazer objects. I'm going to use a sample of one of the chapter seven games. I'm going to use the the shooter the shoot 'em up.
+
+80
+00:12:40.470 --> 00:12:54.930
+Game and I'm going to copy it into my own build system. So here I am in the Facebook workspace and I'm going to take schmuck SH M up the shoot 'em up game.
+
+81
+00:12:58.800 --> 00:13:04.380
+Build System based game with its own Grunt file and a package as well as
+
+82
+00:13:05.910 --> 00:13:15.630
+All of its prefabs isolated here. These are sub classes of sprites and other game objects and all of its game states which are sub classes of the Fazer state.
+
+83
+00:13:16.800 --> 00:13:28.020
+Class, so let me download this choose by right clicking your control. Clicking on the main folders schmuck, and I'm gonna choose download it and make a compressed version of this for me.
+
+84
+00:13:30.960 --> 00:13:33.180
+And so it should have downloaded. Now we're gonna take a peek.
+
+85
+00:13:35.190 --> 00:13:47.310
+Here it is my downloads folder and expand it here locally into a local folder and we can see everything's in there. Looks good. So I'll close up that textbook example.
+
+86
+00:13:49.230 --> 00:13:56.160
+Workspace. And I'm back here in my build system workspace now and I'm just going to drag up that folder.
+
+87
+00:13:57.270 --> 00:14:03.660
+schmuck drop it into the builds system workspace and it's uploading right now.
+
+88
+00:14:09.450 --> 00:14:10.650
+I'm going to
+
+89
+00:14:13.680 --> 00:14:14.520
+quit out of the
+
+90
+00:14:16.380 --> 00:14:32.880
+demo that I was doing there, and the new game folder and let's see Schmuck is uploaded now. So let's take a little tour of the project files for the shoot 'em up textbook example, and I'll take you to the configuration file first. So let's look at package JSON.
+
+91
+00:14:33.990 --> 00:14:36.720
+And see here it's describing
+
+92
+00:14:39.360 --> 00:14:44.070
+Some versions of the different task building
+
+93
+00:14:45.390 --> 00:14:55.920
+Tools that we're using, like, Babylon fi core Grant. Grant Babel grunt browser fi and connect and watch, which gives us a web server and the ability to watch the folder.
+
+94
+00:14:58.050 --> 00:15:07.050
+Look in the Grunt file will see basically an entire set of JavaScript commands that are actually designed to run on the server in the Node JS.
+
+95
+00:15:07.830 --> 00:15:21.420
+Runtime basically running JavaScript on the server for us and we're basically configuring the Grunt task runner here tell it to go read our package for details about stuff. We need configuring the browser fi
+
+96
+00:15:23.760 --> 00:15:26.820
+Component of grunt that basically says, yeah, we're going to
+
+97
+00:15:28.080 --> 00:15:37.800
+Run it through babel of phi and then we'll look and source for app JS so grant is going to look at this file.
+
+98
+00:15:39.030 --> 00:15:47.670
+And every single import directive so lines three through seven here in the app JS tell it to go get other files.
+
+99
+00:15:52.590 --> 00:15:54.570
+That's how all of our state's get loaded here.
+
+100
+00:15:58.590 --> 00:16:08.130
+It says from those source files that app JS is the root of when the browser fi
+
+101
+00:16:09.330 --> 00:16:19.680
+Task is finished running it should save the transpired complete JavaScript file in the Scripts folder so to replace app JS over here, and instead
+
+102
+00:16:21.240 --> 00:16:27.120
+populated with all the goodies that it compiled transpired from our source files.
+
+103
+00:16:28.200 --> 00:16:46.710
+And the watcher the watch component of grant is basically being told to look inside. Basically, every folder and source for anything that ends and dot j s and when something changes run browser five. So that gets it to run the browser fi task and all that stuff happens there.
+
+104
+00:16:48.660 --> 00:16:52.710
+Connect basically says run a web server at Port 9001
+
+105
+00:16:54.810 --> 00:17:01.380
+And here we're making sure that we load up the node package manager tasks for connect watching browser.
+
+106
+00:17:03.030 --> 00:17:17.760
+That's pretty much what the ground file. Does it tells the Grunt task runner what to do and what tasks, it should be using to basically set up this automated build system. This development environment where we can do whatever we want inside shop.
+
+107
+00:17:23.010 --> 00:17:25.590
+And have a working project.
+
+108
+00:17:26.640 --> 00:17:27.210
+So,
+
+109
+00:17:43.980 --> 00:17:45.480
+Get my file system refresh it.
+
+110
+00:17:48.060 --> 00:17:48.930
+Seems like
+
+111
+00:17:50.370 --> 00:17:52.170
+Something's missing. There we go.
+
+112
+00:17:53.220 --> 00:17:56.610
+So I got my Yeoman Fazer set up my my starting
+
+113
+00:17:58.080 --> 00:18:06.300
+Template. And this is the one that I want to duplicate and I can copy the resources I need out of the schmuck upload that I uploaded here.
+
+114
+00:18:07.410 --> 00:18:12.840
+Right into it. So let's go ahead and and duplicate this guy, this one ready to run grant already
+
+115
+00:18:14.820 --> 00:18:17.340
+All this my my schmuck live
+
+116
+00:18:18.510 --> 00:18:24.720
+Are really going to demonstrate how to use signals today by modifying the shoot 'em up game. So I'll call this my smoke signals live
+
+117
+00:18:26.160 --> 00:18:30.540
+And in here, I want to delete things that are over in
+
+118
+00:18:36.300 --> 00:18:43.170
+Looks like part of my cloud nine interfaces missing at the bottom. No worries. I want to basically copy assets scripts.
+
+119
+00:18:43.650 --> 00:18:51.480
+And source and the index file. So these four things I want to put them into the duplicated and renamed
+
+120
+00:18:51.840 --> 00:19:05.520
+Human Face or setup folder here that I called smoke signals live. So I'm going to delete the assets delete the scripts delete the source in the index out of that guy. So I'll select them all, and I'll choose Delete going to say, Are you sure and I say yes.
+
+121
+00:19:07.020 --> 00:19:08.340
+Then I'm basically going to copy
+
+122
+00:19:11.550 --> 00:19:14.490
+These three folders and this one file into my
+
+123
+00:19:15.630 --> 00:19:19.710
+Build ready copy here now basically delete this uploaded.
+
+124
+00:19:20.730 --> 00:19:28.230
+I don't really need him there. So now in Smoke Signals live. I basically have the graphical assets.
+
+125
+00:19:30.570 --> 00:19:45.840
+The directory where my app JS folder file will be transpired the scripts for folder and also the way the book author structured. This particular example that they put Fazer dot min JS instead of subdirectory they called lives there and scripts.
+
+126
+00:19:46.890 --> 00:19:59.400
+And most importantly, the source files for this game separated into folders prefabs which are generally sub classes have a game object like a sprite to see enemy and player, both in there. Those are both
+
+127
+00:20:01.200 --> 00:20:08.550
+sub classes they extend Fazer sprayed so enemy is a new class that's basically got everything a sprite can do plus
+
+128
+00:20:09.030 --> 00:20:20.790
+custom code that's added here to make it behave like an enemy spread and player that JS has a player class defined that extends Fazer spread again with all the unique stuff that the player sprite can do in this game.
+
+129
+00:20:26.730 --> 00:20:30.630
+And so we want to get ground running. So we can start to work with our source files and get it to
+
+130
+00:20:31.560 --> 00:20:50.250
+To compile. So let's do a directory listing with ls in our workspace and I can see I've got a directory now called schmuck dash signals dash live so change directory using the CD command and I'll type schmuck signals live and I'm in there now and I'm going to run ground.
+
+131
+00:20:52.860 --> 00:20:57.240
+And boom, I can see grunts running. I didn't get any errors. It's telling me that it's running.
+
+132
+00:20:57.750 --> 00:21:11.760
+A bower colon flat rank connect colon targets running watch again watch is basically sitting there waiting to see me change something in one of the source files. So let's just edit the app for a second. I'll put in a new
+
+133
+00:21:12.780 --> 00:21:13.770
+Global comment here.
+
+134
+00:21:15.780 --> 00:21:19.170
+I will note this is a class based
+
+135
+00:21:20.940 --> 00:21:21.600
+Project
+
+136
+00:21:25.800 --> 00:21:27.510
+In which sub classes.
+
+137
+00:21:33.270 --> 00:21:34.170
+Are defined
+
+138
+00:21:36.090 --> 00:21:37.080
+For unique
+
+139
+00:21:39.660 --> 00:21:40.230
+Special
+
+140
+00:21:41.640 --> 00:21:42.180
+sprite.
+
+141
+00:21:51.030 --> 00:21:51.990
+Developers
+
+142
+00:21:53.850 --> 00:21:55.020
+Use the phrase.
+
+143
+00:21:57.480 --> 00:21:58.170
+The fab.
+
+144
+00:21:59.730 --> 00:22:00.540
+Scribe
+
+145
+00:22:02.850 --> 00:22:04.050
+So class.
+
+146
+00:22:05.400 --> 00:22:07.980
+sprite or other game objects.
+
+147
+00:22:10.770 --> 00:22:20.850
+Will be saved this. Keep your eyes down here on the output from Grunt, which is in my terminal window right here in the bottom panel as I saved this thing.
+
+148
+00:22:24.660 --> 00:22:40.950
+And notice, watch discovered that source app JS changed and it ran browser fi and browser feis spit out a new app JS file right here. And if I open this up. You'll notice there is my comment So literally, the
+
+149
+00:22:41.970 --> 00:22:57.780
+Browser. If I task in grunt takes all of our separate JavaScript files that are factored out separately into different classes here in the source folder and combines them all into a single browser compatible version of JavaScript.
+
+150
+00:23:00.120 --> 00:23:12.450
+So don't get confused if you're working in this pattern you want to only edit code that is in the SRC subdirectory in any of the directories that it contains, and you'll need to have ground running.
+
+151
+00:23:13.410 --> 00:23:21.450
+While you're making the edits and saves so that watch can detect the change and call browser fi to re compile it for you.
+
+152
+00:23:22.470 --> 00:23:23.880
+And like usual. We've got a
+
+153
+00:23:24.960 --> 00:23:38.490
+HTML file is basically the host for our game here and you can see it's loading the Fazer men library out of the script slash lives and it's loading are transpiring app JS right here. So if I were to preview this thing.
+
+154
+00:23:39.840 --> 00:23:52.530
+Pop it up in tend to their browser tab, we could see this game running and the shoot 'em up game has some really big spread assets and basically used up and down arrows to the left and right arrows. You can shoot it was crazy little enemies here.
+
+155
+00:23:56.340 --> 00:24:13.350
+Are the code handling the behavior of the player sprite and all of the separate instances of the enemy sprite. Those are factored in isolated into their own prefab subclass. So here's all the code for the game player.
+
+156
+00:24:15.810 --> 00:24:29.940
+When we define this new class player that's basically a subclass of phase or Sprite, we have to create a constructor constructor is what runs when we make a new instance of this player sprayed
+
+157
+00:24:31.800 --> 00:24:42.150
+The update method built into the class here is synced up with the game loop update so Fazer basically calls
+
+158
+00:24:42.570 --> 00:24:48.600
+Update in each of the prefabs each time it's running. Its main update loop and then the rest of these.
+
+159
+00:24:49.020 --> 00:24:58.650
+fire damage and play fly. Those are all just unique methods that are part of the player sprite things that might happen that we could call in the rest of our code.
+
+160
+00:24:59.610 --> 00:25:08.970
+Similarly enemy does the same thing. It extends Fazer dot sprite. So it has a constructor, so that we make a new enemy, all of these things happen. This is kind of like
+
+161
+00:25:09.690 --> 00:25:23.610
+The create phase is to create state that we saw more generally in the procedural based phase or examples just happens when any of these gets created using the new
+
+162
+00:25:26.040 --> 00:25:39.300
+Statement and JavaScript. And then we've got a fire shot special method here, but then you can see to here's an update method and update method in both player JS and any JS basically runs every time the games mean updating the brands.
+
+163
+00:25:43.770 --> 00:25:52.440
+So there's a quick kind of orientation to working with the build system specifically using
+
+164
+00:25:53.550 --> 00:25:58.230
+A coding pattern different than the procedural code that we worked with most of the semester.
+
+165
+00:25:59.310 --> 00:26:06.600
+But focused more on an object oriented class based approach to using Fazer which phasers totally compatible with
+
+166
+00:26:10.320 --> 00:26:16.950
+And I'm going to use this example the shoot 'em up example to show you how to work with the concept phase your calls signals.
+
+167
+00:26:17.670 --> 00:26:29.010
+And signals are basically a publish and subscribe method for allowing game objects instances of game objects like enemies or the player or perhaps other stuff, depending upon your game.
+
+168
+00:26:29.730 --> 00:26:40.020
+To receive a special request sent as a trigger basically a signal for it to do something to run a block of code.
+
+169
+00:26:42.510 --> 00:26:51.900
+Now show you how we can use signals across different instances of these classes. And so I'm going to incorporate
+
+170
+00:26:52.530 --> 00:27:01.800
+A phase or signal right into the enemy class. So every single enemy that gets created will automatically have this ability to be signaled to be called
+
+171
+00:27:02.370 --> 00:27:12.180
+With the request to run a special block of code. And when we associate when we create an instance of enemy, we can actually tell what block of code, it should run
+
+172
+00:27:12.870 --> 00:27:23.670
+And that block of code could be somewhere else in the architecture of the game. So my example, I'm gonna put the block of code that enemies run when they get the signal actually in the main
+
+173
+00:27:25.050 --> 00:27:27.780
+Game instance. So that state that is the main game.
+
+174
+00:27:31.080 --> 00:27:31.560
+Now,
+
+175
+00:27:33.360 --> 00:27:35.700
+Signals have some
+
+176
+00:27:38.130 --> 00:27:54.030
+Great documentation in a couple tutorials that are outside of our regular home base of fazer.io and these are both linked in this week's links and the screen cast. So please take time to check these out. If you're interested in trying to use signals.
+
+177
+00:27:56.370 --> 00:28:08.160
+emmanuelle for on to Pharaoh NACo excuse me from a couple years ago built up a pretty cool example kind of from scratch interactively layering on extra things that allows
+
+178
+00:28:09.480 --> 00:28:12.420
+Us to broadcast a message to multiple listeners.
+
+179
+00:28:14.250 --> 00:28:29.220
+Some multiple instances can receive a message through the signal technique. And then over here in this blog site called mobile games development. There's another complete phase or tutorial.
+
+180
+00:28:31.590 --> 00:28:33.030
+Showing you how to work with.
+
+181
+00:28:34.650 --> 00:28:35.370
+Signals.
+
+182
+00:28:39.480 --> 00:28:46.350
+So feel free to check this out. If you want more examples of what I'm going to try and show you right now. So right now.
+
+183
+00:28:47.970 --> 00:28:48.540
+Man.
+
+184
+00:28:49.800 --> 00:28:50.670
+Our code.
+
+185
+00:28:54.030 --> 00:28:55.470
+In game JS.
+
+186
+00:29:00.990 --> 00:29:16.380
+Creates a bunch of individual enemy sprites that happens here in line 34 so notice line 28 says this stop player equals new player capital P line 34 says
+
+187
+00:29:17.280 --> 00:29:34.170
+Var enemy equals new enemy capital E. Those are both using the JavaScript new statement to create an instance of an enemy or a player subclass of the face or sprite class. So we're basically cloning.
+
+188
+00:29:35.400 --> 00:29:39.000
+A sprite and when we issue. The new instruction.
+
+189
+00:29:42.090 --> 00:29:46.380
+What really happens. So when we say new enemy.
+
+190
+00:29:49.710 --> 00:29:50.730
+Instructor runs
+
+191
+00:29:53.850 --> 00:30:06.540
+This constructor function. You can see it basically has 12345 properties that could receive and let's see. I think we're sitting them all sitting the reference to our game object.
+
+192
+00:30:07.680 --> 00:30:09.120
+You're sitting the exposition.
+
+193
+00:30:11.520 --> 00:30:12.960
+Or sitting the Y position.
+
+194
+00:30:15.360 --> 00:30:24.720
+And we're also associating a property of the main game called enemy bullets with the fourth position. There are the fourth argument.
+
+195
+00:30:26.100 --> 00:30:31.290
+Right here, will it layer. The next line inside the constructor. The first line that runs
+
+196
+00:30:33.150 --> 00:30:41.340
+Super makes JavaScript perform all of the base class.
+
+197
+00:30:44.190 --> 00:30:44.970
+Instructor
+
+198
+00:30:51.240 --> 00:31:11.700
+In this case, the base class is sprite. So we basically get for free all the fancy code that the developer Fazer wrote to create a new game sprite for free, just by saying, super and passing the same arguments that we got in our constructor game X, Y, as they call it the bullet layer.
+
+199
+00:31:14.520 --> 00:31:15.570
+And frame here.
+
+200
+00:31:16.950 --> 00:31:25.050
+And that gets passed over and I mean phase, the library basically sets up the basic guts of a new sprite and then
+
+201
+00:31:25.530 --> 00:31:37.410
+We can basically manipulate using the reserved term this which refers to the current new instance of the enemy that's being created right now, new enemies sprite is this in this context.
+
+202
+00:31:40.800 --> 00:31:44.040
+And we're saying this game to refer back to the game.
+
+203
+00:31:45.330 --> 00:31:51.600
+That was passed us we're turning on arcade physics here we're setting a body velocity value.
+
+204
+00:31:52.920 --> 00:32:02.670
+We're setting up a little property. We're going to call bounce tick that will keep track of bounces we're saving the bullet layer phrase that was passed to us.
+
+205
+00:32:07.380 --> 00:32:11.250
+When the enemy got created. So it's the fourth argument there.
+
+206
+00:32:16.140 --> 00:32:31.950
+And we're setting up some other properties out of bounds kill will fire. And then there's a little console log the original developer put in here to tell us whether or not. Basically, there's a 5050 chance that this enemy when it's created will be able to shoot bullets.
+
+207
+00:32:34.620 --> 00:32:36.330
+And if it does, then it will
+
+208
+00:32:38.130 --> 00:32:41.220
+Fire off the timer and call fire shot.
+
+209
+00:32:43.020 --> 00:32:43.890
+Every once in a while.
+
+210
+00:32:49.800 --> 00:32:51.360
+Let me update loop is just this
+
+211
+00:32:52.560 --> 00:33:03.540
+It keeps track of. It's bouncing and it makes the enemy basically float up and down. That's why you see the enemy's kind of moving up and down there, right there writing a sine wave.
+
+212
+00:33:04.170 --> 00:33:19.740
+You can see this sign function from the math JavaScript browser object here. So that's what how they're moving. They're basically moving in the y direction, based on the sine wave and the X velocity for the body was set up here. So that's why they're flowing to the left, pretty consistently.
+
+213
+00:33:20.910 --> 00:33:23.880
+So let's extend this guy using the concept of a signal.
+
+214
+00:33:27.510 --> 00:33:32.070
+So I'll pull up that right after the super call where we've already got a sprite basically built
+
+215
+00:33:40.170 --> 00:33:43.560
+Going to modify. So leave a little note here it says mod. I'm going to add a property.
+
+216
+00:33:49.530 --> 00:33:51.240
+To the enemy instance that we're creating
+
+217
+00:34:16.170 --> 00:34:16.620
+Signal
+
+218
+00:34:21.960 --> 00:34:38.250
+Here's what we do that, we're gonna say, and I'll just name this thing, call it my signal. Let's say this, my signal. So I'm defining a new property that's going to be inside this instance of the enemy sprite and I'll make a new phase or
+
+219
+00:34:39.300 --> 00:34:39.960
+A signal.
+
+220
+00:34:41.970 --> 00:34:51.510
+Fazer capital P signal capital S. This is a method that I'm calling to create an instance of the signal. So it takes around parentheses after it.
+
+221
+00:34:52.650 --> 00:34:57.720
+So I've got this thing called my signal now inside of every enemy that's good gets created.
+
+222
+00:35:03.960 --> 00:35:06.000
+I'm going to find a brand new.
+
+223
+00:35:07.590 --> 00:35:09.840
+A new method for each
+
+224
+00:35:11.070 --> 00:35:11.670
+Instance.
+
+225
+00:35:15.600 --> 00:35:17.040
+Can dispatch.
+
+226
+00:35:18.510 --> 00:35:20.130
+Or call the function
+
+227
+00:35:24.120 --> 00:35:27.240
+Associated with this enemies.
+
+228
+00:35:28.470 --> 00:35:29.100
+I signal.
+
+229
+00:35:30.510 --> 00:35:34.020
+I'll call the sky send a signal.
+
+230
+00:35:35.520 --> 00:35:42.780
+To up to you what you name this method, but I'm just calling and so I've got to refer to this and then I've got my signal as a property.
+
+231
+00:35:46.140 --> 00:35:50.820
+And, oops dot notation, excuse me, I want to call the dispatch method.
+
+232
+00:35:53.430 --> 00:35:54.840
+What this says is
+
+233
+00:35:55.860 --> 00:36:01.770
+If the code that creates this enemy that's back in the game that JS file, by the way.
+
+234
+00:36:02.340 --> 00:36:11.130
+Wants to after the game enemy after the enemy sprite is created, it could attach a function to that enemies signal known as my signal.
+
+235
+00:36:11.820 --> 00:36:19.590
+And when the enemy gets the sense signal method call it can then dispatch the code, it can run the code associated with that signal.
+
+236
+00:36:20.130 --> 00:36:32.310
+So really, in the enemy code all we're really doing is saying this, every instance of an enemy sprite could have a signal that is could be triggered and this is what triggers it calling that enemy send signal method.
+
+237
+00:36:33.330 --> 00:36:40.710
+But we did not actually associate any code to run with the signal we can do that somewhere else in the game, which is very powerful idea.
+
+238
+00:36:41.250 --> 00:36:45.510
+So you can create sprites that have the ability to receive signals and then
+
+239
+00:36:46.170 --> 00:36:55.080
+After you've created that instance of the sprites say this one gets this function to run when it gets the signal. This one gets a different function to run when it gets the same signal. So you have a lot of
+
+240
+00:36:55.500 --> 00:37:02.430
+Variability with this possibility of adding no unnamed function to run when the signals triggered.
+
+241
+00:37:04.230 --> 00:37:13.260
+So let's go back to the game Dutch as for a second. Now pretty much every time we add an enemy now so like online 34
+
+242
+00:37:14.280 --> 00:37:15.840
+Once that enemy is created.
+
+243
+00:37:19.680 --> 00:37:20.220
+We could
+
+244
+00:37:21.330 --> 00:37:22.080
+Associate
+
+245
+00:37:23.520 --> 00:37:24.630
+Named function.
+
+246
+00:37:25.740 --> 00:37:26.730
+block of code.
+
+247
+00:37:30.150 --> 00:37:34.680
+Run when the instance of this enemy.
+
+248
+00:37:39.870 --> 00:37:40.890
+dispatches
+
+249
+00:37:42.390 --> 00:37:43.260
+Signal
+
+250
+00:37:56.760 --> 00:38:08.370
+So here we go. I'm going to add that enemy.my signal and that property.
+
+251
+00:38:12.480 --> 00:38:12.990
+Add
+
+252
+00:38:14.340 --> 00:38:17.340
+In here with dot add is how I associate
+
+253
+00:38:18.780 --> 00:38:20.100
+Function that I want to run
+
+254
+00:38:22.980 --> 00:38:24.270
+Let's make a comment about that.
+
+255
+00:38:27.720 --> 00:38:28.680
+method takes
+
+256
+00:38:29.820 --> 00:38:30.360
+Arguments
+
+257
+00:38:35.040 --> 00:38:36.180
+Function block.
+
+258
+00:38:39.690 --> 00:38:40.440
+Signal
+
+259
+00:38:42.810 --> 00:38:43.620
+Is dispatched
+
+260
+00:38:45.660 --> 00:38:48.960
+To a reference to the game object.
+
+261
+00:38:50.820 --> 00:39:00.450
+Let's just call this. It's wearing game JS. So I haven't created the function that I want to run. Yet let me go do that really quickly. I'll put that down here kind of the bottom of the code.
+
+262
+00:39:01.560 --> 00:39:07.080
+After all those other custom functions. Here's my other final modification pretty much here. I'm gonna
+
+263
+00:39:09.060 --> 00:39:10.350
+Find a method
+
+264
+00:39:12.750 --> 00:39:14.850
+is run by each
+
+265
+00:39:15.900 --> 00:39:17.340
+Instance enemy.
+
+266
+00:39:21.330 --> 00:39:22.290
+dispatches
+
+267
+00:39:24.390 --> 00:39:25.290
+Signal
+
+268
+00:39:28.590 --> 00:39:34.440
+Want to make up an arbitrary thing here, else I'll say signal kill all
+
+269
+00:39:35.580 --> 00:39:37.980
+Michelle, you know, maybe you could use this if you wanted to.
+
+270
+00:39:40.080 --> 00:39:48.630
+Be able to basically have one enemy Sprite, you know, call back to the main game object and have it kill everything off in the game or something.
+
+271
+00:39:50.490 --> 00:39:58.620
+The name of the function here that I made up a signal kill all that's what I'm going to put back up here where I am adding
+
+272
+00:39:59.760 --> 00:40:01.260
+block code.
+
+273
+00:40:03.420 --> 00:40:18.510
+Respond to the signal getting run. So when the signal is triggered in enemy, it will now automatically call back in the game object signal kill all I gotta write this signal kill all here. Make sure it knows to call my game.
+
+274
+00:40:20.250 --> 00:40:22.290
+And then look for signal kill all side of it.
+
+275
+00:40:23.580 --> 00:40:32.370
+And then, you know, the line of code that was already here before I started all this line 46 just takes the enemy that got created and sticks it inside the group that got to find a line 32
+
+276
+00:40:34.050 --> 00:40:50.250
+So whenever I make a new enemy and there's another place in the textbook authors example code here for this game where he creates other enemies these enemies get created right at the Create state when the game to me and created
+
+277
+00:40:51.450 --> 00:40:56.970
+But there is an update state here were randomly decides whether or not to make a new enemy.
+
+278
+00:40:58.410 --> 00:41:07.860
+And here also after the enemies created, I need to add the signal here if I want that enemy to have this code block associated with its signal.
+
+279
+00:41:08.460 --> 00:41:22.170
+So if I didn't do this year enemies that got created later on the update loop. They have a signal in them, but it's not going to actually run any code can have an added a block of code to that signals dispatch trigger. That's how I do that here.
+
+280
+00:41:24.120 --> 00:41:37.830
+But now I basically have covered my basis in enemy when an instance of an enemy sprite gets constructed. I make a new property called my signal and I say, hey, this is gonna be a phase or signal.
+
+281
+00:41:40.410 --> 00:41:51.930
+I added a method here inside the same class definition for the enemy sprite class saying hey enemy sprites understand this method known as sin signal.
+
+282
+00:41:52.380 --> 00:42:03.540
+And what it does is it basically calls the signal this enemy sprites instance of the signal known as my signal and it dispatches it runs any code that had gotten associated with that signal.
+
+283
+00:42:05.460 --> 00:42:07.380
+So just with the code in line in
+
+284
+00:42:08.460 --> 00:42:17.400
+Enemy JS we've set up it possibility so that every instance of an enemy created has this ability to respond to this named thing.
+
+285
+00:42:18.660 --> 00:42:21.660
+My signal through its method known as sensical
+
+286
+00:42:23.550 --> 00:42:30.780
+And then over in game JS. We've got two things. We've got the code we want to run. Let's just put a little alert here for this demo.
+
+287
+00:42:37.980 --> 00:42:44.490
+You know, you could write more code here to actually loop through all the enemies and kill them all. Or, or, you know, have them all turn around and go the other way, or something.
+
+288
+00:42:45.360 --> 00:42:53.040
+Or you can have individual enemies, talk to each other, potentially, to hear it was my choice up above, and in the game JS to associate
+
+289
+00:42:53.610 --> 00:43:06.570
+A method that's part of game digests but I could have associated a method in a different object in the gameplay that the enemy would call I just chose to associate it with the game object kind of keep it all consolidated here.
+
+290
+00:43:07.680 --> 00:43:14.100
+So with that method signal kill all it's just sitting there waiting to be called by something. And what I'm telling
+
+291
+00:43:15.300 --> 00:43:30.360
+Fazer is whenever I make a new enemy. I'm saying hey look inside that enemy instance let's add a block of code to its signal known as my signal and let's add the block of code that is the games signal kill all method.
+
+292
+00:43:34.230 --> 00:43:40.740
+And I didn't really point this out, but you may have noticed down here in the bottom panel. I left grunt running, of course, because I'm editing.
+
+293
+00:43:41.130 --> 00:43:51.120
+The source files here and as I'm editing the source files watches noticing that I'm editing them and browser file gets triggered and it keeps making a new transpired version of the game right here.
+
+294
+00:43:52.020 --> 00:44:00.120
+So if we go spy in here and the compiled version and we look for, you know, mod. They're all my comments in the compiled version.
+
+295
+00:44:02.280 --> 00:44:03.630
+They are all here. Pretty cool.
+
+296
+00:44:04.740 --> 00:44:12.180
+So I should be able to test this now and the net outcome of this change right now should be when
+
+297
+00:44:17.940 --> 00:44:27.420
+Well, we haven't triggered the enemy doing anything with that signal yet. So we got got one more change to make. I think we've got all the infrastructure setup.
+
+298
+00:44:27.750 --> 00:44:36.150
+Enemies now have a signal called my signal. They have a method called send signal that will dispatch the signal when they get called by it.
+
+299
+00:44:38.370 --> 00:44:44.550
+But we're not dispatching that signal anywhere from game. So let's go look at our code in here.
+
+300
+00:44:47.160 --> 00:44:54.870
+I think there's a method called damage enemy in here. Let's go find him there's damage player who's damage enemy. So maybe right before
+
+301
+00:44:59.340 --> 00:45:01.680
+Before we kill the enemy.
+
+302
+00:45:05.100 --> 00:45:05.910
+Let's trigger
+
+303
+00:45:07.350 --> 00:45:08.160
+My signal.
+
+304
+00:45:17.820 --> 00:45:19.830
+Here, I'll say anime dot
+
+305
+00:45:22.410 --> 00:45:23.160
+send signals.
+
+306
+00:45:25.860 --> 00:45:37.470
+So literally, now when get when damage enemy gets run, which is every time an enemy collides with one of my players bullets on before I kill that enemy off. I'm going to have it send out a signal.
+
+307
+00:45:39.120 --> 00:45:40.260
+Receive that signal.
+
+308
+00:45:41.490 --> 00:45:44.610
+And dispatch the code associated with it, which in this case.
+
+309
+00:45:46.470 --> 00:45:50.820
+Is my function down here signal kill on the main method. So let's go ahead and
+
+310
+00:45:51.960 --> 00:45:53.010
+Try this out now.
+
+311
+00:45:55.980 --> 00:45:56.370
+Reload.
+
+312
+00:46:04.170 --> 00:46:14.190
+There we go. So you can see the dialog popped up here, the alert from my JavaScript instruction that's inside my signal kill all method is part of the main game object.
+
+313
+00:46:14.580 --> 00:46:25.410
+And what's basically happened is my ginormous bullet here rocket ship missiles that my player launched the spacebar has collided with this instance of the enemy.
+
+314
+00:46:27.360 --> 00:46:28.710
+And when that happened,
+
+315
+00:46:32.040 --> 00:46:35.400
+The code inside damage enemy ran
+
+316
+00:46:36.780 --> 00:46:44.280
+And it started off its explosion and then it said to this one instance of the enemy. It said, Call your sense signal method.
+
+317
+00:46:45.240 --> 00:46:57.660
+Send signal said hey inside of my enemy instance, I have a signal defined called my signal. Let's run any code associated with that signal now through the dispatch method.
+
+318
+00:46:59.580 --> 00:47:03.030
+What code got associated with it. Well, at the time I created the enemies.
+
+319
+00:47:04.890 --> 00:47:24.120
+I knew it had a signal called my enemy in it and I added a reference to this block of code, this signal kill all this means the game JS. The game class instance an object instance from the game class. And so it's looking inside this definition of the game class for
+
+320
+00:47:25.740 --> 00:47:27.660
+So signal kill all and it's running it.
+
+321
+00:47:29.340 --> 00:47:32.280
+And that, in a nutshell, is a quick
+
+322
+00:47:33.360 --> 00:47:42.090
+Introduction to well build systems sub classes that phase or developers like to call prefabs, particularly when they are built off the phase or
+
+323
+00:47:42.690 --> 00:47:57.570
+sprite class and this possibility of having published and subscribe messaging between different objects in your gameplay through the convention of signals that can dispatch blocks of code that are associated with them.
+
+324
+00:47:58.950 --> 00:48:10.080
+Ah yeah yeah you you can pass the question, Michael, you can't pass arguments across between signals. So you could do that. Let's try it out and see if I can get that working quickly here.
+
+325
+00:48:19.410 --> 00:48:22.950
+So we associated signal kill all with my signal.
+
+326
+00:48:24.150 --> 00:48:25.830
+And we're dispatching it right here.
+
+327
+00:48:26.910 --> 00:48:28.560
+Let's just try adding an argument here.
+
+328
+00:48:30.300 --> 00:48:32.280
+Without a literal chunk of text called argument.
+
+329
+00:48:48.450 --> 00:48:53.190
+And we'll see if signal could kill all can receive that argument. And I'll just appended on to the end of the alert.
+
+330
+00:48:56.370 --> 00:49:00.390
+So let's reload this guy again he should have transpired. I didn't check, but I think he did
+
+331
+00:49:04.200 --> 00:49:16.860
+There it is. So you can see, literally, I passed the string just the word argument from the dispatch right here that the individual
+
+332
+00:49:18.180 --> 00:49:34.710
+Enemy sent over and so literally. Let's say we want to dispatch, you know, some property of the instance of this enemy. So, you know, maybe it's a vertical coordinate this wise, what will dispatch back to the function that's going to receive it.
+
+333
+00:49:35.790 --> 00:49:43.470
+Now when signal kill all runs for any individual enemy, it's going to receive the y coordinate physician of that entity.
+
+334
+00:49:49.860 --> 00:49:55.170
+Now, I'm not saying the y coordinate would necessarily be useful, but I was just grabbing somebody there. Oh, there we go.
+
+335
+00:49:55.710 --> 00:50:05.550
+I blasted this guy here. He sent my signal kill all method and the main game object. His wife position there is hundred 58.58
+
+336
+00:50:06.210 --> 00:50:24.780
+So definitely you can use parameters and arguments to extend this idea of signals connecting back to dedicated functions and really opens up a huge Avenue. Again, typically known as publish and subscribe events in the world of object oriented programming.
+
+337
+00:50:29.880 --> 00:50:36.570
+So those are, I think, indeed some advanced phase or concepts that really play into that idea that
+
+338
+00:50:37.920 --> 00:50:39.210
+We can work with.
+
+339
+00:50:40.230 --> 00:50:51.150
+Fazer in at least two major coding patterns we spent most of the semester, up through week 11 working with Fazer using a simple procedural Based Coding pattern.
+
+340
+00:50:51.510 --> 00:51:00.390
+That pretty much associated one function with each of the built in Fazer states preload create an update. Sometimes we use the render
+
+341
+00:51:01.440 --> 00:51:12.660
+State also to debug information out during the game up so render and update. Both are repeated the call by phasers engine, if you will, and then
+
+342
+00:51:13.770 --> 00:51:20.640
+In week 12 through now giving you a chance I'll be it with smoke days and a holiday in the middle of it all.
+
+343
+00:51:21.150 --> 00:51:29.340
+To experience another object oriented model of coding pattern using the same phase or library where we can define
+
+344
+00:51:29.760 --> 00:51:48.300
+Factored code that lives in separate files and with a build system. We can transpire. A final distribution ready game app JS file that has all of our factored code incorporated into it and made compatible translated to work with current browser versions of JavaScript.
+
+345
+00:51:50.370 --> 00:52:02.490
+And within that model of class based coding, we see the power of adding signals where signals can be associated with individual instances.
+
+346
+00:52:03.000 --> 00:52:19.860
+Of prefabs like our enemy or our player and those signals that get associated with those instances of things like the enemy can then call other blocks of code in our coding system in our game system that might do something very special like maybe kill everybody
+
+347
+00:52:21.120 --> 00:52:22.740
+The Armageddon code.
+
+348
+00:52:24.180 --> 00:52:30.630
+So I've got a little less than 10 minutes left in this session today, and I am happy to answer more questions about
+
+349
+00:52:31.110 --> 00:52:46.230
+Build systems object oriented coding and prefabs with Fazer or signals and how to work with signals for some practical purposes, you might have in mind in the weekly sharing support discussion also want to invite people since we're in our first
+
+350
+00:52:47.250 --> 00:52:51.630
+Week of prototyping making a rough prototype of our game idea for the final project.
+
+351
+00:52:52.650 --> 00:53:03.090
+Two things. If you've been working all along on your game idea. That's fine. It doesn't disqualify it from being your final project. Certainly nothing is in eligible for being your final project.
+
+352
+00:53:03.690 --> 00:53:11.430
+If you have struggled to come up with the project idea as you saw when the game design document was assigned you are welcome to simply
+
+353
+00:53:11.820 --> 00:53:21.570
+remix and modify. One of the textbook examples from chapter seven, as we saw today I have a workspace waiting for you to go in and download a working version.
+
+354
+00:53:22.050 --> 00:53:42.000
+So again, this Fazer dash book workspace is available to you to go grab a version of one of the textbook authors games. And as you saw me in the screen cast earlier I downloaded it I expanded it I uploaded into my build system workspace and then I used a copy
+
+355
+00:53:43.140 --> 00:53:57.300
+Of Yeoman phasers setup, which is like your master build system ready directory for making a new game I duplicated that I move the pieces of the code from the shoot him up folder in there. And then I ran grunt.
+
+356
+00:53:59.130 --> 00:54:02.040
+After changing into the current directory
+
+357
+00:54:03.420 --> 00:54:07.230
+Where that guy was. And then I can start editing and I get a compiled version, every time.
+
+358
+00:54:18.570 --> 00:54:23.010
+So you have two more good questions. Michael, I think you actually you're
+
+359
+00:54:23.760 --> 00:54:34.170
+You're almost answering your second question yourself. You're saying in dispatch multiple arguments will be sent in an array form or comma separated. You could do either. You could
+
+360
+00:54:34.530 --> 00:54:44.280
+Have comma separated multiple arguments that you pass. So, you know, if I had another argument for a signal kill all
+
+361
+00:54:45.900 --> 00:54:48.690
+I could have you know our Guan and our to whatever you want to call them.
+
+362
+00:54:49.800 --> 00:54:52.110
+Coming in there and when
+
+363
+00:54:53.430 --> 00:54:56.010
+signal gets dispatched
+
+364
+00:54:57.990 --> 00:55:09.690
+You know, I could pass it to comma separated arguments and signal kill I would get both of those separately or you could build an array and pass an array value as a single argument.
+
+365
+00:55:13.320 --> 00:55:19.620
+Your other question, which is a brilliant well timed question is how do we share our work in progress.
+
+366
+00:55:20.370 --> 00:55:30.570
+The way to share it in the context of, you know, our Cloud nine environments. Well, first of all, we all know that we can share a preview URL right when
+
+367
+00:55:31.440 --> 00:55:39.510
+We've got to build system or procedural code up and running. We know that we've got basically a an index dot html a web page.
+
+368
+00:55:40.110 --> 00:55:51.300
+That we can open and preview and all you have to do is a live preview of the file. Don't preview the running application because while that might work. If you have a patchy running for yourself.
+
+369
+00:55:51.930 --> 00:56:00.690
+Nobody else who has read only access to your workspace will actually be able to run a patchy so share the URL that is known as the Live Preview, File URL.
+
+370
+00:56:01.110 --> 00:56:11.850
+You can tell us the right URL, because it has is the very first part of the domain after the protocol HTTPS colon slash slash. It has the word preview in it so copy that URL.
+
+371
+00:56:13.170 --> 00:56:18.450
+And drop it in to the weekly sharing support discussion. So we're hearing week 15
+
+372
+00:56:20.130 --> 00:56:29.070
+You can hang out in Cloud nine whip up a rough prototype. It doesn't have to be working well. Again, this is all about.
+
+373
+00:56:29.790 --> 00:56:37.920
+getting a feel for what you're doing and sharing your work in progress. And you can drop into sharing support. And one of the things that invites you to do.
+
+374
+00:56:38.400 --> 00:56:48.750
+Is post links to your own homework to share with others. And so you could literally come in here and I'll model this behavior myself right now. Check out my working
+
+375
+00:56:50.640 --> 00:56:53.160
+The fab signal example.
+
+376
+00:56:54.450 --> 00:56:55.860
+In my workspace.
+
+377
+00:56:57.840 --> 00:56:58.260
+Here.
+
+378
+00:56:59.820 --> 00:57:02.190
+And I'll copy this big ugly URL.
+
+379
+00:57:04.380 --> 00:57:13.890
+Copy know hop back over here to my workspace, where to go here is, excuse me, not my workspace canvas to many websites.
+
+380
+00:57:14.520 --> 00:57:22.740
+And I'll just go in there. If you paste in the URL and hit the spacebar after canvas detects that it's a URL and hyperlinks automatically
+
+381
+00:57:23.160 --> 00:57:31.200
+The post the reply and boom, somebody else can come in, they can play your game. And again, play testers people who are testing each other's games.
+
+382
+00:57:31.830 --> 00:57:38.790
+Hit a reply after you check somebody game out, give them a little feedback did it at a certain point, did you discover a bug that maybe the developer didn't see
+
+383
+00:57:39.180 --> 00:57:49.530
+Or do you have a nuanced idea about the gameplay mechanics or dynamics or aesthetics those basic concepts of how game is conceived and executed that you want to give some
+
+384
+00:57:49.980 --> 00:57:58.380
+Constructive feedback. Everybody please keep your feedback constructive, we all know by the time we've gotten this far that making a game is hard.
+
+385
+00:57:58.860 --> 00:58:08.460
+There's a lot of pieces involved. There's conceptual work. There's artistic work. There's coding work. So, be friendly to each other in the context of sharing and play testing.
+
+386
+00:58:09.000 --> 00:58:18.930
+Play testing is about helping somebody make things better. And so, always keep a positive spin on it. That's my attitude. Anyway, we're making games. After all, let's have some fun.
+
+387
+00:58:20.010 --> 00:58:32.070
+So a couple other things I want to say about the stage that we're at which again is basically the next three weeks after this week 1617 and finals week
+
+388
+00:58:32.550 --> 00:58:44.820
+A chance to basically whip out a version every week. And when you get some more things fixed share your link again. So there'll be a sharing support discussion, all the way to the end of the semester, this idea of working
+
+389
+00:58:45.900 --> 00:58:58.860
+Incrementally and doing play testing at a stage over and over again that you get to in our pattern in a weekly calendar comes from a development process known as Scrum.
+
+390
+00:59:00.450 --> 00:59:11.460
+Idea that we're working in a recurring pattern in Sprint's is all built around the Scrum development process. And I've shared some links this week.
+
+391
+00:59:12.030 --> 00:59:23.490
+With all of you in Canvas and I'll call your attention to them right now if you visit scrum.org you can learn about where the some of the terminology comes from in the development world both game and mobile app.
+
+392
+00:59:23.970 --> 00:59:34.620
+And really any interactive product that people make today, most often are built in teams that are following a process like the Scrum process, which is an iterative development process.
+
+393
+00:59:38.370 --> 00:59:46.140
+Here's kind of the flow chart of what they call the Scrum framework from the folks that have defined this working process and there is an entire
+
+394
+00:59:46.560 --> 00:59:55.470
+Handbook. The scrum guide and these are the two guys Ken Schreiber and Jeff Sutherland who came up with this methodology for developing software.
+
+395
+00:59:55.950 --> 01:00:07.800
+A long time ago and it's become more and more popular and is now the dominant paradigm for how software teams make again like I said games mobile applications web presence. Pretty much everything interactive
+
+396
+01:00:09.360 --> 01:00:11.370
+And this flowchart tries to break it down.
+
+397
+01:00:13.200 --> 01:00:19.320
+Into a way of working. So if we start over on the left this thing they call the Product Backlog
+
+398
+01:00:20.580 --> 01:00:29.790
+It's really just like your task list if you were brainstorming everything you wanted to pay attention to between now and the last chance to turn this project in
+
+399
+01:00:30.210 --> 01:00:35.820
+You could jot down all sorts of details, you know, if it's a platformer game. Get the tiles rendering
+
+400
+01:00:36.180 --> 01:00:47.130
+Then, you know, introduce collectibles and introduce enemies and, you know, refine the artwork and there's a whole set of things you probably have racing around in your mind.
+
+401
+01:00:48.120 --> 01:00:57.780
+And the product backlog is the place where you write them down. It is your task list that you think needs to be addressed to get to the end.
+
+402
+01:00:58.230 --> 01:01:11.670
+Which is this little box over here, which is what they basically call a Product Increment the idea that once you make it through one of these weekly Sprint's when you evaluate it with some play testing and your own
+
+403
+01:01:14.250 --> 01:01:26.100
+Intelligence to analyze. If you got accomplish the Product Backlog the task list that you wanted to accomplish in that week finally finished them all, then you can release the darn thing ship it. It's a Product Increment it's ready to be given out
+
+404
+01:01:27.210 --> 01:01:35.190
+Now, part of the Scrum philosophy literally says okay, it's possible not to finish everything the product backlog and still decide it's good enough to release.
+
+405
+01:01:35.820 --> 01:01:47.130
+And that's why in the software world and in the game world so many things come out in an initial release and then they have subsequent releases because the development team after the initial increment that they release.
+
+406
+01:01:47.490 --> 01:01:53.370
+When they think it's good enough. What we might call the minimum viable product MVP, which you might remember from
+
+407
+01:01:53.850 --> 01:02:02.430
+One of our extra credits videos which again MVP is a scrum term comes from the specific development process when it finally meets the minimum
+
+408
+01:02:03.360 --> 01:02:19.890
+Requirements. It does enough to be minimally viable, it's good enough to be used. Then you release the darn thing. But really, usually you go through a number of iterations of sprints where you've taken the Product Backlog
+
+409
+01:02:21.750 --> 01:02:31.710
+And then it's week one. Look at your big product backlog, what things are you going to tackle in week one. Pick out a subset of the things on your task list in the Product Backlog
+
+410
+01:02:32.400 --> 01:02:42.360
+Make a miniature to do list for this week, that'll be your Sprint Backlog the list of tasks that you and your team are going to try and accomplish. Now these tasks in a team environment.
+
+411
+01:02:42.810 --> 01:02:56.400
+Are often distributed to people with different responsibilities. So Joe might do this sally might do that everybody's got something from the Sprint Backlog to tackle and development teams work in tandem and in parallel. So you're all working on stuff at once.
+
+412
+01:03:00.060 --> 01:03:10.110
+In a team based sprint model of development, there's often a meeting of the minds that takes place on a regular frequency within the sprint.
+
+413
+01:03:10.830 --> 01:03:18.960
+It's often called the Daily Scrum and in fact in many development teams, literally, it'll be a stand up morning meeting, even when people are remote everybody will dial in.
+
+414
+01:03:19.560 --> 01:03:35.490
+And share their progress and particularly identified blockers impediments that have come up. Sally hit a blocker because Joe didn't finish his piece and it's she's got a dependency and part of his So Joe and Sally or both of the Daily Scrum and they can all hash it out.
+
+415
+01:03:36.540 --> 01:03:38.040
+So quickly let me take a look at the chat.
+
+416
+01:03:39.090 --> 01:03:40.830
+Oh, nice.
+
+417
+01:03:42.630 --> 01:03:50.730
+Glad to hear a little endorsement from Michael on this Michael is actually using this in his day job. Right on. What is show discos that your day company, Michael.
+
+418
+01:03:54.270 --> 01:03:59.790
+Anyway, send me a note about that. I'm curious about what you do when you're not making games multitasking it work.
+
+419
+01:04:00.900 --> 01:04:08.760
+Okay, so, um, so, yeah. So you get this working process going on this iterative you bite off.
+
+420
+01:04:09.090 --> 01:04:18.060
+A digestible chunk in however long your sprint is sprinter usually on a calendar, typically a month or less. And so we're kind of working in accelerated mini mode here.
+
+421
+01:04:18.420 --> 01:04:24.000
+Of having a week, each time to kind of do some stuff from our big product backlog master to do list.
+
+422
+01:04:24.780 --> 01:04:34.710
+And then you probably won't have a Daily Scrum unless you've got a housemate a family member, a friend who you can leverage into helping you with the game.
+
+423
+01:04:35.460 --> 01:04:39.450
+Or get some initial play testing from maybe that would make sense to you know have a
+
+424
+01:04:40.140 --> 01:04:47.370
+Recurring meeting with a in the sprint to say, you know, I did this stuff you want to take a look. Get a little feedback or engage me he
+
+425
+01:04:47.820 --> 01:04:56.370
+And your classmates in the sharing support discussion each week to say, you know, I'm not done yet, but I came up with a question. And let's have a Daily Scrum.
+
+426
+01:04:56.790 --> 01:05:05.220
+Here in the chat and talk about what my question is, if you guys can help me daily scrums are about moving things forward when a sprint is actually running
+
+427
+01:05:06.510 --> 01:05:12.690
+When you get to the end of the week, in our case for the sprint, there's a chance to do play testing the sprint review what happened.
+
+428
+01:05:13.740 --> 01:05:21.000
+How far did we get we got something share URL like I showed you how to do from the preview URL in the sharing support and
+
+429
+01:05:21.300 --> 01:05:35.430
+Shout out to everybody say, hey, go go kick the tires on this thing. I got this much working, see if the darn thing. Can you know jump over the hurdle without crashing into the wall you see any glitches. Are there any bugs anything I could change about gameplay that would make it better.
+
+430
+01:05:38.130 --> 01:05:47.370
+That is our pattern for the rest of the semester. I'll keep sneaking little new bits and pieces of insights into other things that phase or can do particularly
+
+431
+01:05:48.390 --> 01:05:50.760
+As we wrap up the next couple weeks of instruction.
+
+432
+01:05:52.200 --> 01:06:09.030
+With week 16 and 17 but really everybody's focused at this point should be simply getting down to business biting off a little bit of your big to do list for your project idea into a weekly Sprint Backlog and trying to tackle some of those things do what you can.
+
+433
+01:06:10.260 --> 01:06:11.910
+It's meant to be fun.
+
+434
+01:06:17.580 --> 01:06:30.060
+So there's no regular reading from any of the references we've used this semester, like our face or textbook, but I would like everybody to read the very brief. I think it's less than kind of a full page here.
+
+435
+01:06:31.080 --> 01:06:41.880
+Introduction to what a sprint is in Scrum, just so that term can become more meaningful and the fact that it's just running to a destination. And when we
+
+436
+01:06:43.530 --> 01:06:46.380
+At the end of this week next Thursday. I'm
+
+437
+01:06:47.520 --> 01:06:49.320
+On to six. I hope you'll
+
+438
+01:06:50.460 --> 01:07:05.040
+Buy then be able to share a URL for your first Sprint's outcome, what we'll call generically a rough prototype and there is a new discussion open with a chance to think about the way teams approach game design.
+
+439
+01:07:06.450 --> 01:07:16.770
+And it's a really great topic to think about as you are probably going to make some hard decisions about what to pay attention to and the little bit of time we have left to build this game.
+
+440
+01:07:17.580 --> 01:07:23.160
+There's a great website called You Know Gaming a month. And that's pretty much what we're doing. We got a month.
+
+441
+01:07:23.520 --> 01:07:31.080
+to whip up whatever we can whip up. So think about it as a prototype. Remember to avail yourself of resources like our friends at Open game art, where you can
+
+442
+01:07:31.740 --> 01:07:38.610
+See a burning a lot of times cycles making perfect custom art for now and download some of their art use it at least as a placeholder.
+
+443
+01:07:38.940 --> 01:07:42.960
+You may have in the big picture idea that you're going to put custom art in the game later on but
+
+444
+01:07:43.590 --> 01:07:57.360
+Don't burn your whole first week, making bit maps, you can always substitute bit maps. And later on, and we can all get over the hurdle of the art being rough what we all want to see is kind of how does the game work. What are the mechanics and dynamics.
+
+445
+01:07:59.010 --> 01:08:06.660
+And as usual, I'm up in there and Canvas waiting to hear from you all. So I hope you'll send me some links and some questions.
+
+446
+01:08:07.890 --> 01:08:08.760
+Talk to you soon.
+

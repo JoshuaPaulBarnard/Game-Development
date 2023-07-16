@@ -1,0 +1,1242 @@
+WEBVTT
+
+1
+00:00:02.669 --> 00:00:09.809
+Welcome back to part two of this week screen. We're going to pick up where we left off, I'll run it back in the slide deck here a little bit.
+
+2
+00:00:10.410 --> 00:00:21.060
+To talk about tile maps. Now, we looked at sprite sheets and sprite atlases we looked at doing animation inset of Fazer with my first example for this week.
+
+3
+00:00:21.450 --> 00:00:32.910
+Now I'm going to take that first example I'm going to extend it by creating basically a level based platformer game that has a complete environment defined through this concept of a tile map.
+
+4
+00:00:34.500 --> 00:00:45.060
+Tile maps are basically data files that plot out graphics from what is basically a spreadsheet, often called the tile set the set of tile graphics that is
+
+5
+00:00:46.200 --> 00:00:55.050
+Into a grid so that we can make our level based platformer game we're going to use the free program known as tiled
+
+6
+00:00:56.280 --> 00:00:59.370
+It's a map editor and I'm going to get my art.
+
+7
+00:01:00.870 --> 00:01:12.450
+Off of open game art for this open game art has a huge collection of tile sets. Basically the graphics and if you search for, you know, anything and tiles.
+
+8
+00:01:13.620 --> 00:01:18.990
+You'll find a lot of these, I found a public domain tile set. I'm going to use called
+
+9
+00:01:20.010 --> 00:01:33.180
+Tech blocks. He author here, Bart says it's a sci fi platformer tile set and each tiles 32 by 32 pixels in the graphic I downloaded the graphic already I'll show it to you hear my desktop.
+
+10
+00:01:34.020 --> 00:01:44.850
+And so you can see it's basically a collection in a grid of 32 by 32 pixel images again pretty much like a traditional fixed dimension spreadsheet.
+
+11
+00:01:45.540 --> 00:01:54.270
+But because we're going to use it for a tile map. We call this graphic a tile set apologize for all the terminology, but I just want to get you on the same page with
+
+12
+00:01:54.750 --> 00:02:08.280
+The game development world where some terms are kind of synonymous. So sprite sheet and tile set basically for the same idea of a grid out single file image that's got different frames of images contained inside of it.
+
+13
+00:02:10.620 --> 00:02:16.470
+I'm gonna head over to tiled so I need to make a tile set first out of that graphic.
+
+14
+00:02:17.820 --> 00:02:23.670
+I'm going to open up and I'll just call this guy tech blocks.
+
+15
+00:02:25.410 --> 00:02:26.310
+That's what I'm gonna call him.
+
+16
+00:02:30.870 --> 00:02:31.260
+And
+
+17
+00:02:34.230 --> 00:02:40.950
+Image Based on the file name, it is 32 by 32 pixels in the graphic. I'm going to pick the source image now.
+
+18
+00:02:43.560 --> 00:02:45.990
+And it's right here tech blocks to P AMP G.
+
+19
+00:02:47.430 --> 00:02:54.540
+And C. I'm going to base it on a tile set image, you know, for based on on a collection images but it's much easier to work with a composer tile set already
+
+20
+00:02:56.910 --> 00:02:58.920
+And I'll save that onto my desktop.
+
+21
+00:03:05.970 --> 00:03:11.760
+I had an older version over right over that one. So now here is my tile set
+
+22
+00:03:12.840 --> 00:03:20.700
+You can tell them you can see here it's telling me with the grid is. And if I click through here. I can see the position of each tile. It starts in the upper left with tile ID zero
+
+23
+00:03:21.210 --> 00:03:33.810
+And it moves across to the right. So by the time I get to the far right tie element ID seven. You can see the id value here. Then I go down to eight. Basically, I get down to this corner. I'm at 47 and this little dangle or here is that position.
+
+24
+00:03:34.890 --> 00:03:37.140
+So basically, a positions, zero through
+
+25
+00:03:38.370 --> 00:03:44.430
+With tiles in them that I could use in a title map. So the next thing I'm going to do now is make a new tile map.
+
+26
+00:03:47.850 --> 00:03:50.370
+I'm going to go ahead and let it know that it is going to be
+
+27
+00:03:51.450 --> 00:04:02.850
+32 by 32 pixels for the tile size. Now the dimensions of the overall map I can set in units of tiles. So I'm going to make the sky 50 titles wide by 20 titles high. You can see it's telling me.
+
+28
+00:04:03.270 --> 00:04:19.110
+That's going to make a game world that is 1600 pixels wide by 640 pixels tall. It's just taking the width and multiply it by the title width and the heightened tiles multiply the tile height and so we got these pixel dimensions. I'll go ahead and save this guy on the desktop also
+
+29
+00:04:23.640 --> 00:04:28.260
+And again, I'm over overriding an old one. So here I am. I'm going to zoom in.
+
+30
+00:04:34.170 --> 00:04:35.940
+And now that I'm in here.
+
+31
+00:04:39.270 --> 00:04:40.320
+I'm gonna go ahead
+
+32
+00:04:42.420 --> 00:04:49.080
+And start drawing my world. I've got tiles over here that I can choose from in this tile set called tech blocks.
+
+33
+00:04:51.450 --> 00:05:02.940
+And I'm going to go ahead and I'll name this layer. Notice that you can have layers in a tile set which is really helpful because then you can separate things that are background.
+
+34
+00:05:03.300 --> 00:05:13.020
+From blocks that we're going to run into. We can even add objects into a tile set that then can turn into sprites that we can interact with, but
+
+35
+00:05:13.320 --> 00:05:19.590
+I'll save that for next week's demo and will extend this game even further. So I'm just going to name my first layer. I'll call it blocks.
+
+36
+00:05:20.280 --> 00:05:27.090
+It's going to be important that I know both the name of the tile set here. I called it tech blocks and the name of the layer here at I call it blocks.
+
+37
+00:05:27.540 --> 00:05:34.680
+Because I'm going to need to know those one min Fazer and now I can basically draws basically a drawing program. So I'm going to pick that tile.
+
+38
+00:05:35.130 --> 00:05:43.500
+And I'll scroll over to the top left corner here of the grid should be able to kind of see the grid. Then I can't paint the world here with these tiles.
+
+39
+00:05:45.180 --> 00:06:00.090
+And once you pick a tile. The default is the stamp brush this lets me pick a tile. If I want to erase the tiling switch to their race or on the toolbar, but mostly I'm gonna stick with the stamp brush here and keep painting across my 50 tile, wide world.
+
+40
+00:06:01.980 --> 00:06:10.680
+Now in this example, we're going to see when we move into Fazer our first chance to see how the game stage might be smaller than the actual world of the game.
+
+41
+00:06:11.010 --> 00:06:19.320
+And we'll see how we can make this into a scrolling platform or games in that manner. So I'll plop in a little corner piece here and I'll throw down some verticals.
+
+42
+00:06:20.400 --> 00:06:34.980
+Basically, making a little border around my level. Now you can paint this any way you want. With the tile map builder. I'm gonna make a really simple one, because I don't want you to sit here and watch me make a really elaborate tile Mac.
+
+43
+00:06:35.985 --> 00:06:41.400
+Making an environment for platform or level, you know, can be as involved as you want.
+
+44
+00:06:42.990 --> 00:06:49.410
+Certainly you can spend a lot of time perfecting and mastering your world. Now I know I'm going to start off with the
+
+45
+00:06:50.880 --> 00:07:06.810
+Animation example that I showed earlier today, which has that huge redheaded kid in it running around and jumping. And so I'm going to make this a pretty open world off, throw down some stuff in here that he can climb around on as a set of blocks.
+
+46
+00:07:13.980 --> 00:07:15.510
+Hopefully he's gonna fit in this world.
+
+47
+00:07:19.140 --> 00:07:21.480
+And maybe I'll race, a couple of these guys over here.
+
+48
+00:07:24.300 --> 00:07:33.030
+So I threw down some tiles basically getting it started and now I'm gonna go ahead and first of all, I'll save everything. So I have a copy of this
+
+49
+00:07:33.480 --> 00:07:43.080
+The different file formats, the tile map format and the tile set format from tiled are saved in these file formats you can see the suffix for the tile map is
+
+50
+00:07:44.220 --> 00:07:45.630
+The suffix for the tile set is
+
+51
+00:07:46.920 --> 00:07:54.780
+Now I'm going to export this into something that Fazer can work with. And so I'm going to make it into a JSON map file.
+
+52
+00:07:56.610 --> 00:08:09.960
+filename the sky tech blogs JSON and I'll save over an old one that I had there. So now you could spend, you know, many days, potentially, and use many different art resources to build your tile map from different tile sets.
+
+53
+00:08:10.680 --> 00:08:17.490
+But I've got myself started here. And really, I just want to show you the mechanics against working inside of Fazer more than anything else.
+
+54
+00:08:18.270 --> 00:08:27.990
+So I'm going to minimize my world. They're inside of the tiled map editor and i'ma call your attention out to this file. What I've got called tech blocks.
+
+55
+00:08:28.320 --> 00:08:43.320
+I'm going to open it up in my local text editor, just for a second to give you a little peek at it. So I've got layers. Really, I only have one layer. It's called blocks the data array here is basically a numerical listing of all the different tiles that I've used
+
+56
+00:08:45.180 --> 00:08:47.850
+And you can see they're all over the place here.
+
+57
+00:08:54.690 --> 00:09:04.950
+The height is 20 that's entitled The width is 50 and my tile set the source of my tile set. It's called tech blocks.
+
+58
+00:09:17.130 --> 00:09:19.080
+So now I'm gonna head over to Fazer
+
+59
+00:09:24.210 --> 00:09:27.060
+Let me go back to for just a second. I want to double check something here.
+
+60
+00:09:34.080 --> 00:09:35.460
+Hold on just second pause
+
+61
+00:09:36.990 --> 00:09:42.900
+Pardon me for pausing there. I left out of step in tile that I want to go ahead and take care of right now, I'm going to embed the tech blocks.
+
+62
+00:09:43.380 --> 00:09:59.160
+Into the tech walks tile set into my title map. So I'm gonna hit this little icon down here below the tile set that says embed tile set. So now it's embedded in the file. I'm going to go ahead and save this again and export it one more time, as my JSON file.
+
+63
+00:10:00.330 --> 00:10:06.090
+So the important step there that I made is after I imported the tile set I embedded it in
+
+64
+00:10:07.710 --> 00:10:15.630
+Into the tile map itself. Right. So let's go back and look at the JSON file. One more time. Now, and that's where I noticed that I had a step missing.
+
+65
+00:10:16.140 --> 00:10:27.960
+So here, now that I embedded the tile set notice it has a name called tech blocks. This is really important. So I've got two names inside this data file the layer name called blocks.
+
+66
+00:10:28.650 --> 00:10:41.580
+And the tile set name tech blocks. I'm going to need to know both of those values when I import this into Fazer so good thing that I double check that. So I'll go ahead and minimize tiled now and I'll head back over to my
+
+67
+00:10:43.440 --> 00:10:51.030
+Cloud nine workspace and I'm gonna go ahead and duplicate the animation file that we had earlier on today that has the little guy running and all
+
+68
+00:10:54.000 --> 00:10:54.630
+I all map.
+
+69
+00:10:58.620 --> 00:11:01.140
+And I open him up and I'll rename this title, the
+
+70
+00:11:03.330 --> 00:11:04.080
+Title map.
+
+71
+00:11:05.220 --> 00:11:16.590
+Example, so I'm going to keep everything that we already had in here. I'll make one more little tweak. You may have noticed earlier today that cloud nine was complaining about capital P phase or not being defined. And as before.
+
+72
+00:11:17.070 --> 00:11:24.990
+To help the Cloud nine text editor, I can get rid of that message by writing a global comment up here written like a comment.
+
+73
+00:11:25.380 --> 00:11:33.240
+And announced that phasers declared as a global inside that comment that's really only for cloud nines editors purposes, and I'm going to do that.
+
+74
+00:11:33.960 --> 00:11:41.340
+I'm going to leave the dimensions of the game just the way it is. It'll help us to see again the stage is 800 pixels wide by 400 pixels tall.
+
+75
+00:11:41.700 --> 00:11:48.570
+But we saw back there that I made a tile map that's 1600 pixels wide by 640 pixels tall.
+
+76
+00:11:49.380 --> 00:12:01.560
+By the time I'm done with this example, we'll see that we can get our game camera in the Fazer engine to follow our player sprite around and basically pan around the game world it within what's visible in the stage.
+
+77
+00:12:03.300 --> 00:12:05.610
+So let's get started with the steps we need
+
+78
+00:12:06.810 --> 00:12:08.130
+To start using
+
+79
+00:12:20.160 --> 00:12:22.200
+And there's really two steps to us.
+
+80
+00:12:25.650 --> 00:12:28.500
+Let's call it two steps to preload a title map.
+
+81
+00:12:32.370 --> 00:12:33.330
+The Tile set
+
+82
+00:12:38.160 --> 00:12:46.380
+And so, again, the tile map is the JSON file the tile set image is that file that we're going to need a coffee, so I'm gonna do a game.
+
+83
+00:12:47.100 --> 00:13:00.930
+Load image to load up this image and I need the image now. Now, I don't think I put the image of my assets folder yet that image is the tile set. So that's this guy right here. Tech blocks to P AMP G.
+
+84
+00:13:02.010 --> 00:13:09.720
+I'm going to drag it into my assets. I need that graphics, so that when Fazer loads the map, it can associate it with that particular
+
+85
+00:13:11.520 --> 00:13:15.120
+Image and I'll just call this my tile set as an asset key name.
+
+86
+00:13:16.140 --> 00:13:23.010
+And I'm going to give it a path. I'm looking inside the assets folder so assets slash and then tech block to
+
+87
+00:13:24.210 --> 00:13:29.250
+Block to P AMP G should get this guy loaded. So that's step one.
+
+88
+00:13:30.660 --> 00:13:43.290
+We've got the graphic associated with the tile map. What will call a tile set again loaded into phasers memory. Now we're going to load the tile map itself. That's the JSON file.
+
+89
+00:13:44.730 --> 00:13:45.870
+That we export it.
+
+90
+00:13:49.410 --> 00:13:57.930
+From the tiled app. So again, I got a special method for this. I'm gonna do a game upload to call the load manager let that we're loading a tile map.
+
+91
+00:13:58.770 --> 00:14:08.490
+Map method. And I'll give this guy named to call him Mike Pyle, Matt. I'm trying to keep tile set and tile map distinct in your minds. So this all makes sense to you.
+
+92
+00:14:09.060 --> 00:14:18.030
+And so in addition to loading well conditioned to giving it an asset key name, I need to give it a path and have to upload the JSON file now so I can give it a path.
+
+93
+00:14:18.480 --> 00:14:26.760
+So there's my file tech blocks JSON or drop it into my assets folder. Also, so now I can give a path to incite assets. So assets.
+
+94
+00:14:28.020 --> 00:14:31.860
+And then check blocks JSON.
+
+95
+00:14:34.710 --> 00:14:45.450
+Now I'm going to pass to more parameters of no parameter, but also the type that we're loading here is called Fazer capital P dot tile Mac dot
+
+96
+00:14:46.350 --> 00:15:00.960
+Io underscore JSON, so knows that it's coming from the tiled editor in the JSON format so that last argument there is in fact a constant saved inside of
+
+97
+00:15:01.590 --> 00:15:12.000
+Our friend the Fazer library. So those are the two steps that I need for pre loading the tile map I gotta get the tile set loaded up. Now I gotta get the tile map loaded up
+
+98
+00:15:13.260 --> 00:15:24.180
+Let's go down to the Create code. And here, you know, I'll flip the order out at the beginning of the Create code all add my code and here they're actually five steps.
+
+99
+00:15:27.570 --> 00:15:29.130
+To create
+
+100
+00:15:31.590 --> 00:15:32.490
+The tile map.
+
+101
+00:15:36.870 --> 00:15:42.960
+So maybe we'll say display that might sound a little bit better to Uni. So step one.
+
+102
+00:15:44.850 --> 00:15:45.540
+Create
+
+103
+00:15:47.130 --> 00:16:03.600
+Pile map object. Now we loaded the tile map data file, but now we need to define an object that is the tile map itself. It's kind of like defining a sprite and again because I might refer to it in various places all declared as a global variable here. I'll call it my tiles.
+
+104
+00:16:05.610 --> 00:16:06.390
+So down here.
+
+105
+00:16:07.950 --> 00:16:20.550
+I'm going to see my tiles equals, and I'm going to do with gained add tile map method. This time, and I'll refer to the asset key that I named up above called my title map.
+
+106
+00:16:21.810 --> 00:16:40.620
+So boom. Now my tiles is a Javascript variable, much like my sprite was that points to this object in the browsers memory as part of the Fazer engine this tile map still not visible yet though. Now I need to associate pile set image.
+
+107
+00:16:42.210 --> 00:16:49.350
+Is named in tiled. And again remember back here and tiled the tile set is called tech blocks.
+
+108
+00:16:51.780 --> 00:17:04.830
+So I need to know that to associate it, so I'm gonna say my tiles dot add tile set image. Notice the capital T, and the capital I. In this method call.
+
+109
+00:17:05.700 --> 00:17:15.570
+And here, the first thing I'm going to tell it is the name of the tile set as saved in the JSON file tech blocks. Then I'm going to tell it.
+
+110
+00:17:16.170 --> 00:17:21.540
+The name of the graphic asset that I loaded that represents that image. In this case, it was my tile set
+
+111
+00:17:22.020 --> 00:17:29.310
+So this is where I'm connecting what we call the tile set back in tiled with what I call the tile set as an asset.
+
+112
+00:17:29.790 --> 00:17:36.810
+Inside a Fazer now if you wanted. I suppose you could make the names the same I made them different on purpose because I want you to see.
+
+113
+00:17:37.140 --> 00:17:52.500
+That there's a distinct Association being made here between what we call the tile set in the tiled application because that gets embedded in the JSON file and what we call the tile set here when we loaded as an image back in preload. So we got to get those two connected
+
+114
+00:17:56.220 --> 00:18:03.420
+Now the next thing I'm going to do. Step three is interesting. I'm going to define which tiles in the tile set
+
+115
+00:18:05.010 --> 00:18:06.150
+And be collided with
+
+116
+00:18:07.590 --> 00:18:20.640
+So which things should actually appear as solid objects in the game world. And so I'll say set my tiles, there's a number of different methods to do this, I'm going to call the one called set collision between
+
+117
+00:18:21.690 --> 00:18:41.160
+And it's gonna let me set it between named positions in the tile set a number of positions index positions. Excuse me. So if we go back to the tile set for a minute. The index of this guy is actually one he's the first one. The last one is well his ideas, but as actual numbers 55
+
+118
+00:18:43.410 --> 00:18:46.110
+So I'm going to go ahead and use one to
+
+119
+00:18:49.530 --> 00:18:56.820
+As the values that I'm setting. So basically, every single Kyle in this tile set should represent something that we're colliding with
+
+120
+00:18:57.570 --> 00:19:05.550
+If you had a tile set that had background art that you don't want to collide with you could set the collision between all the tiles in different groups.
+
+121
+00:19:06.000 --> 00:19:13.920
+That you want to collide with an omit the tile numbers that you don't want to have collisions with. So again, we're just telling you which ones we can run into basically
+
+122
+00:19:34.050 --> 00:19:34.830
+Tiles
+
+123
+00:19:36.270 --> 00:19:36.720
+Are
+
+124
+00:19:43.560 --> 00:19:48.210
+Called. What did I call it. I think I called it. Let's go take a quick peek back and tiled
+
+125
+00:19:50.190 --> 00:20:02.760
+I'll go back to my tail map here again in the layers only layer it created what's called blocks and I put all of the tiles that I wanted to show inside blocks. So that is going to be the name that I want to import the layer from
+
+126
+00:20:04.290 --> 00:20:10.500
+So here I need to make another variable now because I'm going to actually define a global variable for the tile layer.
+
+127
+00:20:13.140 --> 00:20:14.490
+Both my tiles layer.
+
+128
+00:20:16.950 --> 00:20:26.100
+And down here. I'm going to assign that variable to my tiles create layer this create layer method.
+
+129
+00:20:26.550 --> 00:20:38.550
+Will go and look inside the JSON file. Find the layer name in this case called blocks. Look at all the data basically that we put in there. And again, we've got data in there right here that basically represents the entire grid.
+
+130
+00:20:41.190 --> 00:20:45.270
+It really is a big data set, right, because I have this 50 by
+
+131
+00:20:47.520 --> 00:21:03.870
+Grid that I defined of tiles. That's 1000 positions 50 times 20 is 1000 so there's 1000 data points in here, literally, and you can see the numbers representing the tile maps tile set numbers. So this number one is the very first
+
+132
+00:21:04.920 --> 00:21:05.820
+Of our
+
+133
+00:21:07.410 --> 00:21:25.560
+Tile set images. This guy right here. Who has an idea of zero actually has an index of one by the way. So when you're looking at ID in here in tiled add one to it to get the index position. So again, I'm going to have data that represents the placement of these tiles by their number
+
+134
+00:21:26.790 --> 00:21:30.750
+As you can see here, so all the zeros in here represent no tile placed at all.
+
+135
+00:21:34.830 --> 00:21:42.030
+But all that data. I don't really have to look at the data file. I just wanted to show it to us to try and make a connection for you to see what this looks like.
+
+136
+00:21:43.320 --> 00:22:00.450
+Step four is done with one line of code now. Step five. You may not have to do this if you had a game stage when you created the game back up here that fit the entire tile map inside of it. My title map is bigger than my game stage. So I'm going to resize the world now.
+
+137
+00:22:05.070 --> 00:22:08.910
+To match the size of the map.
+
+138
+00:22:12.420 --> 00:22:16.350
+And here I say my tiles layer dot
+
+139
+00:22:17.730 --> 00:22:25.860
+World built in method and Fazer for any tile layer that we have defined, we can make the world matches dimensions.
+
+140
+00:22:28.110 --> 00:22:42.240
+So let me save this. So far, we've got code that loads the tile set which is the graphic holding all the title images. And then we've got code that loads the tile map JSON data file that defines the layout of those tiles.
+
+141
+00:22:42.870 --> 00:22:49.350
+That's all in the preload and then create we basically have five new lines of code. We had a title map object.
+
+142
+00:22:50.220 --> 00:23:02.010
+Then we connect from that title map object, the name of the tile set that we defined and tiled with the name of our asset that we loaded for the tile set again. That's the asset key right there. My tile set
+
+143
+00:23:02.640 --> 00:23:07.485
+So second argument and then I'm telling which tile images.
+
+144
+00:23:08.340 --> 00:23:17.970
+Inside my tile set represent things that we could run into. And basically, I'm saying everything in there from the first one to the last one, one being the first one.
+
+145
+00:23:18.660 --> 00:23:30.330
+It zero 55 being the last one. If ID. So adding one to that, then I'm pulling out all the titles that are defined in that layer I named blocks.
+
+146
+00:23:30.840 --> 00:23:35.610
+Backed in back and set a tiled again is where I named that and then I'm resizing the world to fit that
+
+147
+00:23:36.090 --> 00:23:42.570
+So before we do anything else. Let's do a quick preview. I'll just do a live preview of the sky and see if we've got anything loading.
+
+148
+00:23:43.050 --> 00:23:59.130
+And it sure does look like we've got the world loaded, and you can see Fazer important my title map. And so all those tile set images that I laid out in the title mapper rendered into this world and you can see the world is way bigger than the stage.
+
+149
+00:24:00.330 --> 00:24:05.460
+So now let's get this little fellow of ours, who's in a constant running motion right now.
+
+150
+00:24:07.620 --> 00:24:16.200
+Into a state where he can interact with the world, we just created. Basically, the very nascent beginning of a platform or level game.
+
+151
+00:24:18.000 --> 00:24:24.870
+I'm gonna head back over to my code close up that little live preview. And let's think about what we need to do.
+
+152
+00:24:25.800 --> 00:24:29.430
+To our little friend here. First of all, I'm going to stop him.
+
+153
+00:24:30.030 --> 00:24:37.530
+From constantly running. I'll keep the running animation in there. And next week I'm going to add some more animation sequences. So we can get this guy doing all sorts of different things.
+
+154
+00:24:37.980 --> 00:24:46.530
+Since the artist from open game art gave us frames that we could build other animations for but today. Again it. My goal is to get you comfortable
+
+155
+00:24:47.610 --> 00:24:56.640
+With the concept of creating animation sequences and also with the concept of working with tile maps and so tile maps are no small thing they're pretty big.
+
+156
+00:24:59.700 --> 00:25:01.050
+So we added the sprite.
+
+157
+00:25:02.160 --> 00:25:11.160
+Let's go ahead and set up physics for the sprite and I didn't really turn on physics for the whole game world yet so I better do that too.
+
+158
+00:25:14.220 --> 00:25:21.690
+So let me go back up to the beginning of my create code. And let's just turn on physics for the whole game. I like to do the first line.
+
+159
+00:25:23.970 --> 00:25:25.410
+physics engine.
+
+160
+00:25:30.420 --> 00:25:41.250
+And I'm going to do that with gain dot physics. So referencing the physics manager calling me starts system method I gotta spell it right start system capital test for system.
+
+161
+00:25:41.850 --> 00:25:51.210
+And again, here's a constant capital P Fazer dot capital P physics dot all uppercase arcade. That's the constant that tells it which
+
+162
+00:25:51.870 --> 00:26:10.080
+physics engine to turn on. So now I've got arcade physics available, but remember arcade physics needs to be applied to individuals sprite. So let's go down here. We've got my sprite created. Let's go and set up the physics on him. So I'm gonna do gain dot physics arcade
+
+163
+00:26:11.370 --> 00:26:22.560
+Enable so the enable method as part of the arcade physics object and a reference my sprite by its variable named here. So now I've turned the physics on for him. I'm going to give him gravity.
+
+164
+00:26:25.140 --> 00:26:34.470
+Or a physics has the concept of gravity and set gravity for the vertical dimension, you can actually have gravity and vertical or horizontal, which is kind of unusual not really like the real world.
+
+165
+00:26:36.030 --> 00:26:40.200
+And I'll set its level and it's just an energy or number, pretty much. So I'm gonna say my sprite.
+
+166
+00:26:41.250 --> 00:26:45.180
+Body. Remember when when we set properties of the body, we need to
+
+167
+00:26:46.230 --> 00:26:47.220
+Reference the body.
+
+168
+00:26:48.360 --> 00:26:59.130
+Property of the sprite. And then, um, I set the gravity and it's why property. I'll just set it to 100 you can play with this value, the bigger numbers, the stronger the gravity pull is to pull it down.
+
+169
+00:27:01.020 --> 00:27:13.080
+also set the bounce level. So my sprite dot body again bounces a property of the body, and I'll set it only in the wide dimension will set it to a small bounced level.
+
+170
+00:27:13.950 --> 00:27:24.120
+Less than 100% more like 20% of the energy will be transferred in that bounce and then I'm also going to set what's called linear dampening
+
+171
+00:27:25.650 --> 00:27:26.070
+And
+
+172
+00:27:27.180 --> 00:27:28.200
+This will kill off.
+
+173
+00:27:30.120 --> 00:27:30.690
+The bounce.
+
+174
+00:27:32.940 --> 00:27:33.540
+Over time,
+
+175
+00:27:34.890 --> 00:27:37.275
+So my sprite body.
+
+176
+00:27:38.340 --> 00:27:40.470
+Linear capital D damping.
+
+177
+00:27:41.610 --> 00:27:53.220
+I'll put it to one try and get it to and pretty quickly. So that should turn on the physics, save it and see how much our game change just with the change in physics, we now have gravity and a bounce.
+
+178
+00:27:54.900 --> 00:28:01.740
+Let's see what happens to this little guy when I reload him there. He goes, oh, he fell through the world right he's fallen actually off the screen.
+
+179
+00:28:02.310 --> 00:28:08.880
+And that's because the arcade physics engine doesn't detect collisions unless we ask it to specifically check
+
+180
+00:28:09.270 --> 00:28:14.400
+Collisions between sprites in this case we're going to check between the sprite and the tile map in just a minute.
+
+181
+00:28:15.150 --> 00:28:26.610
+But we got him falling. So is gravity is working. Let's do one more thing here. Make sure the game camera. So again, there's a kind of virtual camera, looking at the game world.
+
+182
+00:28:27.240 --> 00:28:39.090
+Follows our sprite. So when he moves the cameras going to move with them. So the camera is a property of the game. So I'm gonna say game camera and call it follow that that I gotta follow right so
+
+183
+00:28:40.170 --> 00:28:42.300
+Tell it what to follow, follow my sprite.
+
+184
+00:28:43.680 --> 00:28:46.770
+With that in as the argument and now watch what happens.
+
+185
+00:28:49.035 --> 00:28:55.110
+Look at that we pan down as he fell down out of the game world and he fell right off the screen.
+
+186
+00:28:56.190 --> 00:28:59.670
+Kind of cool. So it's not exactly what we want to have happen. Yeah.
+
+187
+00:29:00.750 --> 00:29:23.250
+So let's make sure that the collision between our sprite and the towel map is detected in handled so that our little guy can stop and land on these things that are in my level. Now I'm going to do that in the update. That's where we detect collisions, make sure my sprite collides with
+
+188
+00:29:24.330 --> 00:29:25.170
+The title map.
+
+189
+00:29:27.660 --> 00:29:30.390
+We need check the collide method.
+
+190
+00:29:31.830 --> 00:29:33.180
+So here I'm gonna say game.
+
+191
+00:29:34.890 --> 00:29:40.680
+Arcade collide calling the Clyde method of the physics engine. I'm going to pass it to parameters.
+
+192
+00:29:41.490 --> 00:29:48.660
+My sprite and my tiles layer. So the tile map again could be separated into multiple layers.
+
+193
+00:29:49.260 --> 00:29:55.230
+It's typical that you might only have one layer in there that's meant to be part of the environment that we want to collide with
+
+194
+00:29:55.590 --> 00:30:09.390
+We might have other layers that are background, we might even have other objects in there that can be turned into like will try next week. But with this one edition. Really, I now have one line of code and my update game loop we should see behavior.
+
+195
+00:30:12.180 --> 00:30:17.760
+Where he lands and there he is. He is in the physics engine now.
+
+196
+00:30:18.840 --> 00:30:27.930
+Aware of his environment, defined by that layer. And he's sitting on top of that level and the little blocks that I plot there so
+
+197
+00:30:29.100 --> 00:30:38.970
+We don't really have quite a game yet. But if we add keyboard controls to this little guy. We should be able to get him to run around the game world and see what that looks like.
+
+198
+00:30:41.460 --> 00:30:46.740
+So let's do that. I need a global variable for the keyboard.
+
+199
+00:30:49.230 --> 00:31:02.190
+Kind of common practice in Fazer sample code. I'll call that variable cursor's and I'm going to define that in the Create state kind of the last thing I'm going to do is enable detection.
+
+200
+00:31:03.270 --> 00:31:05.250
+Of arrow keys.
+
+201
+00:31:07.110 --> 00:31:09.780
+And I'll set that variable cursor equal to
+
+202
+00:31:11.220 --> 00:31:13.020
+Game input.
+
+203
+00:31:14.160 --> 00:31:14.850
+Keyboard
+
+204
+00:31:16.260 --> 00:31:22.230
+And then the built in method and keyboard object is called create capital C cursor. Let me move that up a little bit.
+
+205
+00:31:25.020 --> 00:31:35.880
+So create cursor keys is what I call so that now cursor's itself is a variable will have properties associated with its object value that I can look at inside my update code.
+
+206
+00:31:37.170 --> 00:31:39.570
+Here will detect arrow key.
+
+207
+00:31:40.860 --> 00:31:41.430
+Presses
+
+208
+00:31:45.240 --> 00:31:47.820
+Install right and if I'll say if
+
+209
+00:31:49.980 --> 00:32:02.550
+Dot up is down. So that's the property. I'm checking for to see if the key is pressed and I'll do something. What am I going to do here. Well, I could jump.
+
+210
+00:32:04.110 --> 00:32:07.320
+Let's make a special detection here at jump only if
+
+211
+00:32:08.850 --> 00:32:14.910
+Player is standing on a floor basically part of our
+
+212
+00:32:16.110 --> 00:32:16.980
+Title map layer.
+
+213
+00:32:18.300 --> 00:32:18.540
+Right.
+
+214
+00:32:19.560 --> 00:32:21.180
+So I'm going to do another if detection here.
+
+215
+00:32:22.320 --> 00:32:32.370
+And I look at my sprite. And again, because it's a physics enabled capability and look at its body property. And then I'm going to call the on for method.
+
+216
+00:32:33.540 --> 00:32:41.160
+So on capital F floor and it is a method call. So it has opened parentheses after it, if this turns out to be true.
+
+217
+00:32:42.870 --> 00:32:43.890
+And he's standing
+
+218
+00:32:49.080 --> 00:32:50.160
+On the floor somewhere.
+
+219
+00:32:53.220 --> 00:32:55.140
+Then I will change.
+
+220
+00:32:56.940 --> 00:32:59.010
+Is vertical philosophy. So I'm gonna go my sprite.
+
+221
+00:33:01.470 --> 00:33:04.770
+Dot why and I'll make him negative. I'll say negative 300
+
+222
+00:33:06.480 --> 00:33:15.360
+And let me save this much and reload. So right now we should just be detecting the up arrow and it really shouldn't we do something when he's standing on top of something
+
+223
+00:33:18.450 --> 00:33:19.500
+So you can see now.
+
+224
+00:33:21.180 --> 00:33:25.740
+Hitting the arrow key. Well, he's in the air and it's not doing anything. But as soon as he lands on the floor,
+
+225
+00:33:27.210 --> 00:33:42.480
+That on floor method is true. And so then we go in and set his wife velocity. So we said, is why velocity negative to make them go up. But of course, gravity is pulling him back down. So we basically get a built in jump that way.
+
+226
+00:33:43.500 --> 00:33:52.080
+Pretty cool, so he can't really move around the world yet. So let's add some else if clauses here. So I'm going to change these together with else if
+
+227
+00:33:52.800 --> 00:34:06.060
+So that we're basically looking first for I did it in the wrong place. So, excuse me, I don't want to do that inside of where I'm checking to see if he's on the floor. Instead, I want the else to be kept.
+
+228
+00:34:07.620 --> 00:34:17.490
+As opposed to if cursor up is down. So of course are up is not down. Then I'm going to fall into the cells and I'm gonna ask some more questions. I'll say cursor's
+
+229
+00:34:19.080 --> 00:34:24.150
+Got left is down to look for the left key. If the left key is pressed
+
+230
+00:34:25.530 --> 00:34:27.990
+Go ahead and set the X velocity
+
+231
+00:34:29.400 --> 00:34:30.210
+On his body.
+
+232
+00:34:31.980 --> 00:34:35.460
+Negative values that negative 115 make make basically make them run to the left.
+
+233
+00:34:37.800 --> 00:34:39.900
+And I'm also going to use my little animation, then
+
+234
+00:34:41.580 --> 00:34:46.560
+I'll play the running animation when he's moving to the left. When the arrow keys down
+
+235
+00:34:47.790 --> 00:35:01.020
+I'm going to chain. Another else if under the end of this one. Somebody else if again. So if the cursor's up is not down. Then we'll check if the cursor's left is down. And then finally we'll check if the cursor's write this down.
+
+236
+00:35:02.490 --> 00:35:13.170
+Jamie's all together. And of course, this is kind of the opposite of going left, we're going right. So we'll set that x velocity to have positive value. And again, I'll play the
+
+237
+00:35:14.790 --> 00:35:15.870
+running animation here.
+
+238
+00:35:17.910 --> 00:35:26.040
+So without doing anything else. Let's take a quick look at him. Now with basically three arrow keys being detected in the update loop.
+
+239
+00:35:27.480 --> 00:35:39.180
+Marie load. There he is. And now I can move him now. He doesn't turn around to look the other direction, yet but I'm moving him back and forth. And let's see what happens when he walks off the edge of the world. They're
+
+240
+00:35:41.700 --> 00:35:55.860
+There he goes. And I guess I'm have to jump over that. I don't know if I can get around that part of the way and sized my world. Definitely a consideration for levels is how you scale your level to fit your character art right
+
+241
+00:35:56.910 --> 00:36:08.670
+See if I can jump back up there. So he's he's moving around. Now, part of the play testing of a game like this that using physics is you can adjust the velocities that you're setting. You know, I'm using negative 300 to make them jump.
+
+242
+00:36:10.020 --> 00:36:16.920
+And that seems to be enough to get him all the way back up to the highest with just a simple single jump.
+
+243
+00:36:18.390 --> 00:36:24.870
+Be nice to have them face the other way when he's going left and there's a simple technique for doing that. It'll show you now next
+
+244
+00:36:26.130 --> 00:36:43.110
+Basically, we've got a tile map imported. We have collisions being detected on the layer that we called blocks that has all of our are in it for the tile map. And we've got our little sprite guy running around in this world. So if he's going left. Let's flip him to face the other way.
+
+245
+00:36:48.630 --> 00:36:57.150
+So my sprite scale X and I'll set it to a negative value and I scaled them all to 25% previously.
+
+246
+00:36:59.370 --> 00:37:04.500
+And since he could be turned around the wrong way. When we start running right I'm gonna have to flip it back.
+
+247
+00:37:08.160 --> 00:37:12.240
+So you scale x positive point 25 here now.
+
+248
+00:37:13.440 --> 00:37:21.870
+We're the center point is on my sprite is going to matter now because when I go this way, that's fine. But when I turn look he's he's kind of jumping a little bit right
+
+249
+00:37:22.290 --> 00:37:30.555
+And that's because when I am scaling him in a negative direction. I need to have the anchor point of the sprite centered right in the middle of him.
+
+250
+00:37:31.350 --> 00:37:38.850
+And I haven't done that yet. I need to do that in the Create state so that it flips his direction right across the middle of that sprite.
+
+251
+00:37:39.210 --> 00:37:47.670
+Right now it's flipping it across the upper left corner just making him look with these jumping. So I got one more little finesse to do here to get this working right.
+
+252
+00:38:08.190 --> 00:38:08.520
+Center.
+
+253
+00:38:24.090 --> 00:38:39.480
+And that'll give him two values that basically represent 50% basically the middle 0.5 comma 0.5. So that's the X horizontal center and the why vertical center. I'm gonna save that change and head back over here and reload him.
+
+254
+00:38:42.090 --> 00:38:46.530
+And now when I flip his direction is much more natural, because it's flipping him across his centrepoint
+
+255
+00:38:48.720 --> 00:38:51.900
+Got this little guy running around. I've got the beginning of a game.
+
+256
+00:38:53.940 --> 00:39:05.430
+With some play testing problems for sure I got to redesign my tile map so that you can fit better in this weird little world I made and right now I don't have any goal for him. That's okay. In
+
+257
+00:39:06.150 --> 00:39:18.450
+This week's example, and this week's assignment, you're fine. If you can get animation in a tile map working, you don't have to have any other object for this activity, then, to allow somebody to move around.
+
+258
+00:39:19.770 --> 00:39:24.060
+The title math world with the player sprite like we're doing here.
+
+259
+00:39:31.080 --> 00:39:38.310
+So if you did add another sprite. However, you could then have a collision right so let's go ahead and add one more sprite for kicks.
+
+260
+00:39:39.870 --> 00:39:57.780
+Gonna go back to my code when to go see what I've got here from the sky. I have that folder of stuff I downloaded of the red hair, boy. Let's go ahead and put another version of him into the game and have him go find himself, basically. So I'll put this frame got hit in my assets.
+
+261
+00:40:00.000 --> 00:40:02.700
+Animal make another sprite here.
+
+262
+00:40:04.350 --> 00:40:07.560
+Another variable call him my goal.
+
+263
+00:40:08.760 --> 00:40:10.110
+Thing we're trying to get to. Right.
+
+264
+00:40:11.550 --> 00:40:14.970
+And I'm gonna go down and I want to preload.
+
+265
+00:40:16.440 --> 00:40:16.980
+The art.
+
+266
+00:40:21.090 --> 00:40:26.700
+For the new sprite and I had gained image and I'll call him.
+
+267
+00:40:28.020 --> 00:40:28.560
+Goal.
+
+268
+00:40:29.610 --> 00:40:36.360
+And I gotta locate him. He's in the assets folder. He's called frame dash got hit PNG.
+
+269
+00:40:37.590 --> 00:40:44.640
+And so now I've loaded up this new asset that I called goal and and go make a sprite out of him.
+
+270
+00:40:46.050 --> 00:40:48.330
+Will do that kind of down here near the bottom of this thing.
+
+271
+00:41:06.030 --> 00:41:22.650
+When I add a sprite. I'm going to set his position. Now my world is 1600 pixels wide by 640 pixels tall. I'm going to stick this guy over in the far right corner. So I sent him to like 1400 horizontal and maybe. Oh.
+
+272
+00:41:24.330 --> 00:41:29.310
+Maybe for 75 vertical we'll see where he lands. We don't have to move around a little bit. Then I'm going to name.
+
+273
+00:41:30.240 --> 00:41:39.210
+The asset key that I used. And again, I better check that. I think I called it goal. Yep. When I learned that image I named its asset goal. So when I load that sprite. I'm going to refer to that.
+
+274
+00:41:40.560 --> 00:41:51.840
+I'm going to enable the physics on him too, because I want to check for collisions only goal of our game in the extended version is basically for him to run in to the sprite called my goal.
+
+275
+00:41:53.550 --> 00:41:56.610
+So I turned on his physics. Let's see where that guy lands.
+
+276
+00:41:58.200 --> 00:41:59.010
+I'm going to restart.
+
+277
+00:42:01.590 --> 00:42:03.720
+Looks like I could probably move that guy over a little bit to
+
+278
+00:42:07.620 --> 00:42:09.210
+Get over to the far side of the game here.
+
+279
+00:42:15.840 --> 00:42:16.890
+I gotta scale him down.
+
+280
+00:42:17.910 --> 00:42:24.000
+So I'm going to do the scale trick that I did before on the main sprite. And so let me go set his scale.
+
+281
+00:42:27.930 --> 00:42:31.920
+So I'll say my goal got scale data set.
+
+282
+00:42:33.210 --> 00:42:41.430
+And I'll do the similar 25% in the horizontal and vertical directions. So he's tinier and hopefully he'll fit in the screen over there.
+
+283
+00:42:46.080 --> 00:42:55.890
+And again, I could go back to tiled and edit my tile map and re import it to change things. There he is. He's kind of hanging off the bottom of the screen a little bit. Maybe I'll move him up a little bit.
+
+284
+00:43:08.970 --> 00:43:12.765
+Detection for him to see what happens if he collides
+
+285
+00:43:19.500 --> 00:43:27.330
+So I'm going to add another physics detection here. I'll put it down at the bottom of the update loop, just to kind of separate everything a little bit
+
+286
+00:43:29.100 --> 00:43:30.810
+During a check for collision.
+
+287
+00:43:32.700 --> 00:43:33.720
+With my goal.
+
+288
+00:43:35.820 --> 00:43:45.780
+Again, basic format gain physics arcade lot of notation to check a collision Hawaii, the quiet methods where we're headed.
+
+289
+00:43:47.250 --> 00:43:49.410
+Now in here, we're going to check to see if my sprite.
+
+290
+00:43:55.710 --> 00:43:56.610
+I'm gonna call
+
+291
+00:44:07.980 --> 00:44:12.420
+Set this next one to know. And the last one to this to refer to the game.
+
+292
+00:44:13.470 --> 00:44:18.090
+And now I basically got code in here, it should be looking for a new
+
+293
+00:44:20.400 --> 00:44:21.600
+Function. You can see here
+
+294
+00:44:22.710 --> 00:44:32.850
+Cloud nines editors figured out that I haven't defined my collision code yet. So let's go ahead and do that do it outside the curly braces here. This is the custom function to run
+
+295
+00:44:34.080 --> 00:44:34.770
+Goal.
+
+296
+00:44:36.450 --> 00:44:37.080
+Collide
+
+297
+00:44:38.430 --> 00:44:40.890
+All right, the function statements and then the name
+
+298
+00:44:43.050 --> 00:44:48.750
+Round parentheses, followed by curly braces and here we've got a collision. I'm just gonna show up an alert.
+
+299
+00:44:54.930 --> 00:44:56.550
+Little days looking clone there.
+
+300
+00:44:58.620 --> 00:45:04.260
+Let's go back and try reloading this guy now and see if we can detect that collision of him.
+
+301
+00:45:09.870 --> 00:45:11.790
+Jump up and run over there.
+
+302
+00:45:14.340 --> 00:45:21.600
+Try falling down this way. And here we go. We're gonna try and run into him. Boom. I ran into the clone. Now you can see that they're
+
+303
+00:45:22.230 --> 00:45:34.830
+Not even really physically touching here, but there's sprite rectangles in Arcade physics detecting the rectangle that each of those images are in those are touching. So we've got a collision. So I found the clone.
+
+304
+00:45:36.510 --> 00:45:42.330
+I'm going to stop this example at this point let you guys take all that in because we covered a lot of turf.
+
+305
+00:45:42.780 --> 00:45:58.620
+In today's session between part one where we looked at a pure animation example. And now, part two, where we basically integrated a complete tile map to create a platform or level that we can run around in and well find our clone at least
+
+306
+00:45:59.670 --> 00:46:10.410
+So I'm excited to see what all of you come up with using animation and tile maps this week. Again, keep things simple. We're gonna have a chance to build a full fledged complete arcade game.
+
+307
+00:46:10.800 --> 00:46:18.780
+In the second half of the semester is your final project so Hugh closely to the minimum requirements for this assignment. So you don't overwhelm yourself.
+
+308
+00:46:19.200 --> 00:46:24.360
+And of course, you're always welcome to work starting off with my code sample to extend it or modify it.
+
+309
+00:46:24.810 --> 00:46:32.760
+Or you can visit Fazer dot io slash examples to see other examples up there that might inspire you with their code samples and their interaction.
+
+310
+00:46:33.240 --> 00:46:45.420
+To build something of your very own so thanks for joining me for part two. I'll see you online and hope you have some questions coming up this week as we move into animation and tile maps.
+

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#colorbox {
+  position: absolute;
+}
+.ui-draggable {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  cursor: move;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+#drop-zones {
+  position: absolute;
+  left: 200px;
+}
+#drop-zones > div {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  text-align: center;
+  padding-top: 40px;
+  box-sizing: border-box;
+  line-height: 10px;
+}
+
+#datepicker-container{
+  text-align:center;
+}
+#datepicker-center{
+  display:inline-block;
+  margin:0 auto;
+}

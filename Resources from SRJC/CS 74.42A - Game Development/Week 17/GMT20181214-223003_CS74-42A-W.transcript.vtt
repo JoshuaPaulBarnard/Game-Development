@@ -1,0 +1,758 @@
+WEBVTT
+
+1
+00:00:02.310 --> 00:00:12.509
+Welcome. It's week 17 and this is game development. I am Ethan And I'm glad to be with you this one last time for a live session this week 17
+
+2
+00:00:13.170 --> 00:00:24.540
+Things have flown along as they often do in a semester and we're now at the end of the final project roadmap, basically, this is the last week for a sprint. We're kind of wrapping up that week really
+
+3
+00:00:25.410 --> 00:00:45.000
+And next week on the 18th your final project is do I want to call your attention to, to an extra credit opportunity just like at the beginning of the semester Powers That Be on campus have another survey for you. It's worth an extra 25 points which cannot hurt right the
+
+4
+00:00:46.080 --> 00:00:54.720
+brunt of tonight's today's session will actually be focused on the final exam review and I'll talk more about the final exam that comes up next week when we'll
+
+5
+00:00:55.830 --> 00:00:59.610
+Also be able to look at each other's work in the final project review discussion.
+
+6
+00:01:03.360 --> 00:01:06.090
+So this is our last regular week
+
+7
+00:01:12.270 --> 00:01:19.680
+Again, kind of zooming out looking at the final project roadmap at a high level, it's week 17 you should be a build and play test sprint three
+
+8
+00:01:20.130 --> 00:01:28.500
+Feel free to share URL to your in progress work in there and sharing and support. If you can, if you're working in unity, you can
+
+9
+00:01:29.100 --> 00:01:42.660
+Publish the game to Web GL upload the entire folder that's produced by that published version to a cloud nine workspace and then share the preview the Live Preview URL from that.
+
+10
+00:01:43.350 --> 00:01:48.690
+To give everybody access to your unity project if you happen to be working in unity, otherwise you might be working in
+
+11
+00:01:49.050 --> 00:01:54.930
+Phase, you're using a build system or using direct hand coded JavaScript. Either way is totally acceptable.
+
+12
+00:01:55.410 --> 00:02:04.830
+I showed everybody lots of ways to conduct your coding in different patterns. This semester and using different tools, whatever you use of course for the final project is fine.
+
+13
+00:02:05.250 --> 00:02:12.060
+And no matter what. Please turn something in, even if it's broken, even if it's not working the way you want, even it did not meet your original proposal that does not matter.
+
+14
+00:02:12.390 --> 00:02:17.760
+You're not graded on on how closely you met your original game development document submission
+
+15
+00:02:18.540 --> 00:02:23.220
+But rather on your ability to illustrate that you understand the basic concepts of game development.
+
+16
+00:02:23.760 --> 00:02:35.760
+So it'll be fun to see what people came up with next week. Usually we get a good solid dozen games or so from each class that end up working. And that's, that's pretty good track record, honestly, in the time we have to build these things.
+
+17
+00:02:37.860 --> 00:02:46.590
+So again, thinking about how this is going, you know, I asked everybody to kind of adopt a bite size set of goals for each week using the Scrum.
+
+18
+00:02:46.980 --> 00:02:58.470
+development model thinking about each week as a sprint where you could pick a to do list. This Sprint Backlog, if you will, using the terminology of Scrum and then kind of check off those items in
+
+19
+00:02:59.520 --> 00:03:17.700
+Progress on your project and then have a URL of an in progress prototype that you could share it let people test it. Be sure to turn in the final project assignment in Canvas by December 18 it's available now a fish early, that's fine. That is next week already so
+
+20
+00:03:18.750 --> 00:03:30.900
+Looking forward to seeing everything I can't accept any late work at all after the 21st of December. So next Friday, a week from today is the very last day to turn in anything for our class grade.
+
+21
+00:03:33.150 --> 00:03:44.070
+For the final exam. We'll switch kind of gears now and to final exam review final exam opens Monday morning, pretty much at midnight 1217 and is open through Friday the 21st at 11:59pm
+
+22
+00:03:45.510 --> 00:03:52.500
+It's open for 120 minutes for your, your session with it, there's only seven questions they're selected from two pools.
+
+23
+00:03:53.310 --> 00:04:01.890
+JavaScript basics and game engine basics JavaScript basics represent requirement for you to complete code will be a code sample with something missing.
+
+24
+00:04:02.400 --> 00:04:08.700
+And instructions and it'll ask you to complete it based on your knowledge of how Javascript works as a programming language.
+
+25
+00:04:09.120 --> 00:04:13.860
+Another category game engine basics does not actually require you to write any JavaScript.
+
+26
+00:04:14.310 --> 00:04:26.400
+Or in the case of unity, maybe C sharp code. There's no code for the game engine basics question their conceptual questions that apply to all game engines and unity and Fazer might be used as examples in them.
+
+27
+00:04:27.240 --> 00:04:40.740
+With the focus being anybody who covered the Fazer material since unity was completely optional if you follow the class assignments up through our phase or projects, you know, all these concepts and I'll talk about them briefly today as well.
+
+28
+00:04:42.990 --> 00:04:51.600
+Diving into the details. So it will shows up in the final exam for major categories of questions might show up in that small set of code completions
+
+29
+00:04:52.410 --> 00:05:02.130
+Need to know how to declare variables and use them and expressions. You need to know how to write array notation in square brackets and JavaScript. So you can make a list of things.
+
+30
+00:05:02.580 --> 00:05:10.560
+multiple values in a single variable, you need to know how to work with object values. Those curly bracket and values that have individual properties.
+
+31
+00:05:10.830 --> 00:05:16.620
+And how to use dot notation JavaScript to access individual property values of methods that might be inside an object value.
+
+32
+00:05:17.430 --> 00:05:23.820
+Of course, you have to know control structures like loops and conditional statements, you know, the while loop if conditional statement.
+
+33
+00:05:24.150 --> 00:05:29.460
+And you should know how to define a basic class with a constructor function using JavaScript.
+
+34
+00:05:29.850 --> 00:05:36.060
+Nothing elaborate and again these are code completion questions so you'll be given a big snippet of code with something missing in the exam.
+
+35
+00:05:36.420 --> 00:05:46.500
+Asked you to complete it based on your knowledge of these concepts and I'll do some coding before we're done. Today I'm going to shift over a couple things to say before I
+
+36
+00:05:47.730 --> 00:06:05.190
+Well know I'll say them later on. Let's go right into code examples. So if you look at module 17 in my regular old workspace. Here you will find on a completed JS review file with code samples for everything. You might basically need to know for JavaScript I'll whip up a fresh live version.
+
+37
+00:06:08.850 --> 00:06:08.940
+Of
+
+38
+00:06:11.490 --> 00:06:13.380
+JavaScript basics.
+
+39
+00:06:16.320 --> 00:06:18.540
+So we'll put a script on an inner page here.
+
+40
+00:06:19.980 --> 00:06:21.540
+first topic really was variables.
+
+41
+00:06:23.010 --> 00:06:25.770
+Ways how scope works.
+
+42
+00:06:28.770 --> 00:06:30.810
+You declare a variable outside of any function.
+
+43
+00:06:32.010 --> 00:06:34.440
+Using the bar statement to declare it
+
+44
+00:06:36.570 --> 00:06:51.750
+It is accessible as a named variable to all your code. In this context, the whole page any functions. If you do find a variable inside a function or in a functions initial parentheses. That's a local variable only available in the curlies of that function.
+
+45
+00:06:52.770 --> 00:06:54.480
+Of course you can use bar or let
+
+46
+00:06:57.840 --> 00:07:02.700
+declare a variable in modern JavaScript both those declare a variable, you know, if I had a function here.
+
+47
+00:07:04.620 --> 00:07:06.240
+And I make a bar in here.
+
+48
+00:07:09.930 --> 00:07:11.730
+This guy is only available.
+
+49
+00:07:15.060 --> 00:07:24.870
+Within the curlies as a valid value I try and do this console log in both places within the function, and we should call the function before we
+
+50
+00:07:26.610 --> 00:07:30.630
+Do the console log. So I can prove to you that a call the function
+
+51
+00:07:40.200 --> 00:07:43.560
+Little live preview here and pop it up to a new page.
+
+52
+00:07:45.270 --> 00:07:49.680
+And I got stuff going to the console hopefully making a big typos, just take a quick peek there.
+
+53
+00:07:51.720 --> 00:08:07.680
+Yeah. So you notice on line 16 no problem console logging my local bar here inside the curlies of this function, but I call the function this code runs, we saw the console log get, spit out there in the console number one.
+
+54
+00:08:13.170 --> 00:08:15.870
+But here, if I try and do another console log of the same variable.
+
+55
+00:08:16.980 --> 00:08:22.770
+I'm told it's not defined. That's because using bar inside of curlies.
+
+56
+00:08:24.120 --> 00:08:29.070
+Or let instead of the curlies have a function makes it a local variable that's only accessible inside that function.
+
+57
+00:08:31.920 --> 00:08:32.850
+In contrast,
+
+58
+00:08:37.080 --> 00:08:38.340
+I have a global variable here.
+
+59
+00:08:43.470 --> 00:08:44.670
+And then I have a function
+
+60
+00:08:48.060 --> 00:08:50.640
+And I don't use another declaration here.
+
+61
+00:08:53.100 --> 00:08:54.810
+I just assigned a new value.
+
+62
+00:08:58.830 --> 00:09:03.360
+That is assigned to the global scope variable. So, avoid using
+
+63
+00:09:06.420 --> 00:09:07.530
+Declaration statement.
+
+64
+00:09:09.120 --> 00:09:13.290
+simply assign a global variable.
+
+65
+00:09:14.340 --> 00:09:14.880
+Values.
+
+66
+00:09:15.960 --> 00:09:18.930
+Inside curlies function.
+
+67
+00:09:23.490 --> 00:09:25.230
+Here, we could do a console log
+
+68
+00:09:32.640 --> 00:09:34.050
+And then call my function.
+
+69
+00:09:36.900 --> 00:09:39.180
+And then do another console log of my global
+
+70
+00:09:41.070 --> 00:09:41.850
+And if we do that.
+
+71
+00:09:43.470 --> 00:09:46.560
+Of course, while we got that error. It's not gonna work.
+
+72
+00:09:49.710 --> 00:09:50.760
+That console log there.
+
+73
+00:09:55.980 --> 00:09:59.670
+global variable my global value got changed through those two console logs.
+
+74
+00:10:06.420 --> 00:10:07.530
+That's pretty much a script.
+
+75
+00:10:08.730 --> 00:10:10.080
+Talking about variables.
+
+76
+00:10:12.000 --> 00:10:12.990
+Let's look at objects.
+
+77
+00:10:15.450 --> 00:10:15.960
+Notation.
+
+78
+00:10:19.800 --> 00:10:33.480
+Claire variable my object and again on the right hand side of the equal sign for an object variable, we can use curly braces to hold it and we give properties names post on my property. You could take a string.
+
+79
+00:10:39.030 --> 00:10:41.820
+You know, any kind of valid simple value.
+
+80
+00:10:47.070 --> 00:10:49.860
+stored inside of a property value and
+
+81
+00:10:53.070 --> 00:10:57.810
+declare a function, the property value essentially making a method
+
+82
+00:11:09.240 --> 00:11:19.740
+So that if I went down here after I declared this my object variable. And I did a console logs for my object stock my
+
+83
+00:11:21.030 --> 00:11:24.450
+My property one. Let's do my property to
+
+84
+00:11:26.760 --> 00:11:33.510
+We should see that it's going to retrieve the value for the named property called My prop to I should get a 15 back there.
+
+85
+00:11:35.730 --> 00:11:48.780
+See that 15 generated from line 45 of my code. So I'm accessing using dot notation. These properties. And of course, if I want to call the method that I defined in there.
+
+86
+00:11:51.060 --> 00:11:52.620
+And call it with dot notation as well.
+
+87
+00:11:56.970 --> 00:12:04.230
+The boom it called that alert. It's inside my my method. My anonymous function attached to a name property of an object.
+
+88
+00:12:05.490 --> 00:12:13.110
+And so that's how we work with objects and dot notation not domination dot notation little typo there.
+
+89
+00:12:17.580 --> 00:12:22.080
+Let's keep going with some more examples of things that we want to know about control structures.
+
+90
+00:12:26.430 --> 00:12:27.840
+And conditional particularly right
+
+91
+00:12:29.760 --> 00:12:30.960
+Variable my array.
+
+92
+00:12:32.010 --> 00:12:33.360
+And I stick some values in it.
+
+93
+00:12:37.980 --> 00:12:40.020
+For number values in there.
+
+94
+00:12:42.420 --> 00:12:43.560
+I could write a for loop.
+
+95
+00:12:45.600 --> 00:13:01.530
+And declare variable. So you know i equals zero, maybe here as long as i is less than the length of my array length. I like keep running this and I'll add one to die. Each time it runs using the increment operator. The two plus signs and a logout
+
+96
+00:13:04.800 --> 00:13:12.270
+Index position of AI and retrieve one of these values using using square bracket notation array notation.
+
+97
+00:13:14.310 --> 00:13:18.630
+index number access individual value.
+
+98
+00:13:20.670 --> 00:13:21.570
+Look at that guy here.
+
+99
+00:13:25.800 --> 00:13:29.430
+You can see it's looping through all of those using that
+
+100
+00:13:30.660 --> 00:13:31.650
+Forum loop.
+
+101
+00:13:35.370 --> 00:13:36.030
+You could write some
+
+102
+00:13:37.350 --> 00:13:45.870
+Additional statements here to we could see you know if my array zero. Remember, a razor zero index equals 20
+
+103
+00:13:47.760 --> 00:13:48.210
+Alert.
+
+104
+00:14:01.560 --> 00:14:14.250
+Getting my way starts with 20 spit out there. And again, you know, I'm using three equal signs here to have the exact equality comparison operator. They're using square bracket array notation here to find the first
+
+105
+00:14:14.730 --> 00:14:25.620
+index value. That would be 20 from my array variable. And I'm saying, hey, is it equal to 20 and if it's true, it will perform that and if it's not true. I could write in else clause.
+
+106
+00:14:31.530 --> 00:14:35.940
+Nothing different messaging, if I put a new value here at the beginning, start with five maybe
+
+107
+00:14:37.500 --> 00:14:43.800
+When it runs. I get that else clause executed. Of course, there's also the while loop.
+
+108
+00:14:44.820 --> 00:14:47.490
+I could do the same thing I did in the for loop.
+
+109
+00:14:50.010 --> 00:14:59.910
+Above by writing a while I could say, well, Jay, you can clear a counter variable J on the line before the while loop I could say, well, Jay is less than my array length.
+
+110
+00:15:01.620 --> 00:15:07.560
+Do this inside the curly brackets and I could say console log my array j here.
+
+111
+00:15:09.420 --> 00:15:22.470
+And I could say j plus plus. And this basically an equivalent pattern to writing the for loop, a lot of people find this expression for constructing a loop that has a conditional because the while is a conditional loop.
+
+112
+00:15:23.460 --> 00:15:31.260
+clearer than a for loop which obfuscates kind of itself with these four separate expression, just put in between semi colons.
+
+113
+00:15:34.350 --> 00:15:37.440
+And you see that loop running there in the wild loop.
+
+114
+00:15:46.500 --> 00:15:49.470
+Concept to illustrate really classes.
+
+115
+00:15:57.240 --> 00:16:04.500
+As object values in JavaScript object values really are expressions of classes. So when you declare a curly brace.
+
+116
+00:16:05.370 --> 00:16:14.520
+Object value really creating an instance of a class, but more formally. We can declare class using in modern JavaScript the reserved
+
+117
+00:16:15.210 --> 00:16:18.930
+Word club class and then I'll name. This guy is coming gave me a function. Right.
+
+118
+00:16:19.440 --> 00:16:34.380
+And I'll give it curly braces. So I call this guy. See, it's a convention in object oriented programming typically to capitalize the name of classes that you create as opposed to individual instances of them. An important thing to know in JavaScript to create
+
+119
+00:16:35.520 --> 00:16:37.230
+A valid class.
+
+120
+00:16:40.800 --> 00:16:41.580
+We need
+
+121
+00:16:42.690 --> 00:16:45.060
+A constructor function.
+
+122
+00:16:48.150 --> 00:16:51.390
+So that looks like after you declare the class and say the curlies.
+
+123
+00:16:53.280 --> 00:17:07.800
+Instructor And then we can pass it arguments that become parameters. And so in this example, our circle. I'll take a an x and a y and in our for radius here to construct that thing. It's not gonna be visible.
+
+124
+00:17:08.670 --> 00:17:20.880
+And then inside the class use this to refer to an instance of the class. So when a new circle gets created.
+
+125
+00:17:29.790 --> 00:17:30.630
+Properties.
+
+126
+00:17:36.180 --> 00:17:37.500
+Inside the constructor.
+
+127
+00:17:43.980 --> 00:18:00.420
+Something like this dot position will define a position property for our circle and we'll make it into an array, based on what a constructor receives for an x and y value and then I could say this that radius equals far and so when the constructor gets run when we
+
+128
+00:18:01.590 --> 00:18:05.310
+Create an instance of our circle class.
+
+129
+00:18:07.980 --> 00:18:22.590
+A var C one equals, that means the new statement adjust our script called any class that we declared a bug and right here. It takes an x and a y and our for radius and console log
+
+130
+00:18:23.790 --> 00:18:31.260
+Out our see one circle will see that we've created. Now, something that is an object value that has a position in a radius property.
+
+131
+00:18:32.640 --> 00:18:41.820
+And that actually obeys the laws of both JavaScript objects values, but also object oriented programming. So here's my circle see one.
+
+132
+00:18:42.240 --> 00:18:57.960
+You see it's curly and it has a position and a radius. And there's my position value. And there's my Radius value. So creating classes. Pretty simple, and JavaScript modern JavaScript. JavaScript using this constructor method.
+
+133
+00:18:59.250 --> 00:19:04.560
+Inside of the class declaration and then you can create as many new circles as you want. I want another circle.
+
+134
+00:19:05.730 --> 00:19:16.590
+New and these are not visible. So it's just a object definition. So it's not making it visible circle on the page, but I could write methods in here to do that and use a Chanel canvas or something.
+
+135
+00:19:18.630 --> 00:19:20.550
+To display these guys.
+
+136
+00:19:23.580 --> 00:19:27.330
+And I got two different values that are separate instances of the circle.
+
+137
+00:19:35.490 --> 00:19:39.360
+Object. As you can see there, if I were to change see tues radius.
+
+138
+00:19:41.310 --> 00:19:43.620
+Right dot notation, do that.
+
+139
+00:19:47.280 --> 00:19:54.300
+See now changes radius property using dot notation. He is really just constructed as an object value. So dot notation works to go inside of him.
+
+140
+00:19:58.320 --> 00:19:59.280
+And that is
+
+141
+00:20:00.510 --> 00:20:12.150
+Everything you have to know about JavaScript in quick whirlwind. And again, you can check out my sample files out here in module 17 of my regular workspace that are started with the semester.
+
+142
+00:20:15.300 --> 00:20:27.690
+Terms of game engine topics, you know, there's really four things that you should know for the exam and to demonstrate that you have acquired knowledge about how game engines work. And again, because
+
+143
+00:20:28.560 --> 00:20:33.600
+This class has no prerequisites and people come into it without necessarily any programming previously.
+
+144
+00:20:34.740 --> 00:20:38.580
+I know there's could be a steep learning curve and many different levels of skill.
+
+145
+00:20:39.090 --> 00:20:45.180
+On the entry to this class related to actual writing code. So the game mentioned basic topics that are covered in the exam.
+
+146
+00:20:45.570 --> 00:20:51.810
+Don't ask for any specific code written for phase or you demonstrated that knowledge to projects and assignments that you wrote
+
+147
+00:20:52.470 --> 00:20:59.430
+The exam quizzes you so that to test to see if you know the concepts that really are true for almost all game engines.
+
+148
+00:20:59.790 --> 00:21:11.880
+So you need to know that game engine can go through phases or states both Fazer and unity3d do that that once gameplay starts a loop is run a game loop is Ron in the context of phase or that is the update
+
+149
+00:21:13.380 --> 00:21:23.460
+And together with the render function, the render method and the update method. Both are run in a repeating fashion as a game loop to actually make the real time gameplay happen.
+
+150
+00:21:24.270 --> 00:21:36.630
+You need to know about display management, all of this, by the way, is covered conceptually in our textbook as well. So if you review the chapter of the textbook that covers Fazer in its nuts and bolts form where you're looking at
+
+151
+00:21:39.390 --> 00:21:42.330
+And I'm looking at the chapter right now because I forgot to write it down for things
+
+152
+00:21:44.850 --> 00:21:51.840
+I'm looking at the basic concepts of fees are. And again, Chapter six Fazer principles. That's really what we're talking about here.
+
+153
+00:21:52.260 --> 00:21:56.910
+The game was covered there. The idea of states that the game engine goes through from the
+
+154
+00:21:57.720 --> 00:22:02.940
+preload to the Create to the update loop that all happens in phase or similar things happen in unity.
+
+155
+00:22:03.540 --> 00:22:09.120
+Slightly different terminology display management's really covered in the chapter six. Also, when they talk about
+
+156
+00:22:09.480 --> 00:22:15.330
+The display list as a collection of all the game objects and things that might be shown on the screen and idea that there's a camera.
+
+157
+00:22:15.720 --> 00:22:23.700
+That defines the viewers view viewport. The part of the game. They can see and in fact of, you know, there's a game world that the camera looks on to
+
+158
+00:22:24.060 --> 00:22:30.540
+And as we've seen with platformer examples and other chemicals and Fazer in unity, the camera can move and they
+
+159
+00:22:30.990 --> 00:22:39.660
+Follow different players. And remember, of course, the game objects that the display list might manage or that the camera might follow include things like sprites.
+
+160
+00:22:40.020 --> 00:22:45.780
+game objects are really fundamental to interactive games that include multiple objects.
+
+161
+00:22:46.230 --> 00:22:52.080
+In them to allow gameplay. Remember when we have multiple sprites multiple game objects collisions can happen.
+
+162
+00:22:52.530 --> 00:23:02.460
+We can animate the movement of individual game objects from one point to another using concepts of tweeting and sprite sheets to manage multi frame animations.
+
+163
+00:23:02.850 --> 00:23:13.110
+And most fundamentally and finally the most advanced concepts to remember our idea that game engines can simulate the physical world with physics engines in physics extensions to the core game.
+
+164
+00:23:14.160 --> 00:23:24.000
+Engine itself and that all of these engines that we've looked at Fazer in Unity both use the concept of an additional property of a game object, known as its body.
+
+165
+00:23:24.480 --> 00:23:29.250
+In Unity 3D. Sometimes it will call that a rigid body or rigid body 2D or rigid body 3D
+
+166
+00:23:29.790 --> 00:23:38.340
+In Fazer we just call it the body, but the body is the manifestation in the in the nexus of all the physics related properties for a game object.
+
+167
+00:23:39.240 --> 00:23:50.550
+If you know these four basic concepts and review, chapter six, you will have all the knowledge you need to ace the game engine basics questions on the final exam.
+
+168
+00:23:55.620 --> 00:24:08.490
+So I want to thank everybody for joining me this semester. Of course I'll be online next week as I look at people's final projects and field questions that might be coming into me. Remember that the final project is doing canvas on the 18th
+
+169
+00:24:09.540 --> 00:24:15.630
+That is next week at 11:59pm that is before Friday that is Tuesday night, of course, the
+
+170
+00:24:16.500 --> 00:24:23.820
+Assignments all the assignments should be open till the 21st turn in. If you have any late work and you can't turn it in Canvas, please contact me.
+
+171
+00:24:24.270 --> 00:24:31.920
+Let me know what you're trying to do and what's going on for you, and I hope to see you in future classes in the game program.
+
+172
+00:24:32.460 --> 00:24:43.680
+Want to call your attention now to as we wrap up today to changes coming to the game development program here at Santa Rosa Junior College. We're working hard to align our program.
+
+173
+00:24:44.340 --> 00:24:48.870
+Offerings to different kinds of needs people who might want to transfer to a four year game.
+
+174
+00:24:49.290 --> 00:24:59.580
+Design or development career path or people who want to get right out of the certificate. So we're hoping to be launching in the next semester or two a game development certificate
+
+175
+00:25:00.060 --> 00:25:09.000
+Though include our class, but it's now going to be retitled intro to gain coding the basic game design class and also a new class history of games that I want to encourage everybody to consider taking
+
+176
+00:25:09.450 --> 00:25:18.720
+The covers the full human history of games from traditional games with rolling knuckle bones before dice even existed to cards to video games in the whole history of video game development.
+
+177
+00:25:19.320 --> 00:25:31.440
+And will also be offering a graphic design class called designing the user experience to make up this core certificate that you can get by taking just one other elective like web development or introduction to c++ programming.
+
+178
+00:25:33.990 --> 00:25:47.040
+The two year degree path will also be changing those classes that I mentioned in the certificate are all included the list of electives is a little longer, but with this game development degree you can get a 25 unit.
+
+179
+00:25:48.210 --> 00:25:58.140
+As degree from Santa Rosa Junior College and we're working hard to help these classes transfer directly to four year programs at Chico and Santa Cruz, amongst other campuses.
+
+180
+00:26:01.080 --> 00:26:10.020
+If you've got any questions about the game program at Santa Rosa Junior College or opportunities to continue to study game development elsewhere, please get in touch with me.
+
+181
+00:26:10.710 --> 00:26:27.840
+You'll find me online and you can find me very easily, either in the CS department website or on the main staff profile website. I'm at profiles Santa rosa.edu slash Ethan dash wild, you'll find a link to that page also in our syllabus from this class semester.
+
+182
+00:26:29.070 --> 00:26:35.010
+And if you're around in March during our SPRING BREAK IT TURNS OUT, MARCH 18 to the 21st, the
+
+183
+00:26:35.610 --> 00:26:45.480
+World leading Game Developers Conference, the GTC for 2019 will be taking place in San Francisco. I'll be there in March 18 and 19th at the education educators summit.
+
+184
+00:26:45.990 --> 00:26:55.080
+As part of the GTC and checking out the show floor. There are ways to get in there without spending an arm and a leg, the regular conference tickets are very expensive. I will confess
+
+185
+00:26:56.070 --> 00:27:07.770
+But you can get special offers to get onto the show floor and check out what's going on. So check it out. It's the place to go if you want to rub elbows and shoulders with game developers from around the world.
+
+186
+00:27:10.770 --> 00:27:19.500
+Like I said, it's been my great pleasure to have you in my class this semester, I hope to see you online. I want to encourage everybody please go take this final
+
+187
+00:27:20.070 --> 00:27:34.350
+Course ending survey here in week 17 extra credit, take a survey for 25 points. It is a really helpful for us to know what you got out of this class in terms of science, training and educational experience.
+
+188
+00:27:35.640 --> 00:27:36.600
+See you online.
+
+189
+00:27:38.580 --> 00:27:39.240
+Happy gaming.
+

@@ -1,0 +1,1 @@
+import SecondScript from "./second.js";

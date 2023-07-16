@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Blackjack</title>
+		
+		<!-- 1: load jquery -->
+		<script src="jquery-1.12.0.min.js"></script>
+		
+		<!-- 2: load playing card library 3 files -->
+		<script src="playingCards.js"></script>
+		<script src="playingCards.ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="playingCards.ui.css">
+		
+	</head>
+	<body>
+		<h2>Blackjack Example</h2>
+		
+		<!-- 3: create a user interface for game -->
+		<div id="controls">
+			<button type="button" onclick="startRound()">Start Blackjack</button>
+			<button type="button" onclick="">Draw Card</button>
+			<button type="button" onclick="">Call Dealer</button>
+		</div>
+		
+		<h3 id="results"></h3>
+		
+		<div>
+			<h5>Dealer</h5>
+			<div id="cardtray1"></div>
+			<h4 id="scoreboard1"></h4>
+		</div>
+		
+		<div>
+			<h5>Player</h5>
+			<div id="cardtray2"></div>
+			<h4 id="scoreboard2"></h4>
+		</div>
+		
+		<!-- 4: javascript to simulate game play -->
+		<script>
+			// set up some variables to hold score, player's hands
+			var dealerScore, playerScore;
+			var dealerHand, playerHand;
+			
+			// create the deck of cards using library
+			var cardDeck = $('#controls').playingCards();
+			
+			// shuffle deck
+			cardDeck.shuffle();
+			
+			// create some functions to do....
+			
+			// start the game function
+			function startRound() {
+				// clear the UI
+				$('#cardtray1').empty();
+				$('#cardtray2').empty();
+				$('#scoreboard1').empty();
+				$('#scoreboard2').empty();
+				
+				// reset the scores
+				dealerScore = 0;
+				playerScore = 0;
+				
+				// reset the hands (empty array is square brackets)
+				dealerHand = [];
+				playerHand = [];
+				
+				// draw cards for player first
+				// drawCards take 4 parameters:
+				// 1st: which player is getting the cards (1dealer,2player)
+				// 2nd: how many cards to draw (1 or 2 or ?)
+				// 3rd: current score of the player drawing cards
+				// 4th: current hand of the player
+				drawCards( 2, 2, playerScore, playerHand );
+				
+				// draw cards for dealer least
+				drawCards( 1, 2, dealerScore, dealerHand );
+				
+			}
+			
+			// draw another card function
+			
+			// call the dealer function
+			
+			// function that does the job of drawing card for either player
+			function drawCards( playerNumber, cardCount, score, hand ) {
+				
+				// draw cards
+				for ( var i = 1; i <= cardCount; i++ ) {
+					// draw the actual card
+					var card = cardDeck.draw();
+					
+					// calc score
+					switch ( card.rank ) {
+						case "2":
+							score = score + 2;
+							break;
+						case "A":
+							score = score + 11;
+							if ( score > 21 )  {
+								score = score - 10;
+							}
+							break;
+					}
+					
+					// put the card into player's hand
+					hand.push(card);
+					
+					// render the card
+					var markup = card.getHTML();
+					
+					if ( playerNumber == 1 ) {
+						$('#cardtray1').append(markup);
+					} else {
+						$('#cardtray2').append(markup);
+					}
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+SRJC
+Game Design
+Spring 2020
+
+1)  What is a game genre.  Be detailed.
+
+	A game genre is the way the player interacts with the game, and is characterized by the gameplay characteristics it has in common with similar games in its category.  When a game's core mechanic is something such as platform fighting, then it is considered a fighting game.  Some games have multiple genre's, but the game is typically characterized by predominant gameplay style.  For example, the game "Sid Meier's Pirates!: Live the Life" has an obscure Turn-Based Strategy "subgame" within it where you can conquer cities and towns.  But Pirates! is considered a Action-Adventure and Strategy game, not TBS.
+
+
+2)  What are the core mechanics for the following genres:
+    a) Action game:  Typically focuses on a character and the player must accomplish physical challenges within the game and requre good hand-eye coordination, fast reaction-times, and steady hands.
+    b) Adventure game:  These games usually focus on the player controlling a story protagonist and they must navigate through the game world working through an interactive story, and can include exploration, puzzle-solving, critical thinking and creative problem solving.
+    c) Puzzle game:  These games emphasize puzzle solving and include the use of logic, pattern recognition, sequence completion, as well as testing peoples abilities in specific skills, such as the english language and grammar.
+    d) Role playing game:  involve having the player control the role and actions of an ingame character(s) in an immersive interactive world.  Many elements of modern RPG video games come from tabletop role-playing games such as D&D.
+    e) Strategy game:  the use of logic, strategy, and tactics coupled with skill, thought and planning to achieve a goal (victory).
+
+3)  Hybrid game genre
+    a) What is a hybrid game genre:  A game that combines two or more component genres.  One of the more common forms of hybrid genre games is Action-Adventure.  Sid Meier's Pirates!: Live the Life is an example of a very well done Action-Adventure-Strategy game.
+    b) Give an example of a current game that falls under a hybrid genre.
+	Puzzle Quest - has a Puzzle genre mashed with fantasy-RPG elements.
+
+4)  What are your 2 favorite games and describe their game genre
+    a) Earthbound - Role Playing Game with an over-head isometric view on the SNES console.
+    b) Master of Orion 2 - 4X & TBS strategy game set in space for the PC from 1996.

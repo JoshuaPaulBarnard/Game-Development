@@ -1,0 +1,706 @@
+WEBVTT
+
+1
+00:00:07.980 --> 00:00:15.599
+Welcome back for another short session on some things you can do with your
+
+2
+00:00:16.650 --> 00:00:26.430
+Developing game skills and Fazer in part one today. We looked mostly at dealing with audio assets talked a little bit about how to
+
+3
+00:00:26.880 --> 00:00:41.340
+Get them into a usable format. We did some format comparisons. We saw that WAV files, for example, tend to be much larger than MP3 format files for exactly the same sound clips due to the compression schemes that are available to MP3.
+
+4
+00:00:42.960 --> 00:00:45.270
+Now I promised a couple other things.
+
+5
+00:00:47.010 --> 00:00:56.970
+Regarding user interface presentations. And I think we've all seen now at least a few examples of using the Fazer text object. And I did that in my first
+
+6
+00:00:58.140 --> 00:01:05.040
+Part of class today where I went ahead and define a variable for a score value.
+
+7
+00:01:06.690 --> 00:01:18.780
+created another global variable that could point to the text object and then in the Create phase I made the initial text object. I also set up the score value.
+
+8
+00:01:19.470 --> 00:01:33.630
+But this game add text syntax here again is using dot notation to tell the browser. I want to do something to my game instance that I saved in the variable called game that's a huge object model.
+
+9
+00:01:35.160 --> 00:01:40.020
+That phase are created for me when I made a new phase or game and it includes this ad
+
+10
+00:01:40.710 --> 00:01:55.500
+Property. That's basically known as the ad manager that has a whole bunch of methods associated with it. We've seen it for adding sprites and adding audio objects as part of this week's example. And then, of course, making text and text, you know, there's really
+
+11
+00:01:57.870 --> 00:02:00.060
+Arguments that we pass obviously to text.
+
+12
+00:02:05.490 --> 00:02:14.670
+We've got the X position. Why position can use a coordinate system text content to show
+
+13
+00:02:17.520 --> 00:02:23.640
+And object variable basically that has an in it at least two properties.
+
+14
+00:02:30.060 --> 00:02:34.770
+Style object as at least two props.
+
+15
+00:02:39.450 --> 00:02:50.490
+So we can build one of these get it showing on the screen. If we do it in the Create state by doing a game add text and boom. It's in the page and then if we want to change it.
+
+16
+00:02:52.050 --> 00:02:58.800
+You may find yourself getting some utility out of isolating things like scorekeeping into functions.
+
+17
+00:02:59.940 --> 00:03:04.350
+I have one function here. I could call from multiple places, there are multiple ways to score points.
+
+18
+00:03:05.460 --> 00:03:11.250
+And it basically increases the score global variable score value and then it uses the set text method.
+
+19
+00:03:14.730 --> 00:03:16.800
+And set text gives us an easy way
+
+20
+00:03:18.540 --> 00:03:22.650
+To update the text inside and it's a good practice.
+
+21
+00:03:23.970 --> 00:03:27.180
+To convert numbers to text.
+
+22
+00:03:28.320 --> 00:03:32.190
+Using to string which is a built in JavaScript function.
+
+23
+00:03:34.410 --> 00:03:48.420
+That was kind of getting basic text into the page right but you know that gives you. Well, we can preview it, it gives me, you know, Ariel basically a default font available to the browser in my page right here sitting there.
+
+24
+00:03:50.490 --> 00:03:52.950
+If I want to use a custom typeface.
+
+25
+00:03:54.120 --> 00:04:02.100
+Well, first of all I need to know what resources are available to me for using custom typefaces, and I need to see the steps to execute
+
+26
+00:04:03.180 --> 00:04:13.260
+rendering a text object using something other than a built in font, like we did here in our font property value of aerial
+
+27
+00:04:14.610 --> 00:04:16.890
+So I'm going to duplicate this file here.
+
+28
+00:04:19.080 --> 00:04:19.410
+And I
+
+29
+00:04:20.430 --> 00:04:25.860
+Am like a live version of an example I already have in the folder now from experimenting earlier today.
+
+30
+00:04:26.370 --> 00:04:33.810
+Called custom font live so just starting off with my audio example is, it is in the middle. Leave that sitting there on the stove simmering
+
+31
+00:04:34.230 --> 00:04:42.660
+And I'm going to head over to Google Fonts. So this is at fonts Google com. There are other repositories. You can use besides Google Fonts, there's
+
+32
+00:04:43.110 --> 00:04:52.650
+Sites like Fox Squirrel and and other free web based font resources. Be careful where you get your phones don't get them from a shady place they may have viruses or malware.
+
+33
+00:04:53.130 --> 00:04:58.470
+Inside their file formats that could really corrupt or damage your computer. So try and get a font from a reputable place.
+
+34
+00:04:58.920 --> 00:05:04.410
+The nice thing about Google Fonts, is that it is a content delivery network. Basically they host the font files for you.
+
+35
+00:05:04.890 --> 00:05:12.600
+You can basically shop around. There's 900 fonts in here and there's little search engine search by name or phrase or different categories.
+
+36
+00:05:13.050 --> 00:05:18.810
+I went ahead and brewed up a quick search and search by display types and I found this kind of cool.
+
+37
+00:05:19.380 --> 00:05:27.300
+Slightly script. The font called lobster. It's actually kind of a hip type face that's used in lots of things these days. And I went ahead and I hit the little
+
+38
+00:05:28.230 --> 00:05:32.190
+Bubble with the plus sign in it and basically this little black bar. And here's like a shopping cart.
+
+39
+00:05:32.760 --> 00:05:42.330
+Of the custom fonts fonts that you selected. It includes right here in this gray box under the standard heading an HTML link element that will embed
+
+40
+00:05:43.020 --> 00:05:55.980
+Instructions to the browser to go off to their website fonts Google APIs calm and grab the style information necessary to load the whole font file into the browser. So I'm going to copy that.
+
+41
+00:05:58.290 --> 00:05:59.910
+I'm going to go back to my file here.
+
+42
+00:06:01.200 --> 00:06:03.300
+And the very first thing I'm going to do.
+
+43
+00:06:04.620 --> 00:06:06.870
+Is load custom font.
+
+44
+00:06:08.610 --> 00:06:09.600
+Style info.
+
+45
+00:06:10.920 --> 00:06:11.820
+Using a link element.
+
+46
+00:06:15.390 --> 00:06:24.990
+Now loaded this lobster font half off the Google cloud. And so I'm going to keep track of these steps as I go through this. I'm going to call this
+
+47
+00:06:26.310 --> 00:06:29.250
+Guy here. Step one.
+
+48
+00:06:30.840 --> 00:06:38.160
+Of my custom fonts. Step one. So we'll see custom for step one load the font file basically right
+
+49
+00:06:40.320 --> 00:06:42.300
+Now the next thing I'm going to do.
+
+50
+00:06:44.100 --> 00:06:45.270
+Is I'm actually going to
+
+51
+00:06:46.500 --> 00:06:54.600
+Change the instructions to phase or when I make the new game and tell it specifically instead of this no value that we've used as
+
+52
+00:06:55.230 --> 00:07:00.630
+The fourth argument all along, really, because we've had it just drawing the game right in the body on it.
+
+53
+00:07:01.230 --> 00:07:10.830
+It turns out to get the custom font to work. I'm actually have to put some HTML below that uses that font outside the game area. So I need to make an HTML element to hold the game area.
+
+54
+00:07:11.190 --> 00:07:20.610
+So instead of know here. I'm going to put a quoted phrase, I'll just call it game div will make a special HTML element below with this name so that it can find it.
+
+55
+00:07:22.260 --> 00:07:27.840
+So that's what are we calling this this custom font step to
+
+56
+00:07:29.310 --> 00:07:29.850
+For
+
+57
+00:07:31.500 --> 00:07:32.190
+ID.
+
+58
+00:07:37.170 --> 00:07:37.890
+HTML.
+
+59
+00:07:49.980 --> 00:07:49.980
+Two.
+
+60
+00:07:51.030 --> 00:07:52.680
+Now I will need to go down there and
+
+61
+00:07:55.830 --> 00:08:00.750
+Add that element with an id value that's going to match what I put here my phrase game does
+
+62
+00:08:01.320 --> 00:08:10.770
+But before I do that, and let me spy on Google font one time really quick. I want to use the font name that I'm selecting and so in their sample here where they say specify and CSS.
+
+63
+00:08:11.220 --> 00:08:15.270
+It turns out the first value after this font family colon, the thing in quotes.
+
+64
+00:08:15.780 --> 00:08:30.330
+Is what is the name of the font is according to the browser. So I'm going to select that copy that not copying the single quote marks, just the phrase between the single quote marks. That's because when I create my text object. Now I want to refer to this special font.
+
+65
+00:08:32.970 --> 00:08:46.410
+So right talked about Ariel before. Now I'm going to further this font known as lobster. So this is custom fonts step, we have two three referred to custom font.
+
+66
+00:08:50.460 --> 00:08:51.900
+Font property.
+
+67
+00:08:54.360 --> 00:09:01.200
+That's really important. So, so far, really, you might think that that would be just about enough, except that you remember
+
+68
+00:09:01.680 --> 00:09:13.920
+I made a change to my new face or game arguments I told it to draw the game and something called game, Dev. That's an HTML element that has that I, the game div. So I'm gonna go to under the body here.
+
+69
+00:09:15.360 --> 00:09:27.120
+Right, it did with the attributes. Right, right. The phrase did incited less than symbol with a space after it than ID equals and then in quotes. Usually I use double quotes when I'm ready HTML.
+
+70
+00:09:27.570 --> 00:09:37.140
+The phrase that I put in the Fazer argument game div and I believe it's empty. Now this empty rectangle in the body is where the game will be drawn
+
+71
+00:09:38.550 --> 00:09:52.740
+And let's see if that much works. And you might think already that we were done, it might be hard to tell us what that zero there. So let me put a little more information in my font guy here. Alright. The phrase score in there too.
+
+72
+00:09:56.880 --> 00:10:04.950
+You want to combine a chunk of text and JavaScript, you can use a plus sign. So here I'm taking literal chunk of text score in a space inside my single quotes
+
+73
+00:10:05.550 --> 00:10:14.490
+Addy, and under the chunk of text that has my score value in it which to start with is just going to be zero. Right, I'll do the same thing were right. Update the
+
+74
+00:10:15.690 --> 00:10:31.590
+Set text method here to change that. So what happens when the score starts increasing. Let's see what we got there. No, we do not have lobster. In fact, we have it looks more like times or something there. So, there is one more step. This is really
+
+75
+00:10:32.610 --> 00:10:38.190
+Mysterious maybe. But what's happening is we really need to have
+
+76
+00:10:41.820 --> 00:10:44.610
+A visible element on the page that has some
+
+77
+00:10:45.720 --> 00:10:51.480
+Content some text content using that font. So the browser's forced to load it otherwise.
+
+78
+00:10:52.380 --> 00:11:06.750
+Fazer and the JavaScript library that Fazer uses which is called JS and I usually have a link to if you want to learn about the library engine, which is really all the graphics that phase or can do without all the game logic and game steps.
+
+79
+00:11:09.090 --> 00:11:15.420
+He doesn't force the browser to load the font unless the browsers drawn the font on the page somewhere else. So we need to do that.
+
+80
+00:11:16.620 --> 00:11:18.780
+So our first step was an HTML element.
+
+81
+00:11:20.010 --> 00:11:21.300
+Of paper draw the game in
+
+82
+00:11:26.880 --> 00:11:32.850
+We did that already refresh. Write a comment for it. Now, here's the secret weapon custom fonts.
+
+83
+00:11:36.000 --> 00:11:38.760
+Show some content using
+
+84
+00:11:44.820 --> 00:11:55.290
+Forces, the browser to load the font definition human rights P for a paragraph and I'm gonna write a space and then the word style and I'm gonna write fonts dash family.
+
+85
+00:11:56.730 --> 00:12:04.260
+A colon and then the font name. In this case, it was lobster. All right. The closing bracket for that opening p tag.
+
+86
+00:12:05.670 --> 00:12:12.840
+Was put a phrase there. Right. And so now I basically got a visible chunk of text below my game below this div.
+
+87
+00:12:13.260 --> 00:12:28.560
+That has a phrase, and it's showing that text. The should force the browser to load the custom form. Now you can see actually there my score text in my text object in phasers using this custom font called lobster. You can see him here. That's pretty much what he looks like. Right.
+
+88
+00:12:30.600 --> 00:12:42.420
+And that's because there's this element down here that is loading the font force loading the font and the browser. If you don't want text sitting below your game object or maybe you do maybe what's the message is there.
+
+89
+00:12:44.340 --> 00:12:54.420
+That's, that's one consideration, but if you just want it to not be visible. You could set the color and, for example, if your, if your background color of the body right now is white.
+
+90
+00:12:55.230 --> 00:13:05.490
+You could set its color to white or if you want to make the whole area black, you know, you could do that too. But if I just set it to white now because it's not a white background that the person
+
+91
+00:13:06.510 --> 00:13:10.500
+Interacting with your game they really can't see that text down there. It is down there.
+
+92
+00:13:11.550 --> 00:13:18.090
+But it's not visible anymore. And in that way, we kind of shoe horn, the browser into loading our custom font.
+
+93
+00:13:19.230 --> 00:13:29.460
+That's how to use custom fonts kind of five steps to add to your existing code if you want to download a custom font. Again, you can find tons of custom
+
+94
+00:13:30.180 --> 00:13:41.580
+Fonts fonts.google.com or another good reliable when I mentioned to is fun squirrel, which has a lot of wacky fonts. Some of the most beautiful, but they have quite a huge variety of fonts here.
+
+95
+00:13:43.200 --> 00:13:48.480
+Both of these have a search engine can kind of search funds right different styles.
+
+96
+00:13:51.630 --> 00:13:55.260
+So that's custom fonts to enhance your user interface.
+
+97
+00:13:57.450 --> 00:14:08.670
+Another thing I wanted to show was how to do user interface elements that are that are graphical and Fazer gives us the ability to draw graphics into the page.
+
+98
+00:14:09.390 --> 00:14:16.560
+There's an example here on Facebook dot iOS examples we use the graphics object. And it's just like, you know, a sprite.
+
+99
+00:14:17.040 --> 00:14:21.510
+Or an audio object or a text object is another object we can add to our game.
+
+100
+00:14:22.170 --> 00:14:30.060
+And then we can draw inside of it. It's kind of like a blank canvas when you fire it up. And so here's kind of their sample code for this, we add a graphic.
+
+101
+00:14:30.450 --> 00:14:44.220
+With a variable referring to it again like we normally would. And then we can execute a bunch of different instructions to draw different shapes into that graphic, including setting a Phil color and notice
+
+102
+00:14:45.240 --> 00:14:52.740
+The Color number here after the zero x is in fact another one of those hex colors like we saw earlier today, when I was playing and pixel or calm.
+
+103
+00:14:53.160 --> 00:15:03.120
+And I was showing you the W three schools reference for web hex colors. This again following that based 16 hexadecimal math, but again you can pick out a visual color out of the Color Picker.
+
+104
+00:15:03.750 --> 00:15:10.710
+And pixel or Photoshop or anything with a color picker, and then just copy it's hex value. Just put it after the zero x
+
+105
+00:15:11.130 --> 00:15:20.340
+Same with the line style. This is the thickness and pixels. This is the color and this is the opacity, so we can make things kind of semi transparent, if we want
+
+106
+00:15:21.240 --> 00:15:31.620
+And so using the weapon of this graphics object that we can add to our game. I'm going to draw a little life or health bar. In my case, I'll make it simple. I'll make it a
+
+107
+00:15:37.260 --> 00:15:39.480
+Little tiny countdown timer, if you will.
+
+108
+00:15:43.710 --> 00:15:45.240
+The sky graphical UI.
+
+109
+00:15:48.030 --> 00:15:48.450
+And
+
+110
+00:15:49.500 --> 00:16:02.640
+Again, I'm starting with the audio example I am going to track some more variables. I'll track this value. I'll call a life value kind of how long you are alive for in this case. And I'm going to also have a
+
+111
+00:16:05.880 --> 00:16:24.180
+A rectangle graphics object, if you will, that visualizes that life. So just kind of like we have a score value and a variable to hold the pointer to the text object we create. I'm going to have kind of a life value and a pointer to the graphics object I make that. But I'll have a rectangular
+
+112
+00:16:48.180 --> 00:17:04.770
+I'm going to create the graphic as a shape. I'm not going to load a bitmap. In other words, for my little life bar counter that kind of going to look like a little bar graph going down right but in my create code. I'm going to want to set up.
+
+113
+00:17:06.030 --> 00:17:07.170
+I'll just do it here.
+
+114
+00:17:08.520 --> 00:17:11.070
+Right. The top to make it easy to see this.
+
+115
+00:17:12.240 --> 00:17:17.550
+I'm going to set a starting value for the life
+
+116
+00:17:19.800 --> 00:17:27.060
+And again I call that variable life value. So I'll just set it to 100 and now I'm going to create
+
+117
+00:17:28.680 --> 00:17:31.560
+A graphics object in the game.
+
+118
+00:17:33.930 --> 00:17:37.140
+And I have a variable called life.
+
+119
+00:17:38.190 --> 00:17:39.450
+And so game add
+
+120
+00:17:40.980 --> 00:17:41.910
+Graphics
+
+121
+00:17:44.100 --> 00:17:58.140
+And I don't have to say anything else when I added graphics. I don't have to give it any properties at all. If I don't want to any African excuse me any arguments inside the parentheses. I'm just making a big blank canvas, it can lay over the whole game potential is I wanted to
+
+122
+00:18:03.960 --> 00:18:05.100
+That Phil color.
+
+123
+00:18:06.900 --> 00:18:10.500
+First object. I'm really only gonna draw one for shape will say,
+
+124
+00:18:16.440 --> 00:18:27.930
+I'm going to refer to this new graphics object by its variable, I'ma say rectified dot and instruction here, the method calls begin fill this is where I write this weird
+
+125
+00:18:29.280 --> 00:18:31.950
+Zero x and then a hex color value.
+
+126
+00:18:35.820 --> 00:18:46.110
+Is not in quotation marks. This is just straight content. I'm typing in there that zero x that proceeds that value. I put there tells JavaScript that this is written as a hexadecimal number
+
+127
+00:18:50.040 --> 00:18:54.480
+I want to set the line stroke for this first shape.
+
+128
+00:18:57.120 --> 00:19:07.080
+Refer to the graphics object of the need and face or gives us this line style method, we can call it takes three arguments. Let's see.
+
+129
+00:19:08.100 --> 00:19:10.890
+first argument is buying with
+
+130
+00:19:12.570 --> 00:19:18.420
+In pixels. Second is hex color again using zero x
+
+131
+00:19:20.100 --> 00:19:29.760
+And the third is the transparency, also known as the alpha 0.0 to 1.0 1.0 is fully. Okay, great.
+
+132
+00:19:30.870 --> 00:19:32.280
+We'll play with that a little bit, maybe
+
+133
+00:19:33.390 --> 00:19:37.800
+And so let's see. I'm going to set the thickness, just a pixel
+
+134
+00:19:39.750 --> 00:19:49.560
+And I'll set the color using the zero x prefix to you can do upper and lowercase letters when you have them in the values will do lowercase time to kind of a yellow
+
+135
+00:19:51.420 --> 00:20:05.460
+And then I'm going to make it fully opaque. So what 1.0 basically right for just one same difference. So there's my my line style with the three different arguments separated out to kind of see them a little bit better.
+
+136
+00:20:07.500 --> 00:20:09.390
+And now I'll go ahead and
+
+137
+00:20:11.400 --> 00:20:12.990
+Draw the rectangle that I want here.
+
+138
+00:20:14.550 --> 00:20:16.080
+There's a method called draw rack.
+
+139
+00:20:17.280 --> 00:20:21.060
+And just like all these other methods. There's some arguments I can send it
+
+140
+00:20:28.200 --> 00:20:40.410
+First argument for draw wrecked is the exposition. Second, as you might imagine, is the Y position. The third is the width and the fourth is the height. It's all and
+
+141
+00:20:41.520 --> 00:20:44.700
+Of course, like, usually. So let's see. I'm gonna plop this guy.
+
+142
+00:20:45.960 --> 00:21:00.660
+At 100 x. So a little bit over on the screen 35 lie a little bit down and I'm going to make him as long as my life value is so going to start off being 100 pixels wide, and I'll make him 10 pixels thick.
+
+143
+00:21:01.680 --> 00:21:09.180
+So let's, let's try that much. This is all happening in the Create code. And so let's see what this little bar looks like.
+
+144
+00:21:10.470 --> 00:21:24.240
+She can see him there. There's my little red bar with the yellow stroke around it and it's sitting there, put it perfectly, you know, a little bit further over from the score that's sitting there and let's now animate that
+
+145
+00:21:25.680 --> 00:21:30.270
+And in our update loop. Let's slowly decrease the value in life value.
+
+146
+00:21:31.860 --> 00:21:33.570
+So that we end up with
+
+147
+00:21:35.160 --> 00:21:45.210
+A shorter and shorter and narrower and narrower rectangle. I'm going to head down to the update code. And again, just to kind of keep this example focused
+
+148
+00:21:46.830 --> 00:21:49.230
+Deal with the lifetime value.
+
+149
+00:21:50.640 --> 00:21:52.650
+And far display.
+
+150
+00:21:54.150 --> 00:21:54.660
+Updating
+
+151
+00:21:56.190 --> 00:22:06.150
+Let's subtract something from life value. Let's say life value equals life value minus. I'm gonna just subtract 10% one 10th. Excuse me.
+
+152
+00:22:07.260 --> 00:22:12.660
+Point one, if you will, in decimal numbers and then let's go ahead and draw
+
+153
+00:22:14.430 --> 00:22:15.240
+The rectangle again.
+
+154
+00:22:17.370 --> 00:22:19.080
+And so it's 100
+
+155
+00:22:20.850 --> 00:22:25.110
+X 35 why we use life value as its with
+
+156
+00:22:27.600 --> 00:22:31.470
+And we'll go to 10 for its height.
+
+157
+00:22:32.730 --> 00:22:46.050
+And boom, we're basically updating the rectangle with every update now changing its width and we're slowly making it narrower and narrower and I'm going to show you what this does, because you might be a little surprised by the behavior here.
+
+158
+00:22:48.510 --> 00:22:56.820
+Going to do it just here in the preview. You can see what's happening. The rectangle is getting shorter and shorter, but the graphics canvas. The graphics
+
+159
+00:22:57.240 --> 00:23:14.880
+That were drying it doesn't erase itself and redraw itself. Right, so you could see as I'm slowly growing shorter and shorter and basically smearing the yellow stroke. And now you can see I'm in a negative number. So it's actually drawing in the other direction.
+
+160
+00:23:16.320 --> 00:23:24.690
+So we might want to add a little conditional here in the update to decide if a person's dead yet, we could say if life value is less than or equal to zero.
+
+161
+00:23:25.650 --> 00:23:35.250
+Then we could we could destroy the game. We have tried to stay in the game yet. It's too little dramatic destroying the game. So I'll show you what it looks like this completely wipes the game.
+
+162
+00:23:37.200 --> 00:23:40.950
+And spacer update blue and white.
+
+163
+00:23:47.460 --> 00:24:02.850
+Really what I wanted to call your attention to is this lack of a refresh really going on here. It's just redrawing the rectangle on top of the previous rectangles that were drawn there. And so that's the behavior. You should expect when you're dealing with the graphics object.
+
+164
+00:24:04.200 --> 00:24:09.240
+A technique to point out that you could use to work around that is if you drew a stroke.
+
+165
+00:24:10.470 --> 00:24:21.930
+Around the fill that was the same color as your background, you would have effectively end up with an invisible outline. Right. And so if we go back up to our
+
+166
+00:24:23.730 --> 00:24:28.020
+Our code here. The line style. I made it that yellow color.
+
+167
+00:24:30.120 --> 00:24:32.130
+It's trying to get just totally black
+
+168
+00:24:34.680 --> 00:24:39.810
+Six euros after the x to the totally black and you might see what I mean. Now,
+
+169
+00:24:44.610 --> 00:24:50.820
+You see now basically because we're on a black background, the black outline of the rectangles. Not really noticeable.
+
+170
+00:25:20.460 --> 00:25:24.390
+In the game is destroyed suddenly and dramatically.
+
+171
+00:25:25.980 --> 00:25:28.110
+So those are the tricks that I wanted to show you
+
+172
+00:25:29.220 --> 00:25:30.510
+So you can see how
+
+173
+00:25:31.560 --> 00:25:44.430
+You could do things other than text and how you could also do custom fonts. I did promise also a peek at some enemy artificial intelligence. I'm going to save that for another session over the weekend. It's really
+
+174
+00:25:45.510 --> 00:25:54.000
+Something that's beyond any of the assignment requirements. But if you're curious about it. Feel free to look at my experimental folder here, which has some working code in it.
+
+175
+00:25:54.480 --> 00:26:04.950
+In my workspace. Otherwise, I look forward to seeing you online and the sharing support discussions and see what you come up with, as you think about extending your
+
+176
+00:26:06.510 --> 00:26:13.530
+In progress assignment from last week with some audio and some graphical user interface. Thanks for joining me for part two.
+

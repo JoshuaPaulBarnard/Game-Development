@@ -1,0 +1,1426 @@
+WEBVTT
+
+1
+00:00:10.860 --> 00:00:23.370
+Hello. Welcome back to game development. It is week eight and our focus this week is something that really enhances the user experience of any game and
+
+2
+00:00:23.940 --> 00:00:33.930
+And that's attention to the capabilities of sound getting audio to play. And of course there's at least a couple fundamental
+
+3
+00:00:34.470 --> 00:00:42.960
+Approaches to having audio play. You've got the opportunity in a video game for immersive environmental audio like a soundtrack.
+
+4
+00:00:43.800 --> 00:00:53.550
+You also have the opportunity to introduce sound effects and audio clips in response to user actions and also to gameplay events.
+
+5
+00:00:54.060 --> 00:01:08.280
+And so we'll look at both of those today we'll talk about the formats of audio that you can use and also talk a little bit more about something we've we've already been using, but I want to break it down a little bit, which is the ability to put text objects into our user interface.
+
+6
+00:01:10.110 --> 00:01:17.730
+All of that should fit pretty nicely into our first hour together in part one. This week I'm planning on
+
+7
+00:01:19.680 --> 00:01:20.550
+Introducing
+
+8
+00:01:21.960 --> 00:01:29.430
+Some other topics as well. This week for folks that are interested not part of the homework scope, but I want to start introducing
+
+9
+00:01:30.630 --> 00:01:42.960
+The concept of enemy AI, the idea that you could have sprites in the world that also have some logic associated with them some code that controls their behavior.
+
+10
+00:01:43.410 --> 00:01:54.000
+And so in a second part after this first hour and after some meetings I have today, I'll jump in and show you some examples of that. I'm going to build
+
+11
+00:01:56.340 --> 00:02:02.610
+My simple process of showing you audio this week, building on the on the platform game I
+
+12
+00:02:03.270 --> 00:02:13.320
+I am started last week and so will kind of build there in the assignment invite you this week as well to consider simply duplicating your most recent assignment.
+
+13
+00:02:14.250 --> 00:02:33.000
+From Week seven to add audio and text user interface elements to it all. Also in the second part, explore some more advanced user interface elements that are graphical besides just text objects, but I'm hoping this week is a relatively light week in terms of new material for everybody.
+
+14
+00:02:34.830 --> 00:02:43.260
+And that you have time to either join me in a face to face tutorial working session sometime next week. There's a doodle.
+
+15
+00:02:43.800 --> 00:02:54.210
+And a canvas announcement linking to that doodle scheduling poll up there. And so if you've got time. If you want to get some assignments done that you're behind on
+
+16
+00:02:54.660 --> 00:03:09.030
+This is a real time opportunity to come work in a lab with me. Other students and get help to finish work and turn it in. So please, please take me up on that opportunity. I want to make sure everybody has a chance to be successful in our class.
+
+17
+00:03:10.140 --> 00:03:17.520
+So where are we, well we're sliding to the end of the first half of the semester and to make
+
+18
+00:03:18.930 --> 00:03:37.020
+Things more complete in terms of our exposure to what the Fazer engine can do. I've situated. The midterm review and week 11 so we'll have a midterm exam in week 11 to cover the basics of Fazer before we go off and build our final project and I show you a few advanced
+
+19
+00:03:38.070 --> 00:03:39.240
+tricks that you can do.
+
+20
+00:03:40.260 --> 00:03:48.630
+So really you next three weeks are good timeframe to try and wrap up previous assignments. I know a lot of you.
+
+21
+00:03:49.050 --> 00:03:57.390
+Have bitten off more than the assignment requirements for some of the most recent assignments. I, I commend you for your engagement interest and I know
+
+22
+00:03:57.900 --> 00:04:05.460
+That it's a good sign that people are doing that because that means you're really engaged in game creation, which is what this class is really all about.
+
+23
+00:04:06.060 --> 00:04:12.750
+If you're having trouble with the code getting Fazer to work anything is holding you up if there any obstacles again.
+
+24
+00:04:13.410 --> 00:04:17.670
+Reach out in the sharing support discussion there been some great discussions recently.
+
+25
+00:04:18.240 --> 00:04:29.490
+I'm going to use part of this first hour to dive into one of those discussions and demonstrate for everybody, some solutions to getting things like collisions working with the tile maps that we've created.
+
+26
+00:04:31.200 --> 00:04:32.820
+And so there's a lot to cover.
+
+27
+00:04:33.900 --> 00:04:39.810
+In that regard, so it's good news that UI and sound are pretty condensed topics today.
+
+28
+00:04:42.810 --> 00:05:00.090
+In our friendly book from Travis files. We've got five or six pages to look at this week that are really focused on audio and he'll unpack a lot of the things you can do with audio in Fazer I'm going to visit. Much of what he talks about in my demonstration in conversation today.
+
+29
+00:05:01.200 --> 00:05:03.690
+So I hope this is a useful time for you all.
+
+30
+00:05:05.400 --> 00:05:11.640
+Terms of software. This week I left tiled up here because I am going to revisit in part to
+
+31
+00:05:12.360 --> 00:05:23.670
+Some more advanced things we can do with tile maps, including the laying out of interactive objects like collectibles or enemies inside our tile map definition.
+
+32
+00:05:24.180 --> 00:05:34.590
+I'll do that in part two. When I whip up a more advanced version of my platformer game that I started last week with the new software this week to call your attention to is
+
+33
+00:05:35.010 --> 00:05:47.070
+The free open source audacity audio editor. Now you don't have to be a sound engineer to work with audio files, you can always go to Open game art.
+
+34
+00:05:47.550 --> 00:05:57.420
+If you're looking for audio assets that you can reuse. One of the search criteria in open game art is audio so they don't just limit themselves to
+
+35
+00:05:59.190 --> 00:06:02.100
+Visual assets. So if you go in and you do a search for
+
+36
+00:06:04.110 --> 00:06:15.120
+You know A COIN SOUND. For example, under art type in the main search engine. You can uncheck everything except sound and music. If you want when you perform a search
+
+37
+00:06:16.260 --> 00:06:31.470
+And you can quickly find audio assets in open game art typically the audio assets and open game are already prepared in one of the compatible formats that the web browser and Fazer can utilize I'll talk a little bit more about those formats in a minute.
+
+38
+00:06:33.540 --> 00:06:35.940
+Again, there are different licenses for some of these things.
+
+39
+00:06:38.100 --> 00:06:51.660
+And many times the audio assets are actually compilations collections in a zip archive of sound effects that you might want to use. So, you know, you can download one of those sound files or the zip in this case.
+
+40
+00:06:52.800 --> 00:07:05.760
+And expand it. Let's take this guy down and I'm, I'm going to use this as a chance to demonstrate using audacity, just briefly, and again, we're not really using audacity for anything other than converting file formats.
+
+41
+00:07:07.080 --> 00:07:08.550
+So here's sound pack one
+
+42
+00:07:09.990 --> 00:07:12.600
+Gave us all these files in an AIF file.
+
+43
+00:07:13.950 --> 00:07:20.940
+My preference would be probably a wav file or an MP3 file for some of these. Let's see if I get one of these to play here.
+
+44
+00:07:28.320 --> 00:07:30.600
+Of course I'm not hearing anything. That's always fun.
+
+45
+00:07:36.030 --> 00:07:38.640
+So my these guys up in
+
+46
+00:07:41.670 --> 00:07:44.070
+audacity. So I've got audacity running here.
+
+47
+00:07:45.120 --> 00:07:47.220
+Again, it's an open source application.
+
+48
+00:07:50.070 --> 00:07:56.670
+And just to point out where you can get that at its at audacity teamed org I'll share this link in this week's
+
+49
+00:07:57.570 --> 00:08:07.200
+screen cast link set so you can get in there and download it. It's available for multiple platforms including Linux. Now, which is pretty cool. If you have another Linux system, but also Mac and Windows
+
+50
+00:08:08.850 --> 00:08:15.750
+So I've got my file open and audacity, what I can see by the waveforms here is that it is a stereo file.
+
+51
+00:08:21.240 --> 00:08:25.260
+Says it's playing, but I'm not getting any volume here that may be having to do with
+
+52
+00:08:28.170 --> 00:08:30.540
+There we go ahead. My playback volume turned all the way down somehow
+
+53
+00:08:31.800 --> 00:08:33.810
+So there's that guy pretty interesting.
+
+54
+00:08:40.560 --> 00:08:44.010
+We've got all sorts of opportunities inside of audacity.
+
+55
+00:08:45.150 --> 00:08:53.520
+To manipulate the sounds. If we want to, you can generate different sound effects. You can distort and modify the sounds.
+
+56
+00:08:54.570 --> 00:08:56.250
+With a whole bunch of filters here.
+
+57
+00:08:57.900 --> 00:09:11.160
+And once you do all those things, if you care to do any of those kind of modifications using the effects or the generate, you can then export the audio. That's really the clincher for us right so
+
+58
+00:09:13.500 --> 00:09:22.170
+I wanted to export this as a particular file type. Notice here we've got file types on the drop down when I do the export from the File menu.
+
+59
+00:09:23.070 --> 00:09:36.990
+And I recommend WAV files or MP3 files. You can also save mp4 files and M for a is the MP4 audio file type those three formats are probably the most reliable for playback.
+
+60
+00:09:38.880 --> 00:09:52.980
+And let's go ahead. I'm going to save it. This guy is a is a 16 bit WAV file. Notice there's two different formats for wave 16 bit and 32 bit 32 bit will be a bigger file type, but we'll just go with the WAV format and I hit Save.
+
+61
+00:09:54.180 --> 00:10:07.290
+You can add some metadata to the file. We don't need that. But you know, that's useful if you're saving somebody music track or something and you want some details. These are the kind of details, you'd see an iTunes basically right say okay there.
+
+62
+00:10:09.360 --> 00:10:16.470
+And I'll go back to my desktop. And I should see now on the desktop. The WAV file. So here he is.
+
+63
+00:10:17.700 --> 00:10:18.930
+And he looks like he's working
+
+64
+00:10:22.230 --> 00:10:25.290
+And that's really the art of using audacity.
+
+65
+00:10:26.130 --> 00:10:36.210
+I mean, unless of course you do wish to go and manipulate in and modify sounds and then you can use some of its more full fledged capabilities but really fundamentally exporting audio from the File menu.
+
+66
+00:10:36.630 --> 00:10:48.720
+Saving it as a way of an MP3 or perhaps an MP4 file. Those are the things I would consider doing with audacity to get files, ready to use. And, you know, if you've got
+
+67
+00:10:50.160 --> 00:11:03.060
+A project where you want to add an audio file you just need to drag it into your assets folder. Pretty much to make it available for use later on. So I dragged my effect one up there. I got a couple of other audio files already plopped in here.
+
+68
+00:11:04.560 --> 00:11:04.920
+And
+
+69
+00:11:06.810 --> 00:11:08.520
+We'll take a look at those in just a moment.
+
+70
+00:11:14.910 --> 00:11:25.350
+So that's audacity, a great utility to get audio files into formats that will work inside Fazer and your web browser.
+
+71
+00:11:32.460 --> 00:11:42.480
+So the clincher about audio files is browser compatibility and that's why I stress kind of these three formats. I think these three are probably the most reliable formats.
+
+72
+00:11:43.080 --> 00:12:02.520
+The AI file the audio interchange format is something some browsers us, but I think WAV MP3 MP4 are more reliable a wav file doesn't compress into a small file as much as an MP3 or MP4 they both have the ability to kind of have a lossy compression scheme in them.
+
+73
+00:12:03.870 --> 00:12:09.060
+More than anything, just make sure that you've got the file in a format that plays back in a browser.
+
+74
+00:12:12.840 --> 00:12:14.790
+audacity is completely free.
+
+75
+00:12:16.290 --> 00:12:22.200
+It's given up with the GPO Public License, so should have no problem downloading and using it.
+
+76
+00:12:24.090 --> 00:12:45.720
+So let's talk about how we use audio inside our code. And in this week slide deck. I kind of have some some samples of code snippets broken up into kind of the three typical states that we write functions for the preload state to create stake in the game loop update state.
+
+77
+00:12:46.890 --> 00:12:56.130
+And here I'm loading two different audio files for two different purposes. There's kind of two major things as I mentioned before that you might want to do with the audio and your game.
+
+78
+00:12:56.580 --> 00:13:04.770
+You might want to have a environmental soundtrack playing like an audio clip that just keeps playing forever and ever.
+
+79
+00:13:05.880 --> 00:13:18.630
+And that's my intention with the audio asset that I'm loading in my first sample code and preload. Here I'm naming my asset soundtrack and I'm loading it up out of my assets folder as an MP3 file.
+
+80
+00:13:19.620 --> 00:13:29.400
+The second audio asset that I'm loading that I'm giving an asset key name of sound effect to the little short WAV file and like the effect that I just converted
+
+81
+00:13:30.030 --> 00:13:41.580
+In audacity. So like any asset you need to preload audio, whether you're going to use it, environmentally, or whether you can use it kind of incidentally in reaction to events in the gameplay.
+
+82
+00:13:43.080 --> 00:13:47.730
+The next thing to do with audio is in create state.
+
+83
+00:13:49.470 --> 00:13:57.960
+Once you've loaded the audio. Just like if you loaded a graphical asset you need to create an instance of that asset in the game right and
+
+84
+00:13:58.260 --> 00:14:09.930
+In this case, we add audio objects to our game a lot like adding a sprite or a spreadsheet to our game. And so here game add audio lets me
+
+85
+00:14:10.440 --> 00:14:22.740
+Pull up the pre loaded assets. I'm using the asset key name here and we need to save these references, just like we would have sprite into some global variable and have enough room on my slide like
+
+86
+00:14:23.850 --> 00:14:40.320
+Every other instance of defined variable for use in multiple functions I declare this variable outside of any function block of code. So I'd have a var audio effect in a bar audio track happening somewhere before my functions in my code.
+
+87
+00:14:45.150 --> 00:15:00.510
+Now here's where there are two different approaches, depending upon what you want to do with the audio. Now that we've got the audio objects created and saved and a JavaScript variable. We can trigger their playback just by calling the built in play method that Fazer gives us
+
+88
+00:15:02.220 --> 00:15:09.420
+If you want background music or some constant environmental audio track playing throughout the gameplay.
+
+89
+00:15:09.960 --> 00:15:19.860
+You'll want to start that track playing at the end of your create state. So the whole game world is composed time to start playing the environmental music
+
+90
+00:15:20.790 --> 00:15:30.990
+Now the play method actually has up to four different arguments. Actually, I think it might even have five arguments, but the four most important ones are the first for
+
+91
+00:15:31.920 --> 00:15:35.940
+The first argument, which you can see I just have a blank string there a pair single quote marks.
+
+92
+00:15:36.360 --> 00:15:44.070
+Is if you had an audio marker name in your file, it is possible in Audacity and other audio programs to introduce
+
+93
+00:15:44.460 --> 00:15:54.060
+Named markers basically positions in the time code of the audio clip, you know, say, two seconds in where you put a marker with a name and
+
+94
+00:15:54.690 --> 00:16:03.900
+Fazer can read those markers in file formats that support them. And so you could jump straight to a position in a longer audio file if it had a marker name associated with it.
+
+95
+00:16:04.380 --> 00:16:11.100
+Or you could use the second argument instead. So putting a blank string in there, by the way, was effectively saying I'm not using the market.
+
+96
+00:16:12.060 --> 00:16:19.710
+The second argument is a starting position. And so you can provide a starting position in time.
+
+97
+00:16:20.160 --> 00:16:30.840
+To just immediately jump to that point and start playing from that moment in time in the clip, if you don't have named markers, you can say jump out a second jump out half a second, and then start playing
+
+98
+00:16:32.940 --> 00:16:40.410
+If you have a complete clip that you want to play in its entirety, set the marker name to a blank string in the starting position to zero.
+
+99
+00:16:42.000 --> 00:16:44.310
+Now, probably the most important
+
+100
+00:16:45.570 --> 00:16:54.960
+Argument for play method is setting the volume level. And this is relative to the system volume, obviously, you know, I can, I can change my volume as the
+
+101
+00:16:55.680 --> 00:17:03.300
+operator of the computer at the operating system level like on my Mac. I can hit my volume up or volume down keys or I can
+
+102
+00:17:03.960 --> 00:17:22.710
+Pick the volume off of my menu bar slider here. So this is a number that is basically a percentage of the current volume of the system. So 0.3 is basically like setting it to 30% 1.0 would be 100% maximum volume and zero would be silent.
+
+103
+00:17:24.270 --> 00:17:33.060
+And then finally, the fourth optional argument that you could pass to the play method is a Boolean value telling it whether or not you want this audio clip.
+
+104
+00:17:33.450 --> 00:17:38.130
+To play continuously in a loop. So if you turn the loop on by studying the fourth
+
+105
+00:17:38.550 --> 00:17:45.360
+Argument to true. You get behavior where the audio clip place to the end and then it immediately goes back to the beginning and starts playing and
+
+106
+00:17:45.900 --> 00:18:03.000
+So, it plays endlessly that is useful for a soundtrack. If you've got some environmental audio that you want playing all the time. You can set up this kind of method by adding the loop argument in its fourth position saying the value to true.
+
+107
+00:18:05.430 --> 00:18:17.010
+Other kind of situation where you might find yourself playing sound is in reaction to some game event, you know, the players collected a coin a collectible. The player has
+
+108
+00:18:17.520 --> 00:18:30.510
+Encountered an enemy and died. The player is engaged in some action like jumping or falling or running and you want some sound associated with that. So I made a little placeholder conditional here. I said, if
+
+109
+00:18:30.990 --> 00:18:38.520
+And then three dots in the round parentheses. They're indicating that you know you got to ask a question. If you want to make the audio play conditionally
+
+110
+00:18:39.810 --> 00:18:52.770
+And then of course you can run the play method. If you run the play method, without any arguments. It plays a sound from the beginning at the current system sound level and it does not. Loop the sound that default isn't to not lose the sound.
+
+111
+00:18:56.100 --> 00:18:59.850
+So before we talk about text. Let's go off and play with this a little bit.
+
+112
+00:19:01.440 --> 00:19:03.840
+And I basically have copied.
+
+113
+00:19:04.950 --> 00:19:13.770
+My tile map demo from last week and all of the assets. I had there from last week, but I uploaded a couple more assets.
+
+114
+00:19:14.370 --> 00:19:25.860
+I've got a wave audio file here called coin one wave. I've got an MP3 file called when MP3 both of these came is public domain.
+
+115
+00:19:26.430 --> 00:19:37.620
+Assets off of open gamer. So I went browsing around and found some audio that I like, much like I just did. Now in my demo where I got effect one also that I converted to a wav file.
+
+116
+00:19:38.670 --> 00:19:41.550
+So if I want to use these. I need to
+
+117
+00:19:43.110 --> 00:19:57.390
+preload the assets. So let's go look at doing that. And I've got the code in here already. To do that, it's pretty simple. Here I am in my preload function and I added two new lines of code.
+
+118
+00:19:59.610 --> 00:20:03.240
+One, I called an asset key of soundtrack.
+
+119
+00:20:04.260 --> 00:20:15.030
+And then I loaded that wind MP3 file. The other I called the asset key word bling, and I loaded this guy coin one wave
+
+120
+00:20:22.890 --> 00:20:27.480
+Load up my other guys that I just uploaded my extra sound effect.
+
+121
+00:20:29.160 --> 00:20:29.580
+On him.
+
+122
+00:20:32.970 --> 00:20:39.480
+Fact, this is asset key and I need to give him a pass. So he's in the assets folder. He's called effect one wave
+
+123
+00:20:41.610 --> 00:20:43.950
+Getting audio pre loaded pretty easy.
+
+124
+00:20:45.270 --> 00:20:46.890
+And that's all you really need to do there.
+
+125
+00:20:49.410 --> 00:20:53.010
+Now I'm in the Create function. Now in my sample.
+
+126
+00:20:55.560 --> 00:20:57.330
+And I put this down at the bottom.
+
+127
+00:21:00.270 --> 00:21:14.340
+Here is where I'm defining my variable name audio track. Now I did declare this variable backup in my collection of global variables here so I added audio track and add an audio effect.
+
+128
+00:21:19.650 --> 00:21:21.780
+If you are y'all had another one for my second effect.
+
+129
+00:21:24.420 --> 00:21:29.910
+On your effect one so we do need global variables to track the audio objects that we
+
+130
+00:21:31.050 --> 00:21:33.870
+Spawn that we define in the Create method.
+
+131
+00:21:37.800 --> 00:21:48.960
+So here's where I'm doing that right I'm doing game add audio so I'm using the ad manager in my game instance to create a new audio object and I refer to it by its asset key name.
+
+132
+00:21:51.240 --> 00:21:57.510
+Now in this case here, I wanted to start playing this immediately if I wanted to make this guy loop. I'll put the true in there.
+
+133
+00:22:03.720 --> 00:22:09.810
+And maybe I'll turn the volume down at a touch more I played this earlier today was a little loud make it
+
+134
+00:22:11.850 --> 00:22:13.470
+I need to create my other
+
+135
+00:22:19.920 --> 00:22:30.450
+Audio objects using my global variables and I'm not going to play these guys yet. It's only the soundtrack file that I want to start playing at the end of the create
+
+136
+00:22:31.890 --> 00:22:32.310
+State.
+
+137
+00:22:37.080 --> 00:22:47.100
+We're gonna call him to just call him effect. I did just call him effect. Okay. So I now have these three variables audio track. That's an audio object.
+
+138
+00:22:47.520 --> 00:22:58.530
+Audio effect that's an audio object and audio effect one also an audio object. I started playing audio track already here. Let's see what that sounds like. What's going on with that thing.
+
+139
+00:23:00.210 --> 00:23:01.260
+Do a full run
+
+140
+00:23:02.310 --> 00:23:04.230
+Rather than a live preview. Just for kicks.
+
+141
+00:23:06.090 --> 00:23:07.410
+Get this guy opened up here.
+
+142
+00:23:15.840 --> 00:23:22.470
+Hopefully I don't have a typo. Let's go take a look, he's loading. He's just loading slowly. Now the load time there.
+
+143
+00:23:23.910 --> 00:23:36.930
+Is related to the size of the audio file my wind MP3 files probably pretty big. And that's why there's such a long delay in the game started. See that audio file that I started in a free state. It's just playing
+
+144
+00:23:38.220 --> 00:23:47.190
+So it's going to play as long as the browser windows in the front. And you can see what that kind of volume level sounded like just as a, as a quick reality check.
+
+145
+00:23:49.770 --> 00:23:59.160
+If you hover over a file in the workspace and Cloud nine it'll tell you the file size. You can see my MP3 files 4.47 megabytes.
+
+146
+00:23:59.550 --> 00:24:05.790
+That is pretty big file right and that's again explaining why my games took so long to start it had to load.
+
+147
+00:24:06.300 --> 00:24:12.660
+Four and a half megabytes off of the cloud nine server before it could play that file. So that is an important consideration.
+
+148
+00:24:13.050 --> 00:24:24.630
+That's another feature of audacity when you save files you can reduce their file size as well by changing their resolution. Their, their bit rate, if you will, how, how much data is saved for each audio.
+
+149
+00:24:26.820 --> 00:24:31.800
+So let's look at using these two audio objects audio effect and audio effect one
+
+150
+00:24:34.500 --> 00:24:37.470
+Sound effects that you want to have played during gameplay.
+
+151
+00:24:39.870 --> 00:24:44.550
+Can be called with the play method at any point. So here's a simple conditional
+
+152
+00:24:45.360 --> 00:24:52.320
+In my game. This was checking to see if the guy that I had running around was on the floor. Basically standing on one of the tiles.
+
+153
+00:24:52.830 --> 00:25:08.250
+And if he was when they push the upkeep, it makes him jump by setting his velocity. And it's why property to a negative value, which causes the physics engine to start moving it upward and then I kicked in the audio effect.
+
+154
+00:25:09.600 --> 00:25:11.040
+So if we watch that back here.
+
+155
+00:25:33.570 --> 00:25:44.070
+Now if I wanted to switch sound effects there I've got two audio objects loaded. I got audio effect and audio effect. One, I can just change the variable reference. I'm using. Let's say I want to use audio effect one here instead
+
+156
+00:25:51.150 --> 00:25:52.800
+There's my new sound effects for jumping
+
+157
+00:25:56.280 --> 00:26:02.220
+Jumping sound effects. I could add a different sound. Maybe I'll use the audio effect for when I finally get to make
+
+158
+00:26:06.330 --> 00:26:12.930
+And so if I wanted to play just audio effect when I get to the clone. This is where my collision code is happening.
+
+159
+00:26:14.940 --> 00:26:16.830
+Could say audio effect play
+
+160
+00:26:18.090 --> 00:26:20.940
+Again, if I wanted to set the volume level.
+
+161
+00:26:22.440 --> 00:26:33.870
+I could set that as the third argument. Again, the first argument being an empty string for the marker, because I don't have a marker and the second argument being the play start position. If I will start the beginning of zero.
+
+162
+00:26:35.970 --> 00:26:38.790
+Now I've got another sound effect for when
+
+163
+00:26:42.690 --> 00:26:43.650
+I get to
+
+164
+00:26:56.010 --> 00:26:56.250
+See
+
+165
+00:27:02.280 --> 00:27:02.940
+He left the stage.
+
+166
+00:27:07.380 --> 00:27:21.060
+So that's the basics of working with audio. It's not very complex things to really keep in mind are keeping your game playable. And so your consideration there more than anything is making sure that you're not loading files that are too large.
+
+167
+00:27:21.990 --> 00:27:33.030
+And making sure that you've saved files and formats that the browser can play back successfully and the tool that will help you with all of that is our new friend audacity.
+
+168
+00:27:35.010 --> 00:27:36.360
+And again in Audacity.
+
+169
+00:27:38.760 --> 00:27:40.740
+We can go ahead when we export.
+
+170
+00:27:42.780 --> 00:27:48.480
+If we choose a format like MP3. Notice that you can change the quality
+
+171
+00:27:50.160 --> 00:27:52.350
+So we could make it a lower quality file.
+
+172
+00:27:57.420 --> 00:28:01.260
+And we can make it a mono file as well so
+
+173
+00:28:05.220 --> 00:28:22.530
+Let's see what happens to the file size if I get rid of the stereo sound effect. And I only have a mono track a single track of sound instead of these two separate sounds. I'll cut the file size and a half, effectively, and if I reduce the quality also save some file space.
+
+174
+00:28:23.940 --> 00:28:27.780
+Let's do a little quick compare. Now neither these files were very large
+
+175
+00:28:29.430 --> 00:28:40.140
+But you can see the difference in the file size vary dramatically. So again, the WAV file format doesn't really perform any significant compression on the file. So look, I end up with
+
+176
+00:28:40.590 --> 00:28:59.910
+That little teeny sound effect, taking up almost half a megabyte 422 kilobytes. That's a lot of space really right the same sound converted into a mono single track audio clip saved as a lower quality medium quality MP3 becomes 20 kilobytes. That is 20 times smaller.
+
+177
+00:29:02.310 --> 00:29:11.220
+That's a lot smaller. So I'd be better off using that smaller file in my game and again to do that. I just have to drag it up there.
+
+178
+00:29:13.530 --> 00:29:18.270
+So there's effect Mano MP3. And I can go back to my preload.
+
+179
+00:29:22.710 --> 00:29:26.040
+And here I can say, You know, I'm going to use a mono
+
+180
+00:29:27.120 --> 00:29:30.780
+MP3 instead for my second effect.
+
+181
+00:29:33.600 --> 00:29:34.800
+If you reload this guy.
+
+182
+00:29:36.300 --> 00:29:39.210
+Sounds just as good as a very compressed.
+
+183
+00:29:41.490 --> 00:30:00.630
+MP3 file and it loads much faster. So there's probably the biggest takeaway from my demo around audio today MP3 files can be compressed much more than WAV files and certainly if you aren't taking advantage of the stereo.
+
+184
+00:30:01.680 --> 00:30:15.210
+Aspect of the left and right channel of the audio. If it's basically the same sound duplicated to each channel it's better to make it a mono channel a single channel file will cut the file size, at least in half, if not more, based on the compression
+
+185
+00:30:25.230 --> 00:30:36.360
+So the other topic today was user interface elements and in the first hour this week I have time to really kind of recap and unpack a little bit more
+
+186
+00:30:36.690 --> 00:30:47.550
+The use of the text object that we have already been playing with just a little bit in some of our games. I kind of wanted to unpack more completely how the text objects work in Fazer
+
+187
+00:30:48.750 --> 00:31:00.870
+There's nothing to preload with a text object you're creating something from scratch. So you can do it inside the Create state. So here in my kind of sample code modeling where these things could happen.
+
+188
+00:31:01.470 --> 00:31:16.320
+I've defined a variable that I called text object. Now again I would need to make a global variable declaration of bar text object somewhere outside of all these functions to make sure I could refer to the text object in any one of my blocks of code.
+
+189
+00:31:18.120 --> 00:31:24.750
+Billion text object is just like building any asset building any object in Fazer we use game ad
+
+190
+00:31:25.530 --> 00:31:42.060
+The ad manager is the object in our game instance that has many different properties, many different methods associated with it. And the text method takes a whole bunch of arguments to define that object that we're going to make a visible chunk of text.
+
+191
+00:31:45.270 --> 00:32:06.240
+The first two arguments that you give Fazer when you're making a new text object is the placement of the object inside the game world so 40 come on 100 represents 40 pixels in the x axis so 40 pixels over from the left and 100 represents hundred pixels down from the top of the screen.
+
+192
+00:32:07.290 --> 00:32:15.060
+Again, knowing the X and Y started 00 the origin point appear in the upper left corner of the screen of a phase or game.
+
+193
+00:32:17.160 --> 00:32:24.420
+The third argument that you're going to pass the ad manager when you call it's text method is the chunk of text you want to display there.
+
+194
+00:32:24.870 --> 00:32:33.570
+So you can put anything there in quoted text. It doesn't need to be a string to make sure it's quoted text or if it's a variable that that variable contains
+
+195
+00:32:35.520 --> 00:32:36.450
+A string of text.
+
+196
+00:32:38.760 --> 00:32:46.620
+The fourth argument that's a little weird. The forethought argument is actually an object value. So it's represented as a container.
+
+197
+00:32:47.010 --> 00:32:58.530
+Wrapped up in curly braces. So there's an opening and closing curly brace here and this is so that Fazer lets us. Then name the properties of what are basically two different
+
+198
+00:33:00.060 --> 00:33:03.090
+Instructions that we're giving related to style.
+
+199
+00:33:04.590 --> 00:33:12.960
+The first goes into a property, known as font. So you'll notice after the opening curly brace. I wrote the word font and a colon to represent a property name.
+
+200
+00:33:13.440 --> 00:33:18.420
+Then after the call and I wrote a property value the property value for the font property.
+
+201
+00:33:19.020 --> 00:33:29.340
+Is two things separated by a space and it's all quoted text. The first is the size we usually specify fonts in web browsers using pixel dimensions.
+
+202
+00:33:29.760 --> 00:33:41.010
+So here it says it's 20 pixels in size and then a space and then a valid font family name this font family needs to be installed on the computer that the person is playing the game on
+
+203
+00:33:41.610 --> 00:33:51.570
+Now I will show in the second half today an advanced topic where you can actually load custom type faces into Fazer
+
+204
+00:33:52.080 --> 00:34:07.020
+from places like Google Fonts and other repositories. But generally speaking, you can use any default font that exists on the player system so Ariel's a good choice for Mac and Windows. They both tend to have area available or you can load a custom font and then declare its name here.
+
+205
+00:34:09.690 --> 00:34:15.660
+The second property in the style object is this property called Phil. And it's really the color that you're setting.
+
+206
+00:34:16.680 --> 00:34:24.990
+Hex colors in the world of web is what we're working with. And so if we go look at popular reference I have for
+
+207
+00:34:30.090 --> 00:34:38.640
+Web references W three schools is a great web reference and they tell us about how we can define colors.
+
+208
+00:34:43.350 --> 00:34:50.730
+And they talk about color values. Most typically, in Fazer we use what we call a hex value to define the color.
+
+209
+00:34:52.530 --> 00:34:53.850
+And it starts with a number sign
+
+210
+00:34:54.900 --> 00:34:56.160
+And they talk about that here.
+
+211
+00:34:57.690 --> 00:35:07.680
+After the number sign are basically two digits for the red value two digits for the green value and two digits for the blue value.
+
+212
+00:35:08.130 --> 00:35:26.010
+But they're written in based 16 math instead of base 10 math. So is there example FF 0000 basically represents total maximum read. Now you don't have to do all this mumbo jumbo with the colors in your head, though, you can use
+
+213
+00:35:28.920 --> 00:35:33.960
+image editing program like Photoshop or our free guy, um,
+
+214
+00:35:35.130 --> 00:35:35.640
+Pixels.
+
+215
+00:35:36.810 --> 00:35:38.220
+And pull up a color picker.
+
+216
+00:35:40.470 --> 00:35:42.000
+Let me get flash running here.
+
+217
+00:35:50.580 --> 00:35:55.260
+Again pixel or uses the flash plugin so I had to enable flash and my copy of Chrome.
+
+218
+00:35:56.100 --> 00:36:02.490
+And I'll just ask you to make a new image for a second, mostly so I can use the Color Picker. So here's my image it's blank right but
+
+219
+00:36:02.910 --> 00:36:08.580
+A little swatch over here on the left under the toolbar is the current color. And if I click on that.
+
+220
+00:36:09.510 --> 00:36:19.710
+It gives me a visual interface where I can go and visually pick any color in the rainbow. And then after picking you know a color from the rainbow in the wheel here.
+
+221
+00:36:20.190 --> 00:36:33.390
+I can then pick a shade a tent or a tone that adds white or black to it. And so if you know if I like this particular color. If you look right here under the numerical values for the color.
+
+222
+00:36:34.440 --> 00:36:54.750
+After the number sign is the hex color value for that color. So, this particular shade of purple is represented in a hex color as ca for the red 67 for the green and DB for the blue. And I know those are funny letters in there. They're actually basically numerical digits and 16
+
+223
+00:36:56.850 --> 00:37:01.350
+Hexadecimal based color be 16 so I just went in there and copied it
+
+224
+00:37:03.480 --> 00:37:04.890
+If I go back to my editor.
+
+225
+00:37:07.800 --> 00:37:22.290
+And I've got a chunk of text. I'm making. For example, I think in this version I jumped in a new variable called text score and there's the color value I put in there. I'm going to change it to that shade of purple.
+
+226
+00:37:24.330 --> 00:37:35.010
+Just by pasting and the value that I visually picked from pixel or so any color picker whether using Photoshop or Illustrator pixel or something else will typically have
+
+227
+00:37:35.490 --> 00:37:45.210
+A visual interface for picking a color and a numerical hex output to describe what that color value is in hexadecimal color. That's the color that you want.
+
+228
+00:37:45.750 --> 00:37:59.580
+To copy into your code as a valid value. Let's take a quick peek and see if that term purple. There's my number zero for my score that I added and you can see it's rendering there and that purple sheet. Now,
+
+229
+00:38:02.790 --> 00:38:18.840
+So setting the color. Not too hard once you create a text object using game add text, you need to save it into a global variable. If you want to update the content of the text object you want to change what the text is showing there.
+
+230
+00:38:20.190 --> 00:38:29.820
+And so in my case, I did that down here when there's a collision between my two sprites that I'm detecting right now from last week's example still
+
+231
+00:38:30.330 --> 00:38:40.890
+I go into the variable that refers to my text object in this case text score and I perform the set text method on it and send it a new value.
+
+232
+00:38:41.340 --> 00:38:54.060
+I'm keeping track of the score in this modified version of the game. And so I have a numerical value stored in my variable score value that I keep modifying online 184 I added 10
+
+233
+00:38:54.810 --> 00:39:00.600
+To it and to display a number inside of a text object.
+
+234
+00:39:01.560 --> 00:39:09.540
+It's important to use dot notation. After the variable reference that holds a numerical value. So I wrote score value dot and then I wrote a built in function.
+
+235
+00:39:09.960 --> 00:39:23.280
+Called to string capital S on the string. There followed by a pair of empty parentheses to get the JavaScript language to convert the numerical value into a string value that'll hook Fazer out if you do that, I recommend doing that.
+
+236
+00:39:24.780 --> 00:39:29.130
+So those are the two basic steps to getting texts to work.
+
+237
+00:39:30.150 --> 00:39:33.750
+defining a new text object we usually do that in the Create state.
+
+238
+00:39:34.500 --> 00:39:41.550
+Setting its coordinates its position setting its initial value, and most importantly, and perhaps most strangely in terms of
+
+239
+00:39:41.970 --> 00:40:00.480
+Syntax creating an object value with two properties font and fill and then setting those values two strings that represent for font size and the typeface and fulfill the hex color that you want to make the text appear as
+
+240
+00:40:02.340 --> 00:40:15.330
+And then last, the set text method. So if we look in the face or documentation will see set text there for text objects. It is a quick way to change the contents of the visible text block. Piece of cake.
+
+241
+00:40:20.910 --> 00:40:28.830
+So I kind of mixed up my code demo a little bit today with my slides. So I already kind of showed you the tricks that I wanted to show you about audio.
+
+242
+00:40:29.730 --> 00:40:41.370
+And again, I've got my example, living in my module eight folder and always like usual in Canvas. If you go to this screen cast page of this week we gates module, you'll find a link to my
+
+243
+00:40:42.570 --> 00:40:48.210
+Cloud nine workspace, where you can go spy in my code. If you'd like to please feel free to do that. Borrow what you want.
+
+244
+00:40:49.740 --> 00:40:50.130
+But
+
+245
+00:40:53.040 --> 00:40:54.510
+I do want to show you all
+
+246
+00:40:55.860 --> 00:41:09.990
+Some tricks in response to some support questions that came up in week seven. So before I do that just to wrap up our new material and in this first part, like I said, I'm going to come back in and demonstrate custom fonts.
+
+247
+00:41:11.130 --> 00:41:17.400
+And loading them for text objects. And I'm also going to start to introduce some enemy.
+
+248
+00:41:18.780 --> 00:41:31.560
+AI concepts writing logic for other sprites, to make them slightly intelligent adversaries in a game, and I'll pick that up later today in a second screen cast
+
+249
+00:41:32.550 --> 00:41:39.210
+But to get you all started in this first hour. This week we're going to look at chapter six pages 76 381
+
+250
+00:41:39.840 --> 00:41:45.810
+In HTML5 game development with Fazer can pretty much focused on what you can do with audio there.
+
+251
+00:41:46.650 --> 00:42:00.900
+This week's assignment assignment aid invite you to simply duplicate the assignment you did for week seven and add some sound to it and either add or upgrade enhance any text objects you have in the user interface there.
+
+252
+00:42:06.750 --> 00:42:18.060
+All of this is do like usual. A week from last night. So next Thursday. The 18th minute before midnight is a good time to turn it in. And as I was saying,
+
+253
+00:42:19.320 --> 00:42:21.030
+If you hop into
+
+254
+00:42:22.200 --> 00:42:30.270
+Our course in Canvas and you go to announcements, you will see a new announcement.
+
+255
+00:42:36.600 --> 00:42:39.510
+Somewhere in here. Here it is too many announcements.
+
+256
+00:42:41.370 --> 00:42:44.970
+Titled sjc weapon game program tutoring sessions.
+
+257
+00:42:45.990 --> 00:42:57.360
+And this is an open invitation to students in any of my classes to join me on campus or online, both are possible for a tutoring and a working session to help you get
+
+258
+00:42:57.840 --> 00:43:06.540
+Homework that you have not completed yet or not turned in yet all done or to go back and enhance something that you started that you'd like to make different or better.
+
+259
+00:43:08.100 --> 00:43:23.550
+I'm instituting a late assignment amnesty policy, which means that there is a single point reduction that will happen if you turn things in late. That's just 10% of the grading still get a low a on your assignments. So please turn them in and get my chance, get my help.
+
+260
+00:43:25.560 --> 00:43:46.590
+Take a chance, fill out the doodle poll and once I get people who fill the doodle pull out Sunday night I'll go make another announcement let you all know what dates and times people picked for sessions this coming week on campus or online through zoom or Skype.
+
+261
+00:43:52.350 --> 00:43:55.650
+So let's talk about what some of you have discovered
+
+262
+00:43:56.700 --> 00:44:01.950
+good number of you are working on tile map based platform games from last week.
+
+263
+00:44:03.270 --> 00:44:07.530
+Where we learned how to build tile sets and tile maps and use them in our face or games.
+
+264
+00:44:08.820 --> 00:44:12.270
+And at least a couple of you have observed that you're having trouble.
+
+265
+00:44:14.760 --> 00:44:22.050
+Getting your sprites to collide with the walls. And so, William Cooper, for example, and
+
+266
+00:44:23.160 --> 00:44:25.650
+Nothing personal. But I'm gonna, I'm going to use Williams.
+
+267
+00:44:26.670 --> 00:44:40.920
+Question and his sample game for the assignment to illustrate the solution. Here's what he's saying. He has a top down view game with floors and walls and he wants to make it so that players collide with the walls.
+
+268
+00:44:42.630 --> 00:44:45.120
+But he can't get it to collide with anything right now.
+
+269
+00:44:47.790 --> 00:44:49.470
+And then he gave some sample code here.
+
+270
+00:44:52.380 --> 00:45:07.620
+He did the right thing in the update loop by calling the collide method from the physics arcade engine and passing it the variable for his main game character. My alien and for the layer called My tiles.
+
+271
+00:45:13.710 --> 00:45:15.690
+But he said nothing was working for him.
+
+272
+00:45:19.230 --> 00:45:25.440
+So let's look at the code that he had originally and I will help explain it to each of you here.
+
+273
+00:45:34.950 --> 00:45:38.490
+Hold on just a second. I see wells online and with a question.
+
+274
+00:45:39.660 --> 00:45:40.050
+Yes.
+
+275
+00:45:43.080 --> 00:45:49.890
+Yeah, I see that I see you already changed it. That's okay, I see to that, that there's some comments in the in the modified version that I had here.
+
+276
+00:45:50.670 --> 00:46:07.830
+So, and congratulations will for getting in there so quickly, because I just shared my feedback with you a little bit before class started this morning. So you are moving quickly. Here's the big difference between what will it originally written and what he changed it to
+
+277
+00:46:09.000 --> 00:46:20.670
+He was moving and so were the other folks that I encountered the same questions, for he was moving his sprite directly using the X and Y properties of the sprite variable.
+
+278
+00:46:21.840 --> 00:46:45.120
+For the collision to be detected properly by the Fazer engine when we do the collide check up here in our update loop we actually need to let the Fazer engine physics engine move our sprite for us using the velocity properties. So you can use velocity x or velocity why. And so if we
+
+279
+00:46:47.070 --> 00:46:50.520
+For example, go back to the code that he had originally
+
+280
+00:46:53.790 --> 00:46:55.080
+And just take a quick peek.
+
+281
+00:46:56.160 --> 00:46:58.230
+At how it was behaving before
+
+282
+00:47:00.150 --> 00:47:08.190
+We now basically are running the game in a situation where we're taking direct control over moving
+
+283
+00:47:09.840 --> 00:47:10.230
+The
+
+284
+00:47:14.700 --> 00:47:15.300
+sprite.
+
+285
+00:47:17.940 --> 00:47:22.890
+And that's true for the y dimension that I leave the x
+
+286
+00:47:25.320 --> 00:47:28.860
+I did, I left x as a velocity. So that's why it's floating on the side there.
+
+287
+00:47:30.450 --> 00:47:48.870
+Just reload that again so directly moving the x and y coordinates for your sprite doesn't allow the physics engine to stop your sprite basically Fazer assumes you know what you're doing. If you're directly accessing x and y and bypassing the body.
+
+288
+00:47:50.280 --> 00:48:05.160
+Of the sprite. And so let's just run right over these guys. Another thing to see here too is that the layer debug is turned on so we can see which tiles are going to collide, that those are the ones shown in the green, you can do that in the Create state.
+
+289
+00:48:06.510 --> 00:48:21.180
+After you create say a layer like my walls, you can set its debug to true and you'll get a visual green outline around every tile that should be representing something you could collide with if you're using the physics engine properly.
+
+290
+00:48:24.660 --> 00:48:40.320
+So the problem is if we access the X and Y properties of the sprite directly the physics engine gets bypassed. So instead, the technique to follow to move your alien left his velocity
+
+291
+00:48:42.000 --> 00:48:47.490
+And the velocities X property. If you're going horizontally to a negative value, he'll go left.
+
+292
+00:48:52.920 --> 00:49:01.620
+Instead it to a positive value. He'll go right. The why velocity moves up with a negative value and down with a positive value.
+
+293
+00:49:04.890 --> 00:49:13.590
+Now velocities as a physics attribute. They set some inertial motion. Right. So watch what happens now.
+
+294
+00:49:15.630 --> 00:49:26.940
+I just hit the arrow key once and that guy is moving. Let's see what happens when he gets to the wall. Boom. So thanks to using velocity. Now the collide method that happens.
+
+295
+00:49:27.390 --> 00:49:39.210
+Right here at the beginning of his update loop is successfully stopping my aliens velocity is setting the velocity back to zero, so he can't walk through the wall.
+
+296
+00:49:40.260 --> 00:49:41.310
+But however
+
+297
+00:49:42.660 --> 00:49:50.400
+Velocity doesn't reduce unless you set some drag on the guy. So right now I don't think he has any drag set on him.
+
+298
+00:50:00.300 --> 00:50:18.270
+And look at this. I got them both set to negative. So he's going up always so if you want to make sure that your sprite has some more realistic behavior. We can go ahead. Let's see my alien has its physics turned on right there. So we could say my alien
+
+299
+00:50:21.390 --> 00:50:28.380
+Body drag and we could set a drag value in the x, let's try sending it to 10
+
+300
+00:50:33.630 --> 00:50:39.000
+And I'll set the same in the why these are relative numbers so you can get a feel for how these work.
+
+301
+00:50:40.500 --> 00:50:50.940
+So with a drag of 10 now I hit the arrow key once and his cool little alien walks a little bit and then you can see the drag slows the velocity down over time.
+
+302
+00:50:52.260 --> 00:51:02.280
+If I continue to hold the arrow down. Then I keep the velocity constant because I keep resetting the velocity with my if statement in the update loop. But if I just push it once.
+
+303
+00:51:02.880 --> 00:51:11.820
+That drag will help slow him down so you can play with these numbers you can increase your numbers or reduce your numbers. Yes, I see another question from will hold on a second.
+
+304
+00:51:15.330 --> 00:51:26.190
+Yes, I see that the collision works for the left and top walls, but not the right and bottom walls is your comment right I was noticing that too. When I turned on the debug.
+
+305
+00:51:27.390 --> 00:51:40.890
+You could see the debug is saying that only those tiles are collectible. So what's probably happening in your tile set is you've got to make collisions active for these other tile position numbers.
+
+306
+00:51:46.110 --> 00:51:54.270
+That's a good question. If you don't specify an access in the drag. I don't know the answer to that, honestly I think my my predilection
+
+307
+00:51:56.730 --> 00:52:14.220
+Is to go ahead and set the axis. Set the drag X and Y properties, Michael. So I would recommend setting them individually, you can look up in the documentation to see if it'll accept a single value for setting them both at once.
+
+308
+00:52:15.390 --> 00:52:25.710
+But yeah, back to to wills question. So I can see that the the tile set tile images are clearly different right for each of these tile types because you got the little
+
+309
+00:52:26.400 --> 00:52:38.400
+Cross hatched edge on the inside. On the top of these other tiles. So we need to look at what tile position. Those were in the tile set. And if we look back at your code right here.
+
+310
+00:52:39.540 --> 00:52:42.120
+Set collision between 14 and 15
+
+311
+00:52:45.420 --> 00:52:48.570
+I think those numbers must be off if those are
+
+312
+00:52:50.880 --> 00:52:52.500
+Either right and bottom. Let's go ahead and
+
+313
+00:52:54.210 --> 00:52:58.650
+Reload that well it looks like one of these
+
+314
+00:53:00.090 --> 00:53:01.470
+Is the right one there.
+
+315
+00:53:02.940 --> 00:53:05.280
+And one of these probably the right one there.
+
+316
+00:53:06.360 --> 00:53:10.590
+So here's my theory. Let's try shifting the numbers by one
+
+317
+00:53:14.940 --> 00:53:21.900
+I'm going to comment out your two original lines for a second here paste in the new ones. Instead of going from zero to one. I'm going to go from one to two
+
+318
+00:53:23.220 --> 00:53:36.900
+And instead of going from 14 to 15 go from 15 to 16 and I'm going to reload. Okay. So I think that was the problem. I can see in the debug mode. Now that all four walls are colliding and what's the hint there well
+
+319
+00:53:38.730 --> 00:53:39.720
+When counting
+
+320
+00:53:41.430 --> 00:53:42.330
+Io position.
+
+321
+00:53:43.560 --> 00:53:44.670
+Your tile set
+
+322
+00:53:46.530 --> 00:53:49.410
+Start with the number one instead of zero.
+
+323
+00:53:51.840 --> 00:53:52.260
+And
+
+324
+00:53:54.060 --> 00:53:55.080
+That is a drag
+
+325
+00:53:58.710 --> 00:54:00.660
+Says, the first one is zero.
+
+326
+00:54:04.740 --> 00:54:05.100
+But
+
+327
+00:54:09.090 --> 00:54:11.760
+Well, really, I guess we could say the tile map file.
+
+328
+00:54:13.830 --> 00:54:14.910
+One for first
+
+329
+00:54:16.530 --> 00:54:22.110
+We went and looked at your, your tile map file for a second. This guy.
+
+330
+00:54:27.390 --> 00:54:39.240
+You can see that every time there's a zero in the tile map. And that's what this data array is that means there's no tile there at all. So the very first tile position is one
+
+331
+00:54:43.140 --> 00:54:44.340
+Hopefully that makes sense.
+
+332
+00:54:50.160 --> 00:55:02.070
+I know exactly the ID that it shows and tile is off by one. So zero should be one one should be two etc. And that does suck. I don't have another word to describe that.
+
+333
+00:55:02.730 --> 00:55:12.450
+But um yeah that's unfortunate. So those are some of the troubleshooting and sleuthing that you kind of encounter as you get
+
+334
+00:55:13.080 --> 00:55:23.160
+further into this world of using Fazer along with those supporting programs like tiled. Tiled is designed to work with dozens of different game engines.
+
+335
+00:55:23.610 --> 00:55:42.270
+And I think it's really probably a bug and tiled that announces that ID is zero because you and I can see when we save the data file, like we were just looking there, it considers that guide. Number one, it never calls a tile zero, it calls the absence of a tile zero in the output file.
+
+336
+00:55:44.580 --> 00:55:48.420
+I know you're right that JavaScript starts counting at zero.
+
+337
+00:55:50.160 --> 00:55:59.730
+And so here's the conundrum, the tile maps. Don't tile map start counting tiles at one instead of zero. I find that frustrating, too.
+
+338
+00:56:02.340 --> 00:56:07.800
+So I will apologize to all of us, on behalf of the authors of tiled for confusing us with that.
+
+339
+00:56:09.120 --> 00:56:20.430
+And really the clincher though to troubleshoot is to set the debug property of one of your wall. Excuse me one of your layers. One of the layer variables that you created set it to
+
+340
+00:56:21.240 --> 00:56:33.810
+True. And then you'll see in the gameplay this green outline, it'll tell you if your instructions with set collision actually lined up with the right titles or not.
+
+341
+00:56:36.240 --> 00:56:37.560
+Makes sense. I hope so.
+
+342
+00:56:40.410 --> 00:56:47.700
+So that's about all the time I have left. Does anybody else have another question you'd like me to field in the next couple minutes before I have to sign off and head off to a meeting.
+
+343
+00:56:49.470 --> 00:57:04.770
+Again, I want to congratulate everybody who has been plugging along and again say that you know will will have a chance in the second half of the semester to build a game of your own design and terms of gameplay.
+
+344
+00:57:05.940 --> 00:57:14.040
+And code. So I appreciate people going beyond the minimum requirements for assignments, but don't let yourself get bogged down
+
+345
+00:57:14.460 --> 00:57:26.880
+One of the amazing things about building games is you can put as much time as you want into a game you'll never have enough time, because there's always something else to add, or fix or modify
+
+346
+00:57:27.990 --> 00:57:37.650
+So our preliminary assignments, like the assignments. We've been doing, including this week are really meant to be baby steps to get some comfort with some of the mechanics and
+
+347
+00:57:39.240 --> 00:57:46.920
+Code patterns that we can use to kind of get Fazer to do our bidding and to create the game world and the gameplay that we want.
+
+348
+00:57:48.630 --> 00:57:58.350
+So, take it easy. Don't bite off too much, it's always easy to do that. I promise you I have many unfinished games that if I just had another lifetime. I could go and finish.
+
+349
+00:58:00.090 --> 00:58:12.600
+So keep your focus on getting the basics working and stay in touch with me in the support and sharing discussions and especially come and visit me fill out the doodle in
+
+350
+00:58:13.740 --> 00:58:32.880
+The linked announcement this week and step on into a tutorial session sometime this week coming up and I can help you get assignments that you haven't turned in done and delivered. So you can get ready for the big game that you're going to build in the second half of the semester.
+
+351
+00:58:34.320 --> 00:58:44.520
+Thanks for joining me. Folks who signed in live today always excited to see what you guys are working on keep sharing with me. I'm sorry for the little delay this past week in getting back to you and
+
+352
+00:58:44.940 --> 00:58:51.870
+The sharing support discussion canvas broken no longer published new discussions to my dashboard.
+
+353
+00:58:52.380 --> 00:59:00.180
+I reported that to Canvas and they opened a ticket for me. Hopefully they're gonna fix that. In the meantime, I'm just going to go rummaging through all my class discussions and making sure I
+
+354
+00:59:00.660 --> 00:59:10.380
+stay on top of new posts. So keep asking questions keep plugging away. I'm excited to see what you guys are coming up with nice work and thanks will for letting me
+
+355
+00:59:11.370 --> 00:59:19.260
+Show off your, your work in progress to I think illustrates some challenges and some details that a lot of folks wanted to learn
+
+356
+00:59:21.090 --> 00:59:25.560
+Thanks again, talk to you guys soon. I'll be back for part two later on today.
+

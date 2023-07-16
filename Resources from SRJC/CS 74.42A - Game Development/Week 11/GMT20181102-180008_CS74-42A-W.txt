@@ -1,0 +1,1 @@
+00:28:29	Will:	is it possible to "attach" an emitter to a sprite? like for a gun for a spaceship or something
