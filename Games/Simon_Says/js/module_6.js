@@ -15,7 +15,7 @@ var plaSequence = [];
 // array for loosing pad flashes
 var lostSequence =[1,2,3,4,2,3,4,1,3,4,1,2,4,1,2,3];
 // sound clip for playing game
-var cheer = new Audio('applause.wav');
+var cheer = new Audio('audio/applause.wav');
 // difficulty variable
 var hard = false;
 
